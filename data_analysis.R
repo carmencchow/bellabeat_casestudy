@@ -80,15 +80,41 @@ daily_activity <- daily_activity %>%
 
 View(daily_activity)
 
-# merge daily activity and daily sleep dataframes
-combined_daily_df <-
+# merge daily activity and daily sleep data frames
+daily_df <-
   merge(
     x = daily_activity, 
-    y = sleep_day,
+    y = daily_sleep,
     by = c ("id", "date"),
     all.x = TRUE
   )
 
-print(combined_daily_df)
+View(daily_df)
+
+# Summary statistics for selected columns from each data frame 
+daily_df %>%
+  select(
+    total_steps,
+    total_distance,
+    calories,
+    total_minutes_asleep
+  ) %>%
+  summary()
 
 
+daily_df %>%
+  select(
+    sedentary_minutes,
+    lightly_active_minutes,
+    fairly_active_minutes,
+    very_active_minutes,
+  ) %>%
+  summary()
+
+
+# Most active to least active day
+weekly_steps <- daily_df %>%
+  group_by(day_of_week) %>%
+  summarise(steps_per_day = sum(total_steps)) %>%
+  arrange(desc(steps_per_day))
+print(weekly_steps)
