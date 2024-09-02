@@ -45,3 +45,18 @@ print(sleep_ids)
 
 weight_ids <- n_distinct(weight_log$id)
 print(weight_ids)
+
+# Format dates and rename date activity_date column
+daily_activity <- daily_activity %>%
+  mutate(date = as.Date(date, format = "%m/%d/%Y"))
+
+daily_sleep <- daily_sleep %>%
+  rename(date = sleep_day) %>%
+  mutate(date = as.Date(date, format = "%m/%d/%Y"))
+
+weight_log <- weight_log %>%
+  mutate(date = as.Date(date, format = "%m/%d/%Y"))
+
+typeof(daily_activity$date)
+typeof(daily_sleep$date)
+typeof(weight_log$date)
