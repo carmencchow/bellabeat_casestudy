@@ -80,8 +80,15 @@ daily_activity <- daily_activity %>%
 
 View(daily_activity)
 
+# merge daily activity and daily sleep dataframes
+combined_daily_df <-
+  merge(
+    x = daily_activity, 
+    y = sleep_day,
+    by = c ("id", "date"),
+    all.x = TRUE
+  )
 
-# import hourly steps data
-hourly_steps <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
+print(combined_daily_df)
 
 
