@@ -112,9 +112,31 @@ daily_df %>%
   summary()
 
 
-# Most active to least active day
-weekly_steps <- daily_df %>%
+# Total steps by day
+steps_by_day <- daily_df %>%
   group_by(day_of_week) %>%
-  summarise(steps_per_day = sum(total_steps)) %>%
-  arrange(desc(steps_per_day))
-print(weekly_steps)
+  summarise(steps = sum(total_steps)) %>%
+  arrange(desc(steps))
+print(steps_by_day)
+
+# Total calories by day
+calories_by_day <- daily_df %>%
+  group_by(day_of_week) %>%
+  summarise(calories = mean(calories)) %>%
+  arrange(desc(calories))
+print(calories_by_day)
+
+# Import Calories per hour data frame
+steps_hour <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
+hourly_steps <- clean_names(steps_hour)
+
+# split column into date and hour
+hourly_steps <- hourly_steps %>% 
+  separate(activity_hour, c("date", "hour"), 
+  sep = "^\\S*\\K")
+
+View(hourly_steps)
+
+# Check unique ids
+steps_ids <- n_distinct(hourly_steps$id)
+print(steps_ids)
