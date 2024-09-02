@@ -60,3 +60,28 @@ weight_log <- weight_log %>%
 typeof(daily_activity$date)
 typeof(daily_sleep$date)
 typeof(weight_log$date)
+
+# add new column that displays min taken to fall asleep
+sleep_day <- daily_sleep %>%
+  mutate(
+    min_fall_asleep = total_time_in_bed - total_minutes_asleep
+  )
+
+# add new day_of_week column
+daily_activity <- daily_activity %>%
+  mutate(
+    day_of_week = weekdays(date) 
+  )
+
+# only include records where calories and step count > 0
+daily_activity <- daily_activity %>%
+  filter(calories > 0 & total_steps > 0)
+  
+
+View(daily_activity)
+
+
+# import hourly steps data
+hourly_steps <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
+
+
