@@ -57,10 +57,6 @@ daily_sleep <- daily_sleep %>%
 weight_log <- weight_log %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 
-typeof(daily_activity$date)
-typeof(daily_sleep$date)
-typeof(weight_log$date)
-
 # add new column that displays min taken to fall asleep
 sleep_day <- daily_sleep %>%
   mutate(
@@ -130,6 +126,10 @@ print(calories_by_day)
 steps_hour <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
 hourly_steps <- clean_names(steps_hour)
 
+# Check unique ids
+steps_ids <- n_distinct(hourly_steps$id)
+print(steps_ids)
+
 # split column into date and hour
 hourly_steps <- hourly_steps %>% 
   separate(activity_hour, c("date", "hour"), 
@@ -145,13 +145,44 @@ avg_steps <- hourly_steps %>%
 
 View(avg_steps)
 
-# Plot avg steps per hour
+# Visualization with ggplot
+
+# Plotting calories burned vs. steps
+ggplot(daily_df, aes(x = total_steps, y = calories)) +
+  geom_point(color = "purple") +
+  geom_smooth() + 
+  labs(title = "Calories Burned per Day vs. Total Steps per Day",
+       x = "Total Steps",
+       y = "Calories Burned")
+
+
+# Very active vs. Calories showing 95% confidence interval
+ggplot(daily_df, aes(x = very_active_minutes, y = calories)) +
+  geom_point(color = "red") +
+  geom_smooth() + 
+  labs(title = "Calories Burned per Day vs. Very Active Minutes per Day",
+       x = "Very Active Minutes per Day",
+       y = "Calories Burned per Day")
+
+# Linear Regression
+# ggplot(daily_df, aes(x = very_active_minutes, y = calories)) +
+#   geom_point(color = "red") +
+#   geom_smooth(method = "lm", color = "black", se = FALSE) + 
+#   labs(title = "Calories Burned vs. Very Active Minutes",
+#        x = "Very Active Minutes",
+#        y = "Calories")
+
+
+# Lightly Active minutes vs. total calories
+ggplot(daily_df, aes(x = lightly_active_minutes, y = calories)) +
+  geom_point(color = "orange") +
+  geom_smooth() + 
+  labs(title = "Calories Burned per Day vs. Lightly Active Minutes per Day",
+       x = "Lightly Active Minutes",
+       y = "Calories")
+
+# Plotting avg steps per hour
 ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps)) +
   geom_bar(stat = "identity", width = 0.5) +
   labs(x = "Average Steps", y = "Hour", title = "Average Steps per Hour") +
   theme(axis.text.y = element_text(angle = 0))
-
-# Check unique ids
-steps_ids <- n_distinct(hourly_steps$id)
-print(steps_ids)
-
