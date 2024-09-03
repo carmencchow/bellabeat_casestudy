@@ -143,11 +143,11 @@ avg_steps <- hourly_steps %>%
   mutate(avg_steps = as.integer(avg_steps)) %>%
   arrange(desc(avg_steps)) 
 
-View(avg_steps)
+print(avg_steps)
 
 # Visualization with ggplot
 
-# Plotting calories burned vs. steps
+# Plotting Calories burned vs. steps
 ggplot(daily_df, aes(x = total_steps, y = calories)) +
   geom_point(color = "purple") +
   geom_smooth() + 
@@ -155,34 +155,47 @@ ggplot(daily_df, aes(x = total_steps, y = calories)) +
        x = "Total Steps",
        y = "Calories Burned")
 
-
-# Very active vs. Calories showing 95% confidence interval
+# Very Active minutes vs. Calories Burned
 ggplot(daily_df, aes(x = very_active_minutes, y = calories)) +
-  geom_point(color = "red") +
+  geom_point(color = "blue") +
   geom_smooth() + 
   labs(title = "Calories Burned per Day vs. Very Active Minutes per Day",
        x = "Very Active Minutes per Day",
        y = "Calories Burned per Day")
 
-# Linear Regression
-# ggplot(daily_df, aes(x = very_active_minutes, y = calories)) +
-#   geom_point(color = "red") +
-#   geom_smooth(method = "lm", color = "black", se = FALSE) + 
-#   labs(title = "Calories Burned vs. Very Active Minutes",
-#        x = "Very Active Minutes",
-#        y = "Calories")
-
-
-# Lightly Active minutes vs. total calories
+# Lightly Active minutes vs. Calories Burned
 ggplot(daily_df, aes(x = lightly_active_minutes, y = calories)) +
-  geom_point(color = "orange") +
+  geom_point(color = "lightblue") +
   geom_smooth() + 
   labs(title = "Calories Burned per Day vs. Lightly Active Minutes per Day",
        x = "Lightly Active Minutes",
        y = "Calories")
 
-# Plotting avg steps per hour
-ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps)) +
+# Total Steps vs. Hour 
+ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps, fill = avg_steps)) +
   geom_bar(stat = "identity", width = 0.5) +
-  labs(x = "Average Steps", y = "Hour", title = "Average Steps per Hour") +
+  scale_fill_gradient(high = "darkblue", low = "lightblue") +
+  labs(x = "Average Steps", y = "Hour of the Day", title = "Average Steps per Hour") +
   theme(axis.text.y = element_text(angle = 0))
+
+# Create new data frame showing avg calories burned per day
+cals_weekday <- daily_df %>%
+  group_by(day_of_week) %>%
+  summarize(avg_cals = mean(calories)) %>%
+  mutate(avg_cals = round(avg_cals, digits = 0)) %>%
+  arrange(desc(avg_cals)) 
+
+print(cals_weekday)
+View(cals_weekday)
+
+# Total Calories vs. Day of Week
+ggplot(cals_weekday, aes(y = avg_cals, x = day_of_week, fill = avg_cals)) +
+  geom_bar(stat = "identity", width = 0.3, fill="thistle3") +
+  geom_text(aes(label = avg_cals), vjust = -0.5, color = "black") +
+  labs(x = "Day of the Week", y = "Average Calories", title = "Average Calories by Day") +
+  theme(axis.text.y = element_text(angle = 0))
+
+
+
+
+
