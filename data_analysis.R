@@ -195,7 +195,15 @@ ggplot(cals_weekday, aes(y = avg_cals, x = day_of_week, fill = avg_cals)) +
   labs(x = "Day of the Week", y = "Average Calories", title = "Average Calories by Day") +
   theme(axis.text.y = element_text(angle = 0))
 
+# Create a new long-format df with the selected activity levels
+activity_df <- daily_df %>%
+  select(day_of_week, sedentary_minutes, lightly_active_minutes, fairly_active_minutes, very_active_minutes) %>%
+  pivot_longer(
+    cols = c(sedentary_minutes, lightly_active_minutes, fairly_active_minutes, very_active_minutes),
+    names_to = "activity_level",
+    values_to = "minutes"
+  ) %>%
+  mutate(activity_level = gsub("_minutes", "", activity_level))
 
-
-
+View(activity_df)
 
