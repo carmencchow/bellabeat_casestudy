@@ -126,7 +126,7 @@ calories_by_day <- daily_df %>%
   arrange(desc(calories))
 print(calories_by_day)
 
-# Import Calories per hour data frame
+# Import steps per hour data frame
 steps_hour <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
 hourly_steps <- clean_names(steps_hour)
 
@@ -134,9 +134,26 @@ hourly_steps <- clean_names(steps_hour)
 hourly_steps <- hourly_steps %>% 
   separate(activity_hour, c("date", "hour"), 
   sep = "^\\S*\\K")
+head(hourly_steps)
 
-View(hourly_steps)
+# Most active hours
+avg_steps <- hourly_steps %>%
+  group_by(hour) %>%
+  summarize(avg_steps = mean(step_total)) %>%
+  mutate(avg_steps = as.integer(avg_steps)) %>%
+  arrange(desc(avg_steps)) 
+
+View(avg_steps)
 
 # Check unique ids
 steps_ids <- n_distinct(hourly_steps$id)
 print(steps_ids)
+
+# Plot avg steps per hour
+ggplot(avg_steps, aes(x = hour, y = avg_steps)) +
+  geom_bar(stat = "identity", width=0.2) +
+  labs(x = "Hour", y = "Average Steps", 
+  title= "Average Steps per hour")
+  
+
+
