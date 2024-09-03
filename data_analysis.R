@@ -180,6 +180,7 @@ ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps, fill = avg_st
 
 # Create new data frame showing avg calories burned per day
 cals_weekday <- daily_df %>%
+  mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
   group_by(day_of_week) %>%
   summarize(avg_cals = mean(calories)) %>%
   mutate(avg_cals = round(avg_cals, digits = 0)) %>%
@@ -197,6 +198,7 @@ ggplot(cals_weekday, aes(y = avg_cals, x = day_of_week, fill = avg_cals)) +
 
 # Create a new long-format df with the selected activity levels
 activity_df <- daily_df %>%
+  mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
   select(day_of_week, sedentary_minutes, lightly_active_minutes, fairly_active_minutes, very_active_minutes) %>%
   pivot_longer(
     cols = c(sedentary_minutes, lightly_active_minutes, fairly_active_minutes, very_active_minutes),
@@ -206,4 +208,37 @@ activity_df <- daily_df %>%
   mutate(activity_level = gsub("_minutes", "", activity_level))
 
 View(activity_df)
+
+# Create new data frame showing avg minutes asleep per day
+weekly_sleep_df <- daily_df %>%
+  mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
+  group_by(day_of_week) %>%
+  summarize(avg_min = mean(total_minutes_asleep, na.rm = TRUE)) %>%
+  mutate(avg_min = round(avg_min, digits = 0)) %>%
+  arrange(desc(avg_min))
+
+print(weekly_sleep_df)
+
+
+# Plotting Sleep vs. Day of the Week
+ggplot(weekly_sleep_df, aes(y = avg_min/60, x = day_of_week, fill = avg_min)) +
+  geom_bar(stat = "identity", width = 0.3, fill="coral") +
+  geom_text(aes(label = round(avg_min/60, digits = 2)), vjust = -0.5, color = "black") +
+  labs(x = "Day of the Week", y = "Average Hours Asleep", title = "Average Number of Hours Asleep by Day") +
+  theme(axis.text.y = element_text(angle = 0))
+
+# Plot activity levels and days of the week
+# ggplot(activity_df, aes(x = day_of_week, y = minutes, fill = activity_level)) +
+#   geom_bar(stat = "identity") +
+#   labs(x = "Day of the Week", y = "Minutes of Activity", title = "Activity Levels by Day of the Week")
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+#   scale_fill_manual(values = c("sedentary" = "lightgrey", 
+#                                "lightly_active" = "blue", 
+#                                "moderately_active" = "green", 
+#                                "very_active" = "red"))
+
+
+
+
+
 
