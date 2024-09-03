@@ -145,15 +145,13 @@ avg_steps <- hourly_steps %>%
 
 View(avg_steps)
 
+# Plot avg steps per hour
+ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  labs(x = "Average Steps", y = "Hour", title = "Average Steps per Hour") +
+  theme(axis.text.y = element_text(angle = 0))
+
 # Check unique ids
 steps_ids <- n_distinct(hourly_steps$id)
 print(steps_ids)
-
-# Plot avg steps per hour
-ggplot(avg_steps, aes(x = hour, y = avg_steps)) +
-  geom_bar(stat = "identity", width=0.2) +
-  labs(x = "Hour", y = "Average Steps", 
-  title= "Average Steps per hour")
-  
-
 
