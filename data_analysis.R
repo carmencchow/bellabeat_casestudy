@@ -21,20 +21,18 @@ dailyActivity_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mtu
 sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
 weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 
-head(dailyActivity_merged)
-colnames(dailyActivity_merged)
+str(dailyActivity_merged)
+str(sleepDay_merged)
+str(weightLogInfo_merged)
 
-head(sleepDay_merged)
-head(weightLogInfo_merged)
+names(dailyActivity_merged)
+names(sleepDay_merged)
+names(weightLogInfo_merged)
 
 # Format column names
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 weight_log <- clean_names(weightLogInfo_merged)
-
-View(daily_activity)
-View(daily_sleep)
-View(weight_log)
 
 # Check number of unique ids / unique users
 activity_ids <- n_distinct(daily_activity$id)
@@ -46,35 +44,40 @@ print(sleep_ids)
 weight_ids <- n_distinct(weight_log$id)
 print(weight_ids)
 
-# Format dates and rename date activity_date column
+# Format dates, reorder days of the week, rename date, add new column
 daily_activity <- daily_activity %>%
-  mutate(date = as.Date(date, format = "%m/%d/%Y"))
+  rename(date = activity_date) %>%
+  mutate(date = as_date(date, format = "%m/%d/%Y")) %>%
+  mutate(weekday = weekdays(date)) %>% 
+  mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
 
+# Split date-time column into two columns
 daily_sleep <- daily_sleep %>%
-  rename(date = sleep_day) %>%
+  separate(sleep_day, c("date", "hour"),sep = "^\\S*\\K") %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
+typeof(daily_sleep$date)
 
 weight_log <- weight_log %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 
-# add new column that displays min taken to fall asleep
-sleep_day <- daily_sleep %>%
-  mutate(
+# add new min_fall_asleep column 
+daily_sleep <- daily_sleep %>%
+  mutate( 
     min_fall_asleep = total_time_in_bed - total_minutes_asleep
   )
 
-# add new day_of_week column
+# remove duplicates and NA
 daily_activity <- daily_activity %>%
-  mutate(
-    day_of_week = weekdays(date) 
-  )
+  distinct() %>%
+  drop_na()
+
+daily_sleep <- daily_sleep %>%
+  distinct() %>%
+  drop_na()
 
 # only include records where calories and step count > 0
 daily_activity <- daily_activity %>%
   filter(calories > 0 & total_steps > 0)
-  
-
-View(daily_activity)
 
 # merge daily activity and daily sleep data frames
 daily_df <-
@@ -85,7 +88,9 @@ daily_df <-
     all.x = TRUE
   )
 
-View(daily_df)
+# delete unnecessary columns
+daily_df <- daily_df %>%
+  select(-hour,-total_sleep_records)
 
 # Summary statistics for selected columns from each data frame 
 daily_df %>%
@@ -97,7 +102,6 @@ daily_df %>%
   ) %>%
   summary()
 
-
 daily_df %>%
   select(
     sedentary_minutes,
@@ -106,7 +110,6 @@ daily_df %>%
     very_active_minutes,
   ) %>%
   summary()
-
 
 # Total steps by day
 steps_by_day <- daily_df %>%
@@ -133,8 +136,7 @@ print(steps_ids)
 # split column into date and hour
 hourly_steps <- hourly_steps %>% 
   separate(activity_hour, c("date", "hour"), 
-  sep = "^\\S*\\K")
-head(hourly_steps)
+  sep = "^\\S*\\K") 
 
 # Most active hours
 avg_steps <- hourly_steps %>%
@@ -143,8 +145,7 @@ avg_steps <- hourly_steps %>%
   mutate(avg_steps = as.integer(avg_steps)) %>%
   arrange(desc(avg_steps)) 
 
-print(avg_steps)
- 
+
 # ------------------------ Visualizations with ggplot ------------------------------- #
 
 # ------------------- (i) PHYSICAL ACTIVITY: TOTAL STEPS -------------------------------- #
@@ -183,7 +184,7 @@ ggplot(daily_df, aes(x = lightly_active_minutes, y = calories)) +
        x = "Lightly Active Minutes",
        y = "Calories")
 
-# Create new data frame showing avg calories burned per day
+# New df showing avg calories burned per day
 cals_weekday <- daily_df %>%
   mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
   group_by(day_of_week) %>%
@@ -191,23 +192,16 @@ cals_weekday <- daily_df %>%
   mutate(avg_cals = round(avg_cals, digits = 0)) %>%
   arrange(desc(avg_cals)) 
 
+# delete unnecessary columns
+daily_df <- daily_df %>%
+  select(-weekday)
+
 # Total Calories vs. Day of Week
 ggplot(cals_weekday, aes(y = avg_cals, x = day_of_week, fill = avg_cals)) +
-  geom_bar(stat = "identity", width = 0.3, fill="thistle3") +
+  geom_bar(stat = "identity", width = 0.2, fill="thistle3", color = "black") +
   geom_text(aes(label = avg_cals), vjust = -0.5, color = "black") +
-  labs(x = "Day of the Week", y = "Average Calories", title = "Average Calories by Day") +
+  labs(x = "Day of the Week", y = "Calories", title = "Average Calories by Day") +
   theme(axis.text.y = element_text(angle = 0))
-
-# Create a new long-format df with the selected activity levels
-activity_df <- daily_df %>%
-  mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
-  select(day_of_week, sedentary_minutes, lightly_active_minutes, fairly_active_minutes, very_active_minutes) %>%
-  pivot_longer(
-    cols = c(sedentary_minutes, lightly_active_minutes, fairly_active_minutes, very_active_minutes),
-    names_to = "activity_level",
-    values_to = "minutes"
-  ) %>%
-  mutate(activity_level = gsub("_minutes", "", activity_level))
 
 # Create new column combining fairly active and very active minutes
 daily_df <- daily_df %>%
@@ -215,25 +209,67 @@ daily_df <- daily_df %>%
   moderate_vigorous_minutes = fairly_active_minutes + very_active_minutes
 )
 
+# Calculating the mean and median
+mean_mod_vig <- daily_df %>%
+  summarise(mean_value = round(mean(moderate_vigorous_minutes), digits = 1)) %>%
+  pull(mean_value)
+print(mean_mod_vig)
+
+median_mod_vig <- daily_df %>%
+  summarise(median_value = round(median(moderate_vigorous_minutes), digits = 2)) %>%
+  pull(median_value)
+print(median_mod_vig)
 
 # Plot count of moderate_vigorous minutes 
 ggplot(daily_df, aes(x = moderate_vigorous_minutes)) +
-  geom_histogram(fill = "darkgoldenrod1") +
-  labs(x ='Moderate Vigorous Activities in minutes)', y='Count', title = 'Moderate to Vigorous Activity in a Day')
+  geom_histogram(fill = "darkgoldenrod1", color = "black") +
+  geom_vline(xintercept = mean_mod_vig, color = "red", linetype = "solid", size = 0.8) +
+  geom_vline(xintercept = median_mod_vig, color = "blue", linetype = "solid", size = 0.8) +
+  labs(x ='Minutes', y='Count', title = 'Moderate to Vigorous Activity in a Day')
+  theme_minimal()
 
 # ------------------------------- (iii) SEDENTARY MINUTES --------------------------------- #
 
-# Plot count of minutes asleep
-ggplot(daily_df, aes(x = total_minutes_asleep)) +
-  geom_histogram(fill = "darkseagreen") +
-  labs(x ='Sedentary Activity in minutes)', y='Count', title = "Minutes of Sleep in a Day")
+# Calculating the mean and median
+mean_sedentary <- daily_df %>%
+  summarise(mean_value = round(mean(sedentary_minutes, na.rm = TRUE), digits = 1)) %>%
+  pull(mean_value)
+print(mean_sedentary)
+
+median_sedentary <- daily_df %>%
+  summarise(median_value = round(median(sedentary_minutes, na.rm = TRUE), digits = 2)) %>%
+  pull(median_value)
+print(median_sedentary)
+
+# Plot count of sedentary minutes
+ggplot(daily_df, aes(x = sedentary_minutes)) +
+  geom_histogram(fill = "deeppink4", color = "black") +
+  # geom_histogram(fill = "deeppink4") +
+  geom_vline(xintercept = mean_sedentary, color = "red", linetype = "solid", size = 0.8) +
+  geom_vline(xintercept = median_sedentary, color = "blue", linetype = "solid", size = 0.8) +
+  labs(x ='Minutes', y='Count', title = "Sedentary Minutes in a Day")
+  theme_minimal()
 
 # ------------------------------------ (iv) SLEEP --------------------------------------- #
 
+# Calculating mean and median
+mean_sleep <- daily_df %>%
+  summarise(mean_value = round(mean(total_minutes_asleep, na.rm = TRUE), digits = 1)) %>%
+  pull(mean_value)
+print(mean_sleep)
+
+median_sleep <- daily_df %>%
+  summarise(median_value = round(median(total_minutes_asleep, na.rm = TRUE), digits = 1)) %>%
+  pull(median_value)
+print(median_sleep)
+
 # Plot count of minutes asleep
 ggplot(daily_df, aes(x = total_minutes_asleep)) +
-  geom_histogram(fill = "darkseagreen") +
-  labs(x ='Sedentary Activity in minutes)', y='Count', title = "Minutes of Sleep in a Day")
+  geom_histogram(fill = "darkseagreen", color = "black") +
+  geom_vline(xintercept = mean_sleep, color = "red", linetype = "solid", size = 0.8) +
+  geom_vline(xintercept = median_sleep, color = "blue", linetype = "solid", size = 0.8) +
+  labs(x ='Minutes Asleep)', y='Count', title = "Minutes of Sleep in a Day")
+  theme_minimal()
 
 # Create new data frame showing avg minutes asleep per day
 weekly_sleep_df <- daily_df %>%
@@ -243,30 +279,13 @@ weekly_sleep_df <- daily_df %>%
   mutate(avg_min = round(avg_min, digits = 0)) %>%
   arrange(desc(avg_min))
 
+colnames(daily_df)
+colnames(weekly_sleep_df)
+
 # Plotting Sleep vs. Day of the Week
 ggplot(weekly_sleep_df, aes(y = avg_min/60, x = day_of_week, fill = avg_min)) +
   geom_bar(stat = "identity", width = 0.3, fill="coral") +
   geom_text(aes(label = round(avg_min/60, digits = 2)), vjust = -0.5, color = "black") +
   labs(x = "Day of the Week", y = "Average Hours Asleep", title = "Average Number of Hours Asleep by Day") +
   theme(axis.text.y = element_text(angle = 0))
-
-
-
-# ----------------------------------- OTHER ------------------------------------------
-# Plot activity levels and days of the week
-# ggplot(activity_df, aes(x = day_of_week, y = minutes, fill = activity_level)) +
-#   geom_bar(stat = "identity") +
-#   labs(x = "Day of the Week", y = "Minutes of Activity", title = "Activity Levels by Day of the Week")
-#   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-#   scale_fill_manual(values = c("sedentary" = "lightgrey", 
-#                                "lightly_active" = "blue", 
-#                                "moderately_active" = "green", 
-#                                "very_active" = "red"))
-
-
-
-
-
-
-
 
