@@ -144,8 +144,10 @@ avg_steps <- hourly_steps %>%
   arrange(desc(avg_steps)) 
 
 print(avg_steps)
+ 
+# ------------------------ Visualizations with ggplot ------------------------------- #
 
-# Visualization with ggplot
+# ------------------- (i) PHYSICAL ACTIVITY: TOTAL STEPS -------------------------------- #
 
 # Plotting Calories burned vs. steps
 ggplot(daily_df, aes(x = total_steps, y = calories)) +
@@ -154,6 +156,16 @@ ggplot(daily_df, aes(x = total_steps, y = calories)) +
   labs(title = "Calories Burned per Day vs. Total Steps per Day",
        x = "Total Steps",
        y = "Calories Burned")
+
+# Total Steps vs. Hour 
+ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps, fill = avg_steps)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  scale_fill_gradient(high = "darkblue", low = "lightblue") +
+  labs(x = "Average Steps", y = "Hour of the Day", title = "Average Steps per Hour") +
+  theme(axis.text.y = element_text(angle = 0))
+
+
+# ------------------- (ii) PHYSICAL ACTIVITY: MODERATE to VIGOROUS ACTIVITY ----------------- #
 
 # Very Active minutes vs. Calories Burned
 ggplot(daily_df, aes(x = very_active_minutes, y = calories)) +
@@ -171,13 +183,6 @@ ggplot(daily_df, aes(x = lightly_active_minutes, y = calories)) +
        x = "Lightly Active Minutes",
        y = "Calories")
 
-# Total Steps vs. Hour 
-ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps, fill = avg_steps)) +
-  geom_bar(stat = "identity", width = 0.5) +
-  scale_fill_gradient(high = "darkblue", low = "lightblue") +
-  labs(x = "Average Steps", y = "Hour of the Day", title = "Average Steps per Hour") +
-  theme(axis.text.y = element_text(angle = 0))
-
 # Create new data frame showing avg calories burned per day
 cals_weekday <- daily_df %>%
   mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
@@ -185,9 +190,6 @@ cals_weekday <- daily_df %>%
   summarize(avg_cals = mean(calories)) %>%
   mutate(avg_cals = round(avg_cals, digits = 0)) %>%
   arrange(desc(avg_cals)) 
-
-print(cals_weekday)
-View(cals_weekday)
 
 # Total Calories vs. Day of Week
 ggplot(cals_weekday, aes(y = avg_cals, x = day_of_week, fill = avg_cals)) +
@@ -207,7 +209,31 @@ activity_df <- daily_df %>%
   ) %>%
   mutate(activity_level = gsub("_minutes", "", activity_level))
 
-View(activity_df)
+# Create new column combining fairly active and very active minutes
+daily_df <- daily_df %>%
+  mutate(
+  moderate_vigorous_minutes = fairly_active_minutes + very_active_minutes
+)
+
+
+# Plot count of moderate_vigorous minutes 
+ggplot(daily_df, aes(x = moderate_vigorous_minutes)) +
+  geom_histogram(fill = "darkgoldenrod1") +
+  labs(x ='Moderate Vigorous Activities in minutes)', y='Count', title = 'Moderate to Vigorous Activity in a Day')
+
+# ------------------------------- (iii) SEDENTARY MINUTES --------------------------------- #
+
+# Plot count of minutes asleep
+ggplot(daily_df, aes(x = total_minutes_asleep)) +
+  geom_histogram(fill = "darkseagreen") +
+  labs(x ='Sedentary Activity in minutes)', y='Count', title = "Minutes of Sleep in a Day")
+
+# ------------------------------------ (iv) SLEEP --------------------------------------- #
+
+# Plot count of minutes asleep
+ggplot(daily_df, aes(x = total_minutes_asleep)) +
+  geom_histogram(fill = "darkseagreen") +
+  labs(x ='Sedentary Activity in minutes)', y='Count', title = "Minutes of Sleep in a Day")
 
 # Create new data frame showing avg minutes asleep per day
 weekly_sleep_df <- daily_df %>%
@@ -217,9 +243,6 @@ weekly_sleep_df <- daily_df %>%
   mutate(avg_min = round(avg_min, digits = 0)) %>%
   arrange(desc(avg_min))
 
-print(weekly_sleep_df)
-
-
 # Plotting Sleep vs. Day of the Week
 ggplot(weekly_sleep_df, aes(y = avg_min/60, x = day_of_week, fill = avg_min)) +
   geom_bar(stat = "identity", width = 0.3, fill="coral") +
@@ -227,6 +250,9 @@ ggplot(weekly_sleep_df, aes(y = avg_min/60, x = day_of_week, fill = avg_min)) +
   labs(x = "Day of the Week", y = "Average Hours Asleep", title = "Average Number of Hours Asleep by Day") +
   theme(axis.text.y = element_text(angle = 0))
 
+
+
+# ----------------------------------- OTHER ------------------------------------------
 # Plot activity levels and days of the week
 # ggplot(activity_df, aes(x = day_of_week, y = minutes, fill = activity_level)) +
 #   geom_bar(stat = "identity") +
@@ -236,6 +262,8 @@ ggplot(weekly_sleep_df, aes(y = avg_min/60, x = day_of_week, fill = avg_min)) +
 #                                "lightly_active" = "blue", 
 #                                "moderately_active" = "green", 
 #                                "very_active" = "red"))
+
+
 
 
 
