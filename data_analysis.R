@@ -279,9 +279,6 @@ weekly_sleep_df <- daily_df %>%
   mutate(avg_min = round(avg_min, digits = 0)) %>%
   arrange(desc(avg_min))
 
-colnames(daily_df)
-colnames(weekly_sleep_df)
-
 # Plotting Sleep vs. Day of the Week
 ggplot(weekly_sleep_df, aes(y = avg_min/60, x = day_of_week, fill = avg_min)) +
   geom_bar(stat = "identity", width = 0.3, fill="coral") +
