@@ -29,11 +29,6 @@ names(dailyActivity_merged)
 names(sleepDay_merged)
 names(weightLogInfo_merged)
 
-# Format column names
-daily_activity <- clean_names(dailyActivity_merged)
-daily_sleep <- clean_names(sleepDay_merged)
-weight_log <- clean_names(weightLogInfo_merged)
-
 # Check number of unique ids / unique users
 activity_ids <- n_distinct(daily_activity$id)
 print(activity_ids)
@@ -43,6 +38,10 @@ print(sleep_ids)
 
 weight_ids <- n_distinct(weight_log$id)
 print(weight_ids)
+
+# Format column names
+daily_activity <- clean_names(dailyActivity_merged)
+daily_sleep <- clean_names(sleepDay_merged)
 
 # Format dates, reorder days of the week, rename date, add new column
 daily_activity <- daily_activity %>%
@@ -56,9 +55,6 @@ daily_sleep <- daily_sleep %>%
   separate(sleep_day, c("date", "hour"),sep = "^\\S*\\K") %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 typeof(daily_sleep$date)
-
-weight_log <- weight_log %>%
-  mutate(date = as.Date(date, format = "%m/%d/%Y"))
 
 # add new min_fall_asleep column 
 daily_sleep <- daily_sleep %>%
