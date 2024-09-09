@@ -36,7 +36,7 @@ print(activity_ids)
 sleep_ids <- n_distinct(sleepDay_merged$Id)
 print(sleep_ids)
 
-weight_ids <- n_distinct(weightLogInfo_merge$Id)
+weight_ids <- n_distinct(weightLogInfo_merged$Id)
 print(weight_ids)
 
 # Format column names
