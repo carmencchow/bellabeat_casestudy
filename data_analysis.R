@@ -30,13 +30,13 @@ names(sleepDay_merged)
 names(weightLogInfo_merged)
 
 # Check number of unique ids / unique users
-activity_ids <- n_distinct(daily_activity$id)
+activity_ids <- n_distinct(dailyActivity_merged$Id)
 print(activity_ids)
 
-sleep_ids <- n_distinct(daily_sleep$id)
+sleep_ids <- n_distinct(sleepDay_merged$Id)
 print(sleep_ids)
 
-weight_ids <- n_distinct(weight_log$id)
+weight_ids <- n_distinct(weightLogInfo_merge$Id)
 print(weight_ids)
 
 # Format column names
