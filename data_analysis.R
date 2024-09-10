@@ -284,10 +284,9 @@ median_sedentary <- daily_df %>%
   pull(median_value)
 print(median_sedentary)
 
-## Plot count of sedentary minutes
+# Plot count of sedentary minutes
 ggplot(daily_df, aes(x = sedentary_minutes)) +
   geom_histogram(fill = "deeppink4", color = "black") +
-  # geom_histogram(fill = "deeppink4") +
   geom_vline(xintercept = mean_sedentary, color = "red", linetype = "solid", size = 0.8) +
   geom_vline(xintercept = median_sedentary, color = "blue", linetype = "solid", size = 0.8) +
   annotate("text", x = mean_sleep + 400, y = 120, label = "Mean: 955.9", color = "red") +
@@ -320,7 +319,6 @@ ggplot(daily_df, aes(x = total_minutes_asleep)) +
 
 # Create new data frame showing avg minutes asleep per day
 weekly_sleep_df <- daily_df %>%
-  # mutate(day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>%
   group_by(weekday) %>%
   summarize(avg_min = mean(total_minutes_asleep, na.rm = TRUE)) %>%
   mutate(avg_min = round(avg_min, digits = 0)) %>%
