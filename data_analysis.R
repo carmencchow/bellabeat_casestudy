@@ -284,7 +284,7 @@ median_sedentary <- daily_df %>%
   pull(median_value)
 print(median_sedentary)
 
-# Plot count of sedentary minutes
+## Plot count of sedentary minutes
 ggplot(daily_df, aes(x = sedentary_minutes)) +
   geom_histogram(fill = "deeppink4", color = "black") +
   # geom_histogram(fill = "deeppink4") +
