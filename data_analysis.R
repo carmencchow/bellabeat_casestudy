@@ -1,3 +1,5 @@
+# STEP 1: Prepare --------------------------------------
+
 # install packages
 install.packages("tidyverse")
 install.packages("dplyr")
@@ -16,6 +18,7 @@ library(janitor)
 library(readr)
 library(lubridate)
 
+# STEP 2: Process --------------------------------------
 # Import and view data
 dailyActivity_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
 sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
@@ -23,26 +26,29 @@ weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mtu
 
 str(dailyActivity_merged)
 str(sleepDay_merged)
-str(weightLogInfo_merged)
+
+colnames(weightLogInfo_merged)
 
 names(dailyActivity_merged)
 names(sleepDay_merged)
 names(weightLogInfo_merged)
 
+# Check number of unique ids / unique users
+activity_ids <- n_distinct(dailyActivity_merged$Id)
+print(activity_ids)
+
+sleep_ids <- n_distinct(sleepDay_merged$Id)
+print(sleep_ids)
+
+weight_ids <- n_distinct(weightLogInfo_merged$Id)
+print(weight_ids)
+
+
+# STEP 3: Clean  --------------------------------------
 # Format column names
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 weight_log <- clean_names(weightLogInfo_merged)
-
-# Check number of unique ids / unique users
-activity_ids <- n_distinct(daily_activity$id)
-print(activity_ids)
-
-sleep_ids <- n_distinct(daily_sleep$id)
-print(sleep_ids)
-
-weight_ids <- n_distinct(weight_log$id)
-print(weight_ids)
 
 # Format dates, reorder days of the week, rename date, add new column
 daily_activity <- daily_activity %>%
@@ -133,6 +139,7 @@ print(calories_by_day)
 # Import steps per hour data frame
 steps_hour <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/hourlySteps_merged.csv")
 hourly_steps <- clean_names(steps_hour)
+head(hourly_steps)
 
 # Check unique ids
 steps_ids <- n_distinct(hourly_steps$id)
@@ -163,6 +170,28 @@ ggplot(daily_df, aes(x = total_steps, y = calories)) +
        x = "Total Steps",
        y = "Calories Burned")
 
+# Calculating the mean and median number of steps
+mean_steps <- daily_df %>%
+  summarise(mean_value = round(mean(total_steps), digits = 0)) %>%
+  pull(mean_value)
+print(mean_steps)
+
+median_steps <- daily_df %>%
+  summarise(median_value = round(median(total_steps), digits = 0)) %>%
+  pull(median_value)
+print(median_steps)
+
+# Plotting frequency of steps
+ggplot(daily_df, aes(x = total_steps)) +
+  geom_histogram(fill = "cadetblue1", color = "black") +
+  geom_vline(xintercept = mean_steps, color = "red", linetype = "solid", size = 0.8) +
+  geom_vline(xintercept = median_steps, color = "blue", linetype = "solid", size = 0.8) +
+  annotate("text", x = mean_steps + 2800, y = 110, label = "Mean: 8319", color = "red") +
+  annotate("text", x = median_steps - 3200, y = 110, label = "Median: 8053", color = "blue") +
+  labs(x ='Steps', y='Count', title = 'Daily Step Count')
+theme_minimal()
+
+
 # Total Steps vs. Hour 
 ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps, fill = avg_steps)) +
   geom_bar(stat = "identity", width = 0.5) +
@@ -177,16 +206,24 @@ ggplot(avg_steps, aes(y = reorder(hour, avg_steps), x = avg_steps, fill = avg_st
 ggplot(daily_df, aes(x = very_active_minutes, y = calories)) +
   geom_point(color = "blue") +
   geom_smooth() + 
-  labs(title = "Calories Burned per Day vs. Very Active Minutes per Day",
-       x = "Very Active Minutes per Day",
-       y = "Calories Burned per Day")
+  labs(title = "Calories Burned vs. Very Active Minutes",
+       x = "Very Active Minutes",
+       y = "Calories")
 
 # Lightly Active minutes vs. Calories Burned
 ggplot(daily_df, aes(x = lightly_active_minutes, y = calories)) +
-  geom_point(color = "lightblue") +
+  geom_point(color = "aquamarine3") +
   geom_smooth() + 
-  labs(title = "Calories Burned per Day vs. Lightly Active Minutes per Day",
+  labs(title = "Calories Burned vs. Lightly Active Minutes",
        x = "Lightly Active Minutes",
+       y = "Calories")
+
+# Sedentary minutes vs. Calories Burned
+ggplot(daily_df, aes(x = sedentary_minutes, y = calories)) +
+  geom_point(color = "deepskyblue") +
+  geom_smooth() + 
+  labs(title = "Calories Burned vs. Sedentary Minutes",
+       x = "Sedentary Minutes",
        y = "Calories")
 
 # New df showing avg calories burned per day
@@ -229,6 +266,8 @@ ggplot(daily_df, aes(x = moderate_vigorous_minutes)) +
   geom_histogram(fill = "darkgoldenrod1", color = "black") +
   geom_vline(xintercept = mean_mod_vig, color = "red", linetype = "solid", size = 0.8) +
   geom_vline(xintercept = median_mod_vig, color = "blue", linetype = "solid", size = 0.8) +
+  annotate("text", x = mean_mod_vig + 17, y = 320, label = "Mean: 26", color = "red") +
+  annotate("text", x = median_mod_vig - 20, y = 320, label = "Median: 37.8", color = "blue") +
   labs(x ='Minutes', y='Count', title = 'Moderate to Vigorous Activity in a Day')
   theme_minimal()
 
@@ -251,7 +290,9 @@ ggplot(daily_df, aes(x = sedentary_minutes)) +
   # geom_histogram(fill = "deeppink4") +
   geom_vline(xintercept = mean_sedentary, color = "red", linetype = "solid", size = 0.8) +
   geom_vline(xintercept = median_sedentary, color = "blue", linetype = "solid", size = 0.8) +
-  labs(x ='Minutes', y='Count', title = "Sedentary Minutes in a Day")
+  annotate("text", x = mean_sleep + 400, y = 120, label = "Mean: 955.9", color = "red") +
+  annotate("text", x = median_sleep + 730, y = 120, label = "Median: 1021", color = "blue") +
+  labs(x ='Sedentary Minutes', y='Count', title = "Sedentary Minutes in a Day")
   theme_minimal()
 
 # ------------------------------------ (iv) SLEEP --------------------------------------- #
@@ -272,7 +313,9 @@ ggplot(daily_df, aes(x = total_minutes_asleep)) +
   geom_histogram(fill = "darkseagreen", color = "black") +
   geom_vline(xintercept = mean_sleep, color = "red", linetype = "solid", size = 0.8) +
   geom_vline(xintercept = median_sleep, color = "blue", linetype = "solid", size = 0.8) +
-  labs(x ='Minutes Asleep)', y='Count', title = "Minutes of Sleep in a Day")
+  labs(x ='Minutes of Sleep', y='Count', title = "Minutes of Sleep in a Day") +
+  annotate("text", x = mean_sleep - 80, y = 55, label = "Mean: 419.2", color = "red") +
+  annotate("text", x = median_sleep + 80, y = 55, label = "Median: 432.5", color = "blue") +
   theme_minimal()
 
 # Create new data frame showing avg minutes asleep per day
@@ -292,33 +335,29 @@ ggplot(weekly_sleep_df, aes(y = avg_min/60, x = weekday, fill = avg_min)) +
 
 # Plotting different activity levels and minutes of sleep
 ggplot(daily_df, aes(x = sedentary_minutes, y = total_minutes_asleep)) +
-  geom_point(pch = 21, color = "violetred") +  
+  geom_point(color = "violetred") +  
   geom_smooth(color = "ivory4") +
   labs(title = "Sedentary Minutes and Sleep",
        x = "Sedentary minutes",
        y = "Minutes of Sleep")
 
 ggplot(daily_df, aes(x = lightly_active_minutes, y = total_minutes_asleep)) +
-  geom_point(pch = 21, color = "purple") +  
+  geom_point(color = "purple") +  
   geom_smooth(color = "ivory4") +
   labs(title = "Lightly Active Minutes and Sleep",
        x = "Lightly Active minutes",
        y = "Minutes of Sleep")
 
 ggplot(daily_df, aes(x = fairly_active_minutes, y = total_minutes_asleep)) +
-  geom_point(pch = 21, color = "blue") +  
+  geom_point( color = "blue") +  
   geom_smooth(color = "ivory4") +
   labs(title = "Fairly Active Minutes and Sleep",
-       x = "Fairly active minutes",
+       x = "Fairly Active minutes",
        y = "Minutes of Sleep")
 
 ggplot(daily_df, aes(x = very_active_minutes, y = total_minutes_asleep)) +
-  geom_point(pch = 21, color = "chartreuse4") +  
+  geom_point(color = "orange") +  
   geom_smooth(color = "ivory4") +
   labs(title = "Very Active Minutes and Sleep",
        x = "Very Active minutes",
        y = "Minutes of Sleep")
-
-
-
-
