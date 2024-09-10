@@ -43,18 +43,10 @@ print(sleep_ids)
 weight_ids <- n_distinct(weightLogInfo_merged$Id)
 print(weight_ids)
 
-<<<<<<< HEAD
-
 # STEP 3: Clean  --------------------------------------
 # Format column names
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
-weight_log <- clean_names(weightLogInfo_merged)
-=======
-# Format column names
-daily_activity <- clean_names(dailyActivity_merged)
-daily_sleep <- clean_names(sleepDay_merged)
->>>>>>> ca47ed15a99eeb1c3279d2f88ac1be83d96e9f18
 
 # Format dates, reorder days of the week, rename date, add new column
 daily_activity <- daily_activity %>%
@@ -297,7 +289,7 @@ ggplot(daily_df, aes(x = sedentary_minutes)) +
   labs(x ='Sedentary Minutes', y='Count', title = "Sedentary Minutes in a Day")
   theme_minimal()
 
-# ------------------------------------ (iv) SLEEP --------------------------------------- #
+# ----------------------------------- (iv) SLEEP --------------------------------------- #
 
 # Calculating mean and median
 mean_sleep <- daily_df %>%
