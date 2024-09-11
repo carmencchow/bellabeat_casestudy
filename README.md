@@ -10,7 +10,7 @@
 <p>Sando Mur: Mathematician and Bellabeat’s cofounder; key member of the Bellabeat executive team </p>
 <p>Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. </p>
 
-<h2>1. ASK</h2>
+<h2>1. Ask</h2>
 <h3><b>Business Task</b></h3>
 Analyze FitBit’s Fitness Tracker usage data to gain insight into trends that can be applied to Bellabeat’s customers. 
 
@@ -59,4 +59,12 @@ library(lubridate)
 ```sleepDay_merged.csv```
 ```weightLogInfo_merged.csv```
 
-<p>The other files either contain information that does not impact our Business Task or have data points that already exist in the</p> ```dailyActivity_merged.csv``` file.
+<p>The other files either contain information that does not impact our Business Task or have data points that already exist in the</p> `dailyActivity_merged.csv` file.
+
+
+<h2>3. Process</h2>
+<p>Let’s open R Studio and run the `read_csv()` R command to read each CSV file and save it as a data frame in R:</p>
+
+```dailyActivity_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
+sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/sleepDay_merged.csv")
+weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")```
