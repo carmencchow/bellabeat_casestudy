@@ -1,24 +1,23 @@
-
 <h1>Bellabeat Case Study</h1>
-<p>Carmen Chow</p> 
-<p>September 2024</p>
+Carmen Chow 
+September 2024
 
 <h2>Scenario</h2>
 <p>Bellabeat is a high-tech manufacturer of health-focused products for women.  Since it was founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women.  Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. Sršen knows that an analysis of Bellabeat’s available consumer data would reveal more opportunities for growth. She has asked the marketing analytics team to focus on a Bellabeat product and analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like high-level recommendations for how these trends can inform Bellabeat marketing strategy.</p>
 
-<h2>Stakeholders </h2>
-* Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer
-* Sando Mur: Mathematician and Bellabeat’s cofounder; key member of the Bellabeat executive team 
-* Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. 
+<h2>Stakeholders</h2>
+*  Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer
+*  Sando Mur: Mathematician and Bellabeat’s cofounder
+*  Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. 
 
 <h2>1. Ask</h2>
 <h3><b>Business Task</b></h3>
 Analyze FitBit’s Fitness Tracker usage data to gain insight into trends that can be applied to Bellabeat’s customers. 
 
 <h3>Guiding questions</h3>
-What are some trends in smart device usage? 
-How could these trends apply to Bellabeat customers? 
-How could these trends help influence Bellabeat marketing strategy?
+<p><i><b>What are some trends in smart device usage?</b></i></p>
+<p>How could these trends apply to Bellabeat customers?</p> 
+<p>How could these trends help influence Bellabeat marketing strategy?</p>
 
 <h2>2. Prepare</h2>
 
