@@ -26,10 +26,10 @@ How could these trends help influence Bellabeat marketing strategy?
 includes data from 33  fitbit users who consented to the submission of personal tracker data, including information about daily physical activity, steps, calories burned, and sleep monitoring. The dataset is provided under the Mobius license and consists of 18 wide format CSV files of anonymized user information.</p>
 
 <h3><b>Data Limitations</b></h3>
-<p>* Some of the data sets have a sample size of 33 FitBit users, while the data for weight had an even smaller sample size of 8.</p>
-<p>* Data is 8 years old there not current. It covers a one month period from 2016-04-12 to 2016-05-12.</p>
-<p>* Information about how long each participant wore their Fitbit is missing.</p>
-<p>* Demographic information pertaining to the ages of the participants is also missing.</p>
+<p>- Some of the data sets have a sample size of 33 FitBit users, while the data for weight had an even smaller sample size of 8.</p>
+<p>- Data is 8 years old there not current. It covers a one month period from 2016-04-12 to 2016-05-12.</p>
+<p>- Information about how long each participant wore their Fitbit is missing.</p>
+<p>- Demographic information pertaining to the ages of the participants is also missing.</p>
 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing the following R packages and loading their libraries by running install.packages() and library() in R Studio.</p>
