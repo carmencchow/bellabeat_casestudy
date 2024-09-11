@@ -222,6 +222,7 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 ```
 <br>
 <i>Some key numbers:</i>
+
 *  <b>8,319</b> was the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
 *  <b>5.98</b> kilometers was the average distance walked per day. 
 *  On average, participants spent 210.0 minutes being lightly active,  <b>14.78</b> minutes being fairly active, and <b>23.02</b> minutes being very active for a total of 4.13 hours (or 247.8 minutes) of daily activity per day. 
@@ -232,5 +233,6 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 We’ll use the installed `ggplot2` package to create several customizable graphs to help us visualize and establish different relationships and correlation between our sleep, activity level, step count, and calories burned dimensions. We’ll focus our visualizations on the key health indicators of Physical Activity (step count and moderate to vigorous activity), Sedentary Behaviour and Sleep. 
 
 <br>
+
 ![calories](https://github.com/user-attachments/assets/d77ea900-2d68-4e6d-9a6f-3674a9428630)
 
