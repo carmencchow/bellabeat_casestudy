@@ -59,6 +59,4 @@ library(lubridate)
 ```sleepDay_merged.csv```
 ```weightLogInfo_merged.csv```
 
-<p>The other files either contain information that does not impact our Business Task or have data points that already exist in the ```dailyActivity_merged.csv file.``` </p>
-
-
+<p>The other files either contain information that does not impact our Business Task or have data points that already exist in the</p> ```dailyActivity_merged.csv``` file.
