@@ -121,9 +121,8 @@ Below is a summary of the data cleansing steps we’ll conduct to transform our 
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 ```
-
-<p>
-* Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
+<br>
+*  Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
 
 ```
 daily_activity <- daily_activity %>%
@@ -133,10 +132,47 @@ daily_activity <- daily_activity %>%
   mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
 ```
 <br>
-*Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
+*  Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
 
 ```
 daily_sleep <- daily_sleep %>%
   separate(sleep_day, c("date", "hour"),sep = "^\\S*\\K") %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 ```
+
+<br>
+*  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep. We will subtract `total_minutes_asleep` from `total_time_in_bed`.
+```
+daily_sleep <- daily_sleep %>%
+  mutate( 
+    min_fall_asleep = total_time_in_bed - total_minutes_asleep
+  )
+```
+<br>
+*  Use `distinct()` and `drop_na()` functions to remove duplicate rows and NA values.
+
+```
+daily_activity <- daily_activity %>%
+  distinct() %>%
+  drop_na()
+
+daily_sleep <- daily_sleep %>%
+  distinct() %>%
+  drop_na()
+```
+
+<br>
+*  Use `filter()` to exclude records that show 0 calories burned and 0 steps walked for entries which could indicate that the participant didn’t wear their Fitbit or the tracker was defective in capturing their step count and calories burned.
+
+After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
+```
+daily_df <-
+  merge(
+    x = daily_activity, 
+    y = daily_sleep,
+    by = c ("id", "date"),
+    all.x = TRUE
+  )
+```
+
+
