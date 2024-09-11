@@ -116,14 +116,13 @@ Below is a summary of the data cleansing steps we’ll conduct to transform our 
 <h3><b>Data Cleaning</b></h2>
 Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
 <p>
-
+<br>
 *  Use the `clean_names()` function to format column names to camelcase.
 ```
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 ```
-<br>
-
+          
 *  Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
 
 ```
@@ -133,7 +132,6 @@ daily_activity <- daily_activity %>%
   mutate(weekday = weekdays(date)) %>% 
   mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
 ```
-<br>
 
 *  Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
 
@@ -143,8 +141,6 @@ daily_sleep <- daily_sleep %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 ```
 
-<br>
-
 *  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep. We will subtract `total_minutes_asleep` from `total_time_in_bed`.
 
 ```
@@ -153,8 +149,6 @@ daily_sleep <- daily_sleep %>%
     min_fall_asleep = total_time_in_bed - total_minutes_asleep
   )
 ```
-<br>
-
 *  Use `distinct()` and `drop_na()` functions to remove duplicate rows and NA values.
 
 ```
@@ -166,9 +160,6 @@ daily_sleep <- daily_sleep %>%
   distinct() %>%
   drop_na()
 ```
-
-<br>
-
 *  Exclude records that show 0 calories burned and 0 steps walked for entries which could indicate that the participant didn’t wear their Fitbit or the tracker was defective in capturing their step count and calories burned.
 
 ```
@@ -222,23 +213,25 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 ```
 <br>
 <i>Some key numbers:</i>
+
 <br>
-*  <b>8,319</b> was the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
+*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
 <br>
-*  <b>5.98</b> kilometers was the average distance walked per day. 
+*  <b>5.98</b> kilometers - the average distance walked per day. 
 <br>
-*  On average, participants spent 210.0 minutes being lightly active,  <b>14.78</b> minutes being fairly active, and <b>23.02</b> minutes being very active for a total of 4.13 hours (or 247.8 minutes) of daily activity per day. 
+*  <b>210.0</b> - the average number of minutes being lightly active  
+*  <b>14.78</b> - the average number of minutes being fairly active 
+*  <b>23.02</b> - the average number of minutes being very active 
 <br>
-*  On average, participants spent <b>15.9 hours</b> (or 955.8 minutes) being sedentary. 
+*  <b>15.9 hours</b> (or 955.8 minutes) - the average amount of time spent sedentary. 
 <br>
-*  <b>2,361</b> was the number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
+*  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
 
 <br>
 We’ll use the installed `ggplot2` package to create several customizable graphs to help us visualize and establish different relationships and correlation between our sleep, activity level, step count, and calories burned dimensions. We’ll focus our visualizations on the key health indicators of Physical Activity (step count and moderate to vigorous activity), Sedentary Behaviour and Sleep. 
 
 <br>
-
-<i>i) Physical Activity (Step Count)</i>
+<p><i>i) Physical Activity (Step Count)</i></p>
 Let’s take a look at the relationship between daily step count and daily calories burned. 
 
 <br>
@@ -275,9 +268,7 @@ Tuesday seems to be the day in which users walked the most.
 
 <br>
 
-We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. This is likely because the calories burned per day do not come only only from the calories burned from the total steps recorded, but also from other physical activity (which could include non-steps like swimming, calisthenics, or weight training etc.) which contribute to your daily calories burned but not your step count. Other calories burned in a day include your Basal Metabolic Rate (BMR) which is the number of calories your body needs to perform basic functions and NEAT or non-exercise activity thermogenesis, which is the calories burned through daily activity that does not include intentional physical exercise (e.g. fidgeting, cooking).  Although the average calories doesn’t differ greatly, Tuesdays and Saturdays edge out the other days with the most number of steps recorded. However, when we take into account that the difference between the highest average (2441) and the lowest average (2274) is a mere 167 steps and the average person walks around 100 steps per minute. 
-
-<br>
+We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. This is likely because the calories burned per day do not come only only from the calories burned from the total steps recorded, but also from other physical activity (which could include non-steps like swimming, calisthenics, or weight training etc.) which contribute to your daily calories burned but not your step count. Other calories burned in a day include your <b>Basal Metabolic Rate (BMR)</b> which is the number of calories your body needs to perform basic functions and <b>NEAT</b> or <i>non-exercise activity thermogenesis</i>, which is the calories burned through daily activity that does not include intentional physical exercise (e.g. fidgeting, cooking).  Although the average calories doesn’t differ greatly, Tuesdays and Saturdays edge out the other days with the most number of steps recorded. However, when we take into account that the difference between the highest average, <i>2441</i> and the lowest average, <i>2274</i> is a mere 167 steps and the average person walks around 100 steps per minute. 
 
 Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame for it and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. The data frame also has `33 id`s and using `head()` we’ll take a look at the first 6 rows.
 
@@ -309,20 +300,13 @@ We will perform an additional step using the `separate()` function to split the 
 10 1503960366 4/12/2016 " 9:00:00 AM"        1864
 ```
 
-<br>
-
 Let’s take a look at the distribution of total steps taken among the 33 participants. We can see there were more than 90 records of users getting the 10,000 recommended daily steps. We have a right skewed graph due to a number of participants who took more than the average number of steps on certain days, with a number even logging an astounding more 30,000 steps which is more three times the recommended number.
 
-<br>
-
 ![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
-
-<br>
 
 However, despite abnormally high number of steps from some above average active participants, we also see that 50% of participants are getting less than 8319 steps a day or less than the recommended daily step count. 
 Let’s see if the time of day has an affect on our participant’s activity levels by We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
 
-<br>
 
 ```
 avg_steps <- hourly_steps %>%
