@@ -122,6 +122,7 @@ daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 ```
 <br>
+
 *  Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
 
 ```
@@ -132,6 +133,7 @@ daily_activity <- daily_activity %>%
   mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
 ```
 <br>
+
 *  Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
 
 ```
@@ -141,6 +143,7 @@ daily_sleep <- daily_sleep %>%
 ```
 
 <br>
+
 *  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep. We will subtract `total_minutes_asleep` from `total_time_in_bed`.
 
 ```
