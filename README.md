@@ -90,3 +90,25 @@ We can also use  `colnames()` to view the column headers for each data frame to 
 ```> colnames(weightLogInfo_merged)
 [1] "Id"             "Date"           "WeightKg"       "WeightPounds"   "Fat"           
 [6] "BMI"            "IsManualReport" "LogId"  ```
+
+Since each data frame has an `id` column that must be linked to a FitBit user, let's check  the number of unique ids which will indicate the number of actual participants in our sample group.  
+
+``
+activity_ids <- n_distinct(dailyActivity_merged$Id)
+print(activity_ids)
+[1] 33
+
+sleep_ids <- n_distinct(sleepDay_merged$Id)
+print(sleep_ids)
+[1] 24
+
+weight_ids <- n_distinct(weightLogInfo_merged$Id)
+print(weight_ids)
+[1] 8
+```
+
+Due to the smaller sample size from the `weightLogInfo_merged` data frame, we will not be joining it to the other data sets in order to not introduce sampling bias.
+
+Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
+
+
