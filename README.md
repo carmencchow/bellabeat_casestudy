@@ -142,6 +142,7 @@ daily_sleep <- daily_sleep %>%
 
 <br>
 *  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep. We will subtract `total_minutes_asleep` from `total_time_in_bed`.
+
 ```
 daily_sleep <- daily_sleep %>%
   mutate( 
@@ -149,6 +150,7 @@ daily_sleep <- daily_sleep %>%
   )
 ```
 <br>
+
 *  Use `distinct()` and `drop_na()` functions to remove duplicate rows and NA values.
 
 ```
@@ -162,8 +164,9 @@ daily_sleep <- daily_sleep %>%
 ```
 
 <br>
-*  Use `filter()` to exclude records that show 0 calories burned and 0 steps walked for entries which could indicate that the participant didn’t wear their Fitbit or the tracker was defective in capturing their step count and calories burned.
+*  Exclude records that show 0 calories burned and 0 steps walked for entries which could indicate that the participant didn’t wear their Fitbit or the tracker was defective in capturing their step count and calories burned.
 
+<br>
 After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
 ```
 daily_df <-
