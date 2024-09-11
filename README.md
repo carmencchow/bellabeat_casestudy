@@ -363,10 +363,10 @@ We see a disproportionately high count of participants recording 0 minutes of mo
 
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
-<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity</p>
-
 <br>
-![sedentary](https://github.com/user-attachments/assets/a1b2a6b4-0d8c-4c75-a597-90714b3e8a57)
+Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity.
+
+![sed_cals](https://github.com/user-attachments/assets/83bb06d7-9baa-436f-9fad-354cd6d287d5)
 
 <b><i>iv) Sleep</i></b>
 <p>Just like our exploration of activity levels and the day of the week, let’s see if sleep patterns are consistent throughout the week. Once again, we’ll use `summary()` to get an overview of the distribution of sleep times from our `daily_df` data frame. </p>
@@ -389,14 +389,17 @@ We see a disproportionately high count of participants recording 0 minutes of mo
 
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
+<br>
 From the histogram we see the most common range of sleep. It looks like there are more people sleeping less than the average. It looks like some people are sleeping significantly more than recommended, with 800 minutes (13.3 hours of sleep). We see that the distribution is slightly skewed to the right (?) Mean 419.2 minutes and median is 432.5 minutes We see the graph shows that that 50% of people get at least 7.21 hours of sleep.
+<br>
 
 ![sleep](https://github.com/user-attachments/assets/c0bd916d-3834-4c3e-8571-741ff1c3e78d)
 
+<br>
 Participants got the most hours of sleep on Sunday and Wednesday.
 Let’s explore the relationship between activity level and total minutes of sleep with these graphs where I’ve plotted the different intensity levels on the y-axis to the minutes of sleep on the left axis. Red (sedentary), purple (lightly active), blue (moderately active), and yellow (very active). Looking at the graphs, we can see a negative correlation between Sedentary Minutes and Sleep chart shows a positive correlation when mapping the minutes of very active minutes and sleep, and in the first graph we see that the more minutes a participant spends doing sedentary activity, the fewer minutes of sleep they get.
 
-
+<br>
 ![sedentary](https://github.com/user-attachments/assets/1ab3e6c1-0280-4987-a89b-7f99ddabc24d)
 
 ![lightly_sleep](https://github.com/user-attachments/assets/90986f51-c931-41bf-96d7-f3b519e6f8ef)
