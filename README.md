@@ -94,7 +94,7 @@ We can also use  `colnames()` to view the column headers for each data frame to 
 
 Since each data frame has an `id` column that must be linked to a FitBit user, let's check  the number of unique ids which will indicate the number of actual participants in our sample group.  
 
-``
+```
 activity_ids <- n_distinct(dailyActivity_merged$Id)
 print(activity_ids)
 [1] 33
