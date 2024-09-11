@@ -339,7 +339,7 @@ Let’s shift our focus to physical activity levels and their effect on calories
 
 <br>
 
-![lightlyactive](https://github.com/user-attachments/assets/dce8958e-c635-4875-94c8-8c80e327e49b)
+![sed_cals](https://github.com/user-attachments/assets/bc00bd6e-0be0-4e65-b9fd-2532a71bde11)
 
 <br>
 
@@ -347,20 +347,68 @@ Beginning with the first scatterplot we can see a fairly strong positive relatio
 
 Since the WHO’s recommendation calls for <b>150 to 300 minutes</b> of <i>moderate to vigorous aerobic activity</i> per week, we can combine the `fairly_active_minutes` and `very_active_minutes` columns into a new column called `moderate_vigorous_minutes`. We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month. Let’s view the updated summary statistics to include this new column and use it to see the effects of moderate to vigorous activity on calories burned. 
 
+```  
+ very_active_minutes moderate_vigorous_minutes
+ Min.   :  0.00      Min.   :  0.00           
+ 1st Qu.:  0.00      1st Qu.:  0.00           
+ Median :  7.00      Median : 26.00           
+ Mean   : 23.02      Mean   : 37.79           
+ 3rd Qu.: 35.00      3rd Qu.: 61.00           
+ Max.   :210.00      Max.   :275.00
+```
 
+![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
+We see a disproportionately high count of participants recording 0 minutes of moderate to vigorous minutes of activity per day. With a frequency of 300 for 33 users across the span of a month, this translates to ⅓ of the time! With the median being 26 minutes and the mean is 37.8 minutes. This tells us that 50% of the participants have 26 minutes or less of moderate to vigorous activity with the average time being 37.8 minutes. We have a right-skewed, while there are a few participants with significantly higher activity times compared to the rest, there is a huge number of participants who get 0 minutes a day!
 
+<br>
+<b><i>iii) Sedentary Behavior</i></b>
+Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity
 
+![sedentary](https://github.com/user-attachments/assets/a1b2a6b4-0d8c-4c75-a597-90714b3e8a57)
 
+<b><i>iv) Sleep</i></b>
+Just like our exploration of activity levels and the day of the week, let’s see if sleep patterns are consistent throughout the week. Once again, we’ll use `summary()` to get an overview of the distribution of sleep times from our `daily_df` data frame. 
 
+```
+ total_minutes_asleep total_time_in_bed min_fall_asleep 
+ Min.   : 58.0        Min.   : 61.0     Min.   :  0.00  
+ 1st Qu.:361.0        1st Qu.:403.8     1st Qu.: 17.00  
+ Median :432.5        Median :463.0     Median : 25.50  
+ Mean   :419.2        Mean   :458.5     Mean   : 39.31  
+ 3rd Qu.:490.0        3rd Qu.:526.0     3rd Qu.: 40.00  
+ Max.   :796.0        Max.   :961.0     Max.   :371.00  
+ NA's   :453          NA's   :453       NA's   :453
+```
+<i>Key Numbers</i> 
+*  <b>6.9 hours</b> (or 419.5 minutes) - the average sleep time.
+*  <b>39.17 mins</b> - the average time needed to fall asleep.
+*  25% of participants are sleeping <b>6 hours</b> or less (361 minutes or less). 
+*  The shortest sleep time recorded was 58 minutes while the highest was 796 minutes.
 
+![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
+From the histogram we see the most common range of sleep. It looks like there are more people sleeping less than the average. It looks like some people are sleeping significantly more than recommended, with 800 minutes (13.3 hours of sleep). We see that the distribution is slightly skewed to the right (?) Mean 419.2 minutes and median is 432.5 minutes We see the graph shows that that 50% of people get at least 7.21 hours of sleep.
 
+![sleep](https://github.com/user-attachments/assets/c0bd916d-3834-4c3e-8571-741ff1c3e78d)
 
+Participants got the most hours of sleep on Sunday and Wednesday.
+Let’s explore the relationship between activity level and total minutes of sleep with these graphs where I’ve plotted the different intensity levels on the y-axis to the minutes of sleep on the left axis. Red (sedentary), purple (lightly active), blue (moderately active), and yellow (very active). Looking at the graphs, we can see a negative correlation between Sedentary Minutes and Sleep chart shows a positive correlation when mapping the minutes of very active minutes and sleep, and in the first graph we see that the more minutes a participant spends doing sedentary activity, the fewer minutes of sleep they get.
+![sedentary](https://github.com/user-attachments/assets/1ab3e6c1-0280-4987-a89b-7f99ddabc24d)
 
+<br>
+![lightly_sleep](https://github.com/user-attachments/assets/90986f51-c931-41bf-96d7-f3b519e6f8ef)
 
+![farily](https://github.com/user-attachments/assets/b2d70e34-8818-48a6-88b5-1f28a6bae33f)
 
+![very_sleep](https://github.com/user-attachments/assets/436e1782-e8a1-4865-af88-ada47368367d)
 
+<b>Final Summary</b>
+Let’s summarize our results for the four metrics before making our recommendations to the marketing team:
 
+*  50% of participants take less than 8,053 steps per day and 25% take less than 4,923.
+*  50% of participants sleep less than 7.2 hours a day.
+*  50% of participants are sedentary for more than 15.9 hours a day.
+*  50% of participants get less than 26 minutes of moderate to vigorous activity a day while a startling high number of participants recorded <i>0 minutes of moderate to vigorous activity on nearly 300 occasions</> or roughly ⅓ of the month.
 
-
+<h2>6. Act</h2>
