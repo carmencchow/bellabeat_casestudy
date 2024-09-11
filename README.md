@@ -51,4 +51,13 @@ library(tidyr)
 library(janitor)
 library(readr)
 library(lubridate)```
-`
+
+<p>Before processing our data, we’ll preview the eighteen CSV files in Excel to get an overview of the data’s overall structure to determine which files will be useful in answering our Business Task.  Out of the 18 available files, we’ll focus our attention on the following three:<p>
+
+```dailyActivity_merged.csv```
+```sleepDay_merged.csv```
+```weightLogInfo_merged.csv```
+
+<p>The other files either contain information that does not impact our Business Task or have data points that already exist in the ```dailyActivity_merged.csv file.``` </p>
+
+
