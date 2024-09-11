@@ -114,16 +114,19 @@ Below is a summary of the data cleansing steps we’ll conduct to transform our 
 
 <h3><b>Data Cleaning</b></h2>
 Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
-<br>
+<p>
 
 *  Use the `clean_names()` function to format column names to camelcase.
-```daily_activity <- clean_names(dailyActivity_merged)
-daily_sleep <- clean_names(sleepDay_merged)```
+```
+daily_activity <- clean_names(dailyActivity_merged)
+daily_sleep <- clean_names(sleepDay_merged)
+```
 
-<br>
-* Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.
+<p>
+* Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
 
-```daily_activity <- daily_activity %>%
+```
+daily_activity <- daily_activity %>%
   rename(date = activity_date) %>%
   mutate(date = as_date(date, format = "%m/%d/%Y")) %>%
   mutate(weekday = weekdays(date)) %>% 
@@ -136,5 +139,4 @@ daily_sleep <- clean_names(sleepDay_merged)```
 daily_sleep <- daily_sleep %>%
   separate(sleep_day, c("date", "hour"),sep = "^\\S*\\K") %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
-
 ```
