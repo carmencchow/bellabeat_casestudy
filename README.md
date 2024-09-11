@@ -271,7 +271,7 @@ Tuesday seems to be the day in which users walked the most.
 ```
 <br>
 
-![avcals](https://github.com/user-attachments/assets/349a9c82-c35f-45ea-8f9b-b7d40e23be91)
+![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
 
