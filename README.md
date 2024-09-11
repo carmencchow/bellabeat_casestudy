@@ -50,7 +50,8 @@ library(ggplot2)
 library(tidyr)
 library(janitor)
 library(readr)
-library(lubridate)```
+library(lubridate)
+```
 
 <p>Before processing our data, we’ll preview the eighteen CSV files in Excel to get an overview of the data’s overall structure to determine which files will be useful in answering our Business Task.  Out of the 18 available files, we’ll focus our attention on the following three:<p>
 
