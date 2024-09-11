@@ -1,14 +1,14 @@
 <h1>Bellabeat Case Study</h1>
-Carmen Chow 
-September 2024
+<p>Carmen Chow</p> 
+<p>September 2024</p>
 
 <h2>Scenario</h2>
 <p>Bellabeat is a high-tech manufacturer of health-focused products for women.  Since it was founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women.  Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. Sršen knows that an analysis of Bellabeat’s available consumer data would reveal more opportunities for growth. She has asked the marketing analytics team to focus on a Bellabeat product and analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like high-level recommendations for how these trends can inform Bellabeat marketing strategy.</p>
 
 <h2>Stakeholders</h2>
-*  Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer
-*  Sando Mur: Mathematician and Bellabeat’s cofounder
-*  Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. 
+<p>*  Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer</p>
+<p>*  Sando Mur: Mathematician and Bellabeat’s cofounder</p>
+<p>*  Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. </p>
 
 <h2>1. Ask</h2>
 <h3><b>Business Task</b></h3>
@@ -26,10 +26,10 @@ Analyze FitBit’s Fitness Tracker usage data to gain insight into trends that c
 includes data from 33  fitbit users who consented to the submission of personal tracker data, including information about daily physical activity, steps, calories burned, and sleep monitoring. The dataset is provided under the Mobius license and consists of 18 wide format CSV files of anonymized user information.</p>
 
 <h3><b>Data Limitations</b></h3>
-<p>- Some of the data sets have a sample size of 33 FitBit users, while the data for weight had an even smaller sample size of 8.</p>
-<p>- Data is 8 years old there not current. It covers a one month period from 2016-04-12 to 2016-05-12.</p>
-<p>- Information about how long each participant wore their Fitbit is missing.</p>
-<p>- Demographic information pertaining to the ages of the participants is also missing.</p>
+<p>*  Some of the data sets have a sample size of 33 FitBit users, while the data for weight had an even smaller sample size of 8.</p>
+<p>*  Data is 8 years old there not current. It covers a one month period from 2016-04-12 to 2016-05-12.</p>
+<p>*  Information about how long each participant wore their Fitbit is missing.</p>
+<p>*  Demographic information pertaining to the ages of the participants is also missing.</p>
 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing the following R packages and loading their libraries by running install.packages() and library() in R Studio.</p>
@@ -63,7 +63,7 @@ The other files either contain information that does not impact our Business Tas
 
 
 <h2>3. Process</h2>
-Let’s open R Studio and run the `read_csv()` R command to read each CSV file and save it as a data frame in R:
+Open R Studio and run the `read_csv()` R command to read each CSV file and save it as a data frame in R:
 
 ```
 dailyActivity_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
@@ -113,10 +113,12 @@ Due to the smaller sample size from the `weightLogInfo_merged` data frame, we wi
 Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
 
 <h3><b>Data Cleaning</b></h2>
-Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
-<p>
+Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis:
+
 <br>
+          
 *  Use the `clean_names()` function to format column names to camelcase.
+
 ```
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
@@ -211,9 +213,11 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
  Max.   :275.00
 ```
 <br>
+
 <i>Some key numbers:</i>
 
 <br>
+
 *  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
 <br>
 *  <b>5.98</b> kilometers - the average distance walked per day. 
@@ -227,10 +231,11 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 *  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
 
 <br>
-We’ll use the installed `ggplot2` package to create several customizable graphs to help us visualize and establish different relationships and correlation between our sleep, activity level, step count, and calories burned dimensions. We’ll focus our visualizations on the key health indicators of Physical Activity (step count and moderate to vigorous activity), Sedentary Behaviour and Sleep. 
+
+<p>We’ll use the installed `ggplot2` package to create several customizable graphs to help us visualize and establish different relationships and correlation between our sleep, activity level, step count, and calories burned dimensions. We’ll focus our visualizations on the key health indicators of Physical Activity (step count and moderate to vigorous activity), Sedentary Behaviour and Sleep. </p>
 
 <br>
-<p><i>i) Physical Activity (Step Count)</i></p>
+<p><i><b>i) Physical Activity (Step Count)</b></i></p>
 Let’s take a look at the relationship between daily step count and daily calories burned. 
 
 <br>
@@ -362,8 +367,9 @@ We see a disproportionately high count of participants recording 0 minutes of mo
 
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
+
 <br>
-Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity.
+<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
@@ -390,15 +396,17 @@ Let’s take a look at the distribution of sedentary minutes in a day. The histo
 
 <br>
 From the histogram we see the most common range of sleep. It looks like there are more people sleeping less than the average. It looks like some people are sleeping significantly more than recommended, with 800 minutes (13.3 hours of sleep). We see that the distribution is slightly skewed to the right (?) Mean 419.2 minutes and median is 432.5 minutes We see the graph shows that that 50% of people get at least 7.21 hours of sleep.
+
 <br>
-
+<p>
 ![sleep](https://github.com/user-attachments/assets/c0bd916d-3834-4c3e-8571-741ff1c3e78d)
-
+</p>
 <br>
 Participants got the most hours of sleep on Sunday and Wednesday.
 Let’s explore the relationship between activity level and total minutes of sleep with these graphs where I’ve plotted the different intensity levels on the y-axis to the minutes of sleep on the left axis. Red (sedentary), purple (lightly active), blue (moderately active), and yellow (very active). Looking at the graphs, we can see a negative correlation between Sedentary Minutes and Sleep chart shows a positive correlation when mapping the minutes of very active minutes and sleep, and in the first graph we see that the more minutes a participant spends doing sedentary activity, the fewer minutes of sleep they get.
 
 <br>
+
 ![sedentary](https://github.com/user-attachments/assets/1ab3e6c1-0280-4987-a89b-7f99ddabc24d)
 
 ![lightly_sleep](https://github.com/user-attachments/assets/90986f51-c931-41bf-96d7-f3b519e6f8ef)
