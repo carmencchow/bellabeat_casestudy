@@ -177,6 +177,7 @@ daily_activity <- daily_activity %>%
 ```
 
 <br>
+
 After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
 
 ```
