@@ -190,4 +190,46 @@ daily_df <-
   )
 ```
 
+<h2>4. Analyze </h2>
+
+Now that we’ve finished cleaning our data, it’s time to move on to the analysis part of the process. We’ll run the `summary()` function to get an overview of our new dataset’s distribution: 
+
+```
+  total_steps    total_distance     calories    total_minutes_asleep
+ Min.   :    4   Min.   : 0.00   Min.   :  52   Min.   : 58.0       
+ 1st Qu.: 4923   1st Qu.: 3.37   1st Qu.:1856   1st Qu.:361.0       
+ Median : 8053   Median : 5.59   Median :2220   Median :432.5       
+ Mean   : 8319   Mean   : 5.98   Mean   :2361   Mean   :419.2       
+ 3rd Qu.:11092   3rd Qu.: 7.90   3rd Qu.:2832   3rd Qu.:490.0       
+ Max.   :36019   Max.   :28.03   Max.   :4900   Max.   :796.0       
+                                                NA's   :453
+```
+```
+ sedentary_minutes lightly_active_minutes fairly_active_minutes very_active_minutes
+ Min.   :   0.0    Min.   :  0.0          Min.   :  0.00        Min.   :  0.00     
+ 1st Qu.: 721.5    1st Qu.:146.5          1st Qu.:  0.00        1st Qu.:  0.00     
+ Median :1021.0    Median :208.0          Median :  8.00        Median :  7.00     
+ Mean   : 955.8    Mean   :210.0          Mean   : 14.78        Mean   : 23.02     
+ 3rd Qu.:1189.0    3rd Qu.:272.0          3rd Qu.: 21.00        3rd Qu.: 35.00     
+ Max.   :1440.0    Max.   :518.0          Max.   :143.00        Max.   :210.00     
+ moderate_vigorous_minutes
+ Min.   :  0.00           
+ 1st Qu.:  0.00           
+ Median : 26.00           
+ Mean   : 37.79           
+ 3rd Qu.: 61.00           
+ Max.   :275.00
+```
+<br>
+<i>Some key numbers:</i>
+*  <b>8,319</b> was the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
+*  <b>5.98</b> kilometers was the average distance walked per day. 
+*  On average, participants spent 210.0 minutes being lightly active,  <b>14.78</b> minutes being fairly active, and <b>23.02</b> minutes being very active for a total of 4.13 hours (or 247.8 minutes) of daily activity per day. 
+*  On average, participants spent <b>15.9 hours</b> (or 955.8 minutes) being sedentary. 
+*  <b>2,361</b> was the number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
+
+<br>
+We’ll use the installed `ggplot2` package to create several customizable graphs to help us visualize and establish different relationships and correlation between our sleep, activity level, step count, and calories burned dimensions. We’ll focus our visualizations on the key health indicators of Physical Activity (step count and moderate to vigorous activity), Sedentary Behaviour and Sleep. 
+
+
 
