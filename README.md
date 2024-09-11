@@ -31,7 +31,12 @@ includes data from 33  fitbit users who consented to the submission of personal 
 * Information about how long each participant wore their Fitbit is missing.
 * Demographic information pertaining to the ages of the participants is also missing. 
 
-<h3><b>R packages and libraries<b></h3>
+<h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing the following R packages and loading their libraries by running install.packages() and library() in R Studio.</p>
+
+<p align="center">
+  <img src="your_relative_path_here" width="350" title="hover text">
+  <img src="your_relative_path_here_number_2_large_name" width="350" alt="accessibility text">
+</p>
 
 
