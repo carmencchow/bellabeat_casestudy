@@ -171,6 +171,11 @@ daily_sleep <- daily_sleep %>%
 
 *  Exclude records that show 0 calories burned and 0 steps walked for entries which could indicate that the participant didn’t wear their Fitbit or the tracker was defective in capturing their step count and calories burned.
 
+```
+daily_activity <- daily_activity %>%
+  filter(calories > 0 & total_steps > 0)
+```
+
 <br>
 After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
 
