@@ -71,22 +71,16 @@ sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfit
 weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 ```
 
-<p>Check that the files have been imported correctly in the environment pane with `ls()`. We'll take a closer look at each data frame by using `head()` to return the first few rows:
+<p>Check that the files have been imported correctly in the environment pane with `ls()`. We'll take a closer look at each data frame by using `head()` to return the first few rows. Running `head(sleepDay_merged)`
 
 
 ```
- sedentary_minutes lightly_active_minutes fairly_active_minutes
- Min.   :   0.0    Min.   :  0.0          Min.   :  0.00       
- 1st Qu.: 721.5    1st Qu.:146.5          1st Qu.:  0.00       
- Median :1021.0    Median :208.0          Median :  8.00       
- Mean   : 955.8    Mean   :210.0          Mean   : 14.78       
- 3rd Qu.:1189.0    3rd Qu.:272.0          3rd Qu.: 21.00       
- Max.   :1440.0    Max.   :518.0          Max.   :143.00       
- very_active_minutes moderate_vigorous_minutes
- Min.   :  0.00      Min.   :  0.00           
- 1st Qu.:  0.00      1st Qu.:  0.00           
- Median :  7.00      Median : 26.00           
- Mean   : 23.02      Mean   : 37.79           
- 3rd Qu.: 35.00      3rd Qu.: 61.00           
- Max.   :210.00      Max.   :275.00
+          Id SleepDay              TotalSleepRecords TotalMinutesAsleep TotalTimeInBed
+       <dbl> <chr>                             <dbl>              <dbl>          <dbl>
+1 1503960366 4/12/2016 12:00:00 AM                 1                327            346
+2 1503960366 4/13/2016 12:00:00 AM                 2                384            407
+3 1503960366 4/15/2016 12:00:00 AM                 1                412            442
+4 1503960366 4/16/2016 12:00:00 AM                 2                340            367
+5 1503960366 4/17/2016 12:00:00 AM                 1                700            712
+6 1503960366 4/19/2016 12:00:00 AM                 1                304            320
 ```
