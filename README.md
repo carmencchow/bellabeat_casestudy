@@ -279,7 +279,7 @@ We would expect the order of the days to be identical or fairly similar to the d
 
 <br>
 
-Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame for it and perform the same data cleansing steps outlined in the <b>Process<b> part of this analysis. The data frame also has `33 id`s and using `head()` we’ll take a look at the first 6 rows.
+Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame for it and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. The data frame also has `33 id`s and using `head()` we’ll take a look at the first 6 rows.
 
 ```
           id activity_hour         step_total
