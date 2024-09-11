@@ -89,7 +89,8 @@ We can also use  `colnames()` to view the column headers for each data frame to 
 
 ```> colnames(weightLogInfo_merged)
 [1] "Id"             "Date"           "WeightKg"       "WeightPounds"   "Fat"           
-[6] "BMI"            "IsManualReport" "LogId"  ```
+[6] "BMI"            "IsManualReport" "LogId"  
+```
 
 Since each data frame has an `id` column that must be linked to a FitBit user, let's check  the number of unique ids which will indicate the number of actual participants in our sample group.  
 
@@ -111,4 +112,26 @@ Due to the smaller sample size from the `weightLogInfo_merged` data frame, we wi
 
 Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
 
+<h3><b>Data Cleaning</b></h2>
+Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
 
+*  Use the `clean_names()` function to format column names to camelcase.
+```daily_activity <- clean_names(dailyActivity_merged)
+daily_sleep <- clean_names(sleepDay_merged)```
+
+* Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.
+
+```
+daily_activity <- daily_activity %>%
+  rename(date = activity_date) %>%
+  mutate(date = as_date(date, format = "%m/%d/%Y")) %>%
+  mutate(weekday = weekdays(date)) %>% 
+  mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
+```
+
+*Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
+
+```daily_sleep <- daily_sleep %>%
+  separate(sleep_day, c("date", "hour"),sep = "^\\S*\\K") %>%
+  mutate(date = as.Date(date, format = "%m/%d/%Y"))
+```
