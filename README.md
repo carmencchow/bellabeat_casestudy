@@ -234,5 +234,131 @@ We’ll use the installed `ggplot2` package to create several customizable graph
 
 <br>
 
+<i>i) Physical Activity (Step Count)</i>
+Let’s take a look at the relationship between daily step count and daily calories burned. 
+
+<br>
 ![calories](https://github.com/user-attachments/assets/d77ea900-2d68-4e6d-9a6f-3674a9428630)
+
+Not surprisingly, the chart shows a strong positive correlation between calories burned and the number of steps walked, which iswhich is a good thing as step count has been linked to a reduction in mortality rates discussed in this journal article. Let’s see if the day of the week affects the step count.  
+
+<p>For general fitness and overall health, 10,000 steps is usually touted as the recommended number of steps for adults. Let’s see if the day of the week has any impact on our participants’ total daily step count.</p>
+
+```
+steps_by_day <- daily_df %>%
+  group_by(weekday) %>%
+  summarise(steps = sum(total_steps)) %>%
+  arrange(desc(steps))
+print(steps_by_day)
+```
+Tuesday seems to be the day in which users walked the most. 
+
+``
+# A tibble: 7 × 2
+  weekday     steps
+  <ord>       <dbl>
+1 Tuesday   1235001
+2 Wednesday 1133906
+3 Thursday  1088658
+4 Saturday  1010969
+5 Friday     938477
+6 Monday     933704
+7 Sunday     838921
+```
+
+![avcals](https://github.com/user-attachments/assets/349a9c82-c35f-45ea-8f9b-b7d40e23be91)
+
+We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. This is likely because the calories burned per day do not come only only from the calories burned from the total steps recorded, but also from other physical activity (which could include non-steps like swimming, calisthenics, or weight training etc.) which contribute to your daily calories burned but not your step count. Other calories burned in a day include your Basal Metabolic Rate (BMR) which is the number of calories your body needs to perform basic functions and NEAT or non-exercise activity thermogenesis, which is the calories burned through daily activity that does not include intentional physical exercise (e.g. fidgeting, cooking).  Although the average calories doesn’t differ greatly, Tuesdays and Saturdays edge out the other days with the most number of steps recorded. However, when we take into account that the difference between the highest average (2441) and the lowest average (2274) is a mere 167 steps and the average person walks around 100 steps per minute. 
+
+<br>
+Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame for it and perform the same data cleansing steps outlined in the <b>Process<b> part of this analysis. The data frame also has `33 id`s and using `head()` we’ll take a look at the first 6 rows.
+
+```
+# A tibble: 6 × 3
+          id activity_hour         step_total
+       <dbl> <chr>                      <dbl>
+1 1503960366 4/12/2016 12:00:00 AM        373
+2 1503960366 4/12/2016 1:00:00 AM         160
+3 1503960366 4/12/2016 2:00:00 AM         151
+4 1503960366 4/12/2016 3:00:00 AM           0
+5 1503960366 4/12/2016 4:00:00 AM           0
+6 1503960366 4/12/2016 5:00:00 AM           0
+```
+We will perform an additional step using the `separate()` function to split the `activity_hour` column into two separate columns, one for  `date` and one for `hour` which results in this table: 
+
+```
+# A tibble: 22,099 × 4
+           id date      hour           step_total
+        <dbl> <chr>     <chr>               <dbl>
+ 1 1503960366 4/12/2016 " 12:00:00 AM"        373
+ 2 1503960366 4/12/2016 " 1:00:00 AM"         160
+ 3 1503960366 4/12/2016 " 2:00:00 AM"         151
+ 4 1503960366 4/12/2016 " 3:00:00 AM"           0
+ 5 1503960366 4/12/2016 " 4:00:00 AM"           0
+ 6 1503960366 4/12/2016 " 5:00:00 AM"           0
+ 7 1503960366 4/12/2016 " 6:00:00 AM"           0
+ 8 1503960366 4/12/2016 " 7:00:00 AM"           0
+ 9 1503960366 4/12/2016 " 8:00:00 AM"         250
+10 1503960366 4/12/2016 " 9:00:00 AM"        1864
+```
+<br>
+Let’s take a look at the distribution of total steps taken among the 33 participants. We can see there were more than 90 records of users getting the 10,000 recommended daily steps. We have a right skewed graph due to a number of participants who took more than the average number of steps on certain days, with a number even logging an astounding more 30,000 steps which is more three times the recommended number.
+
+<br>
+![stepcount](https://github.com/user-attachments/assets/91c3218a-2fa3-4411-bde3-c5a0a7571845)
+
+<br>
+However, despite abnormally high number of steps from some above average active participants, we also see that 50% of participants are getting less than 8319 steps a day or less than the recommended daily step count. 
+Let’s see if the time of day has an affect on our participant’s activity levels by We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
+
+<br>
+```
+avg_steps <- hourly_steps %>%
+  group_by(hour) %>%
+  summarize(avg_steps = mean(step_total)) %>%
+  mutate(avg_steps = as.integer(avg_steps)) %>%
+  arrange(desc(avg_steps)) 
+```
+<br>
+And plotting the average number of steps to the time of day in hours shows:
+
+We see that the highest average number of steps was recorded between 5:00 and 7:00 PM, peaking at 6:00 PM with 599 average steps. With the next highest period of time being in the afternoon between 12–2 PM. We could speculate that these peaks in activity could coincide with lunchtime and after work workout/activity
+
+<br>
+![steps](https://github.com/user-attachments/assets/21f2fce5-c8c5-4b60-a8c2-1db7c7eceb85)
+
+<i><b>ii) Physical Activity (Moderate to Vigorous Activity)</b></i>
+Let’s shift our focus to physical activity levels and their effect on calories burned in a 24-hour period. 
+
+<br>
+![very](https://github.com/user-attachments/assets/0d294861-b0e4-4a90-8c07-badbf67ebf80)
+
+<br>
+![lightly](https://github.com/user-attachments/assets/6801e5d2-43b6-454e-b85d-ec6a363f7025)
+
+<br>
+![lightlyactive](https://github.com/user-attachments/assets/dce8958e-c635-4875-94c8-8c80e327e49b)
+
+<br>
+Beginning with the first scatterplot we can see a fairly strong positive relationship between the minutes of vigorous activity and total calories burned. In other words, calories burned increase with prolonged minutes of vigorous activity. Although the correlation is not as strong, we can see the positive impact even lightly vigorous activity has on calories burned. Examining the last graph, it is interesting to note that with the last scatterplot, there is a marked downturn after 1000 minutes of being sedentary.
+
+<br>
+Since the WHO’s recommendation calls for <b>150 to 300 minutes</b> of <i>moderate to vigorous aerobic activity</i> per week, we can combine the `fairly_active_minutes` and `very_active_minutes` columns into a new column called `moderate_vigorous_minutes`. We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month. Let’s view the updated summary statistics to include this new column and use it to see the effects of moderate to vigorous activity on calories burned. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
