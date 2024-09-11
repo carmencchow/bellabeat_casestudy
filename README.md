@@ -6,9 +6,9 @@
 <p>Bellabeat is a high-tech manufacturer of health-focused products for women.  Since it was founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women.  Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. Sršen knows that an analysis of Bellabeat’s available consumer data would reveal more opportunities for growth. She has asked the marketing analytics team to focus on a Bellabeat product and analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like high-level recommendations for how these trends can inform Bellabeat marketing strategy.</p>
 
 <h2>Stakeholders </h2>
-<p>*Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer</p>
-<p>*Sando Mur: Mathematician and Bellabeat’s cofounder; key member of the Bellabeat executive team </p>
-*Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. 
+* Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer
+* Sando Mur: Mathematician and Bellabeat’s cofounder; key member of the Bellabeat executive team 
+* Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. 
 
 <h2>1. Ask</h2>
 <h3><b>Business Task</b></h3>
@@ -114,24 +114,27 @@ Below is a summary of the data cleansing steps we’ll conduct to transform our 
 
 <h3><b>Data Cleaning</b></h2>
 Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
+<br>
 
 *  Use the `clean_names()` function to format column names to camelcase.
 ```daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)```
 
+<br>
 * Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.
 
-```
-daily_activity <- daily_activity %>%
+```daily_activity <- daily_activity %>%
   rename(date = activity_date) %>%
   mutate(date = as_date(date, format = "%m/%d/%Y")) %>%
   mutate(weekday = weekdays(date)) %>% 
   mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
 ```
-
+<br>
 *Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
 
-```daily_sleep <- daily_sleep %>%
+```
+daily_sleep <- daily_sleep %>%
   separate(sleep_day, c("date", "hour"),sep = "^\\S*\\K") %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
+
 ```
