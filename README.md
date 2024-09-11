@@ -366,7 +366,7 @@ We see a disproportionately high count of participants recording 0 minutes of mo
 <br>
 Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity.
 
-![sed_cals](https://github.com/user-attachments/assets/83bb06d7-9baa-436f-9fad-354cd6d287d5)
+![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
 <b><i>iv) Sleep</i></b>
 <p>Just like our exploration of activity levels and the day of the week, let’s see if sleep patterns are consistent throughout the week. Once again, we’ll use `summary()` to get an overview of the distribution of sleep times from our `daily_df` data frame. </p>
