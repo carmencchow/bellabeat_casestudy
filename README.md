@@ -74,18 +74,19 @@ weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mtu
 <p>Check that the files have been imported correctly in the environment pane with `ls()`. We'll take a closer look at each data frame by using `head()` to return the first few rows:
 
 
-# Displaying a Tibble in R
-
-Here is an example of a tibble in R:
-
-```r
-library(tibble)
-
-# Create a simple tibble
-my_tibble <- tibble(
-  name = c("Alice", "Bob", "Carol"),
-  age = c(30, 25, 35),
-  score = c(95, 88, 92)
-)
-
-my_tibble
+```
+ sedentary_minutes lightly_active_minutes fairly_active_minutes
+ Min.   :   0.0    Min.   :  0.0          Min.   :  0.00       
+ 1st Qu.: 721.5    1st Qu.:146.5          1st Qu.:  0.00       
+ Median :1021.0    Median :208.0          Median :  8.00       
+ Mean   : 955.8    Mean   :210.0          Mean   : 14.78       
+ 3rd Qu.:1189.0    3rd Qu.:272.0          3rd Qu.: 21.00       
+ Max.   :1440.0    Max.   :518.0          Max.   :143.00       
+ very_active_minutes moderate_vigorous_minutes
+ Min.   :  0.00      Min.   :  0.00           
+ 1st Qu.:  0.00      1st Qu.:  0.00           
+ Median :  7.00      Median : 26.00           
+ Mean   : 23.02      Mean   : 37.79           
+ 3rd Qu.: 35.00      3rd Qu.: 61.00           
+ Max.   :210.00      Max.   :275.00
+```
