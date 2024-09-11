@@ -72,3 +72,20 @@ weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mtu
 ```
 
 <p>Check that the files have been imported correctly in the environment pane with `ls()`. We'll take a closer look at each data frame by using `head()` to return the first few rows:
+
+
+# Displaying a Tibble in R
+
+Here is an example of a tibble in R:
+
+```r
+library(tibble)
+
+# Create a simple tibble
+my_tibble <- tibble(
+  name = c("Alice", "Bob", "Carol"),
+  age = c(30, 25, 35),
+  score = c(95, 88, 92)
+)
+
+my_tibble
