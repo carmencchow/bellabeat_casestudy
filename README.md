@@ -258,7 +258,7 @@ print(steps_by_day)
 ```
 Tuesday seems to be the day in which users walked the most. 
 
-``
+```
   weekday     steps
   <ord>       <dbl>
 1 Tuesday   1235001
@@ -315,7 +315,7 @@ Let’s take a look at the distribution of total steps taken among the 33 partic
 
 <br>
 
-![stepcount](https://github.com/user-attachments/assets/91c3218a-2fa3-4411-bde3-c5a0a7571845)
+![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
 
 <br>
 
@@ -340,7 +340,7 @@ We see that the highest average number of steps was recorded between 5:00 and 7:
 
 <br>
 
-![steps](https://github.com/user-attachments/assets/21f2fce5-c8c5-4b60-a8c2-1db7c7eceb85)
+![steps](https://github.com/user-attachments/assets/f0ca58e4-d9d4-44c7-8125-d3f841aee601)
 
 <i><b>ii) Physical Activity (Moderate to Vigorous Activity)</b></i>
 Let’s shift our focus to physical activity levels and their effect on calories burned in a 24-hour period. 
