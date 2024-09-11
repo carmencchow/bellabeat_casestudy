@@ -71,7 +71,7 @@ sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfit
 weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 ```
 
-<p>Check that the files have been imported correctly in the environment pane with `ls()`. We'll take a closer look at each data frame by using `head()` to return the first few rows. Running `head(sleepDay_merged)`
+<p>Check that the files have been imported correctly in the environment pane with ```ls()```. We'll take a closer look at each data frame by using ```head()``` to return the first few rows. Running ```head(sleepDay_merged)```
 
 
 ```
@@ -84,3 +84,9 @@ weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mtu
 5 1503960366 4/17/2016 12:00:00 AM                 1                700            712
 6 1503960366 4/19/2016 12:00:00 AM                 1                304            320
 ```
+
+<p>We can also use  ```colnames()``` to view the column headers for each data frame to check if there are any formatting issues that need to be addressed. We can see that column names in the ```weightLogInfo_merged``` data frame will need to be changed from camel case to snake case to align with R’s naming conventions.</p>
+
+```> colnames(weightLogInfo_merged)
+[1] "Id"             "Date"           "WeightKg"       "WeightPounds"   "Fat"           
+[6] "BMI"            "IsManualReport" "LogId"  ```
