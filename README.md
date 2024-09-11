@@ -423,4 +423,7 @@ Let’s summarize our results for the four metrics before making our recommendat
 *  50% of participants are sedentary for more than 15.9 hours a day.
 *  50% of participants get less than 26 minutes of moderate to vigorous activity a day while a startling high number of participants recorded 300 counts of <i>0 minutes of moderate to vigorous activity</i> or roughly ⅓ of the month.
 
+<h2>5. Share</h2>
+Link to the Google Slide deck here: 
+
 <h2>6. Act</h2>
