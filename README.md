@@ -34,7 +34,7 @@ includes data from 33  fitbit users who consented to the submission of personal 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing the following R packages and loading their libraries by running install.packages() and library() in R Studio.</p>
 
-`# install packages
+```# install packages
 install.packages("tidyverse")
 install.packages("dplyr")
 install.packages("ggplot2")
@@ -50,5 +50,5 @@ library(ggplot2)
 library(tidyr)
 library(janitor)
 library(readr)
-library(lubridate)`
+library(lubridate)```
 `
