@@ -361,8 +361,6 @@ Let’s shift our focus to physical activity levels and their effect on calories
 
 Beginning with the first scatterplot we can see a fairly strong positive relationship between the minutes of vigorous activity and total calories burned. In other words, calories burned increase with prolonged minutes of vigorous activity. Although the correlation is not as strong, we can see the positive impact even lightly vigorous activity has on calories burned. Examining the last graph, it is interesting to note that with the last scatterplot, there is a marked downturn after 1000 minutes of being sedentary.
 
-<br>
-
 Since the WHO’s recommendation calls for <b>150 to 300 minutes</b> of <i>moderate to vigorous aerobic activity</i> per week, we can combine the `fairly_active_minutes` and `very_active_minutes` columns into a new column called `moderate_vigorous_minutes`. We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month. Let’s view the updated summary statistics to include this new column and use it to see the effects of moderate to vigorous activity on calories burned. 
 
 
