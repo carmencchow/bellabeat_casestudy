@@ -87,14 +87,14 @@ We'll use `ls()` to check that the files have been correctly imported into the e
 6 1503960366 4/19/2016 12:00:00 AM                 1                304            320
 ```
 
-We'll use `colnames()` to view the column headers to check if there are any formatting issues that need to be addressed. We can see that column names in the `weightLogInfo_merged` data frame will need to be changed from camel case to snake case to align with R’s naming conventions.
+We'll use `colnames()` to view the column headers to check if there are any formatting issues that need to be addressed. We can see that column names in the `weightLogInfo_merged` data frame need to be changed from camel case to snake case to align with R’s naming conventions.
 
 ```> colnames(weightLogInfo_merged)
 [1] "Id"             "Date"           "WeightKg"       "WeightPounds"   "Fat"           
 [6] "BMI"            "IsManualReport" "LogId"  
 ```
 
-Since each data frame has an `id` column that must be linked to a Fitbit user, let's check  the number of unique ids which will indicate the number of participants in our sample group.  
+Each Fitbit should have a unique `id`. Let's see if that's the case. 
 
 ```
 activity_ids <- n_distinct(dailyActivity_merged$Id)
@@ -110,20 +110,20 @@ print(weight_ids)
 [1] 8
 ```
 
-Due to the smaller sample size from the `weightLogInfo_merged` data frame, we will not be joining it to the other data sets to avoid sampling bias.
+We have 33 users in the dailyActivity data frame, 24 in the sleepDay one, and only 8 in the weightLogInfo data frame. Due to the smaller sample size of the last data frame, we will not use it moving forward to avoid sampling bias.
 
-Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
+Below is a summary of the data cleansing we'll conduct to clean and transform our raw, unclean data.
 
 <h3><b>Data Cleaning</b></h2>
 
-*  Use the `clean_names()` function to format column names to camelcase.
+*  Use the `clean_names()` function to format column names to snake_case.
 
 ```
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 ```
           
-*  Use `as_Date()` function to format dates from a string data type to a Date object. Use `weekdays()` to extract the day of the week and assign it to a new variable named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
+*  Use `as_Date()` function to format dates from a string data type to a Date object. Use `weekdays()` to extract the day of the week and assign it to a new variable named `weekday`. Use the `ordered()` function to create an ordered factor to order the days chronologically instead of alphabetically.</p>
 
 ```
 daily_activity <- daily_activity %>%
@@ -133,7 +133,7 @@ daily_activity <- daily_activity %>%
   mutate(weekday = ordered(weekday, levels=c("Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday", "Sunday")))
 ```
 
-*  Split the `sleep_day column` in the daily_sleep data frame into an `hour` column and a `date` column.
+*  Split the `sleep_day column` into `hour` and `date` columns.
 
 ```
 daily_sleep <- daily_sleep %>%
@@ -160,7 +160,7 @@ daily_sleep <- daily_sleep %>%
   distinct() %>%
   drop_na()
 ```
-*  Exclude records that show 0 calories burned and 0 steps. These results could be due to participants failing to wear their tracker or and indication that the tracker was defective in capturing their step count and calories burned on that day.
+*  Exclude records that show 0 calories burned and 0 steps taken. These results could be due to participants failing to wear their tracker on that day. 
 
 ```
 daily_activity <- daily_activity %>%
@@ -169,7 +169,7 @@ daily_activity <- daily_activity %>%
 
 <br>
 
-After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all the rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
+After processing our data, we are now ready to merge the data frames to better understand the relationships between different dimensions such as sleep, activity level, and total steps. We'll perform a `merge()` based on the common `id` and `date` columns. This will be a left join, resulting in the inclusion of all the rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
 
 ```
 daily_df <-
@@ -215,13 +215,13 @@ Let's run the `summary()` function to get an overview of our new dataset’s dis
 
 <i>Key takeaways:</i>
 <p>
-*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
-*  <b>5.98</b> kilometers - the average distance walked per day. 
-*  <b>210.0</b> - the average number of minutes being lightly active  
-*  <b>14.78</b> - the average number of minutes being fairly active 
-*  <b>23.02</b> - the average number of minutes being very active 
-*  <b>15.9 hours</b> (or 955.8 minutes) - the average amount of time spent sedentary.
-*  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
+<p>*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
+<p>*  <b>5.98</b> kilometers - the average distance walked per day. 
+<p>*  <b>210.0</b> - the average number of minutes being lightly active  
+<p>*  <b>14.78</b> - the average number of minutes being fairly active 
+<p>*  <b>23.02</b> - the average number of minutes being very active 
+<p>*  <b>15.9 hours</b> (or 955.8 minutes) - the average amount of time spent sedentary.
+<p>*  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
 
 <br>
 
