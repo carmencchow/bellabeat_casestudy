@@ -225,23 +225,31 @@ Let's run the `summary()` function to get an overview of our new dataset’s dis
 ```
 <br>
 
-<i>Key takeaways:</i>
-<p>
-<p>*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
-<p>*  <b>5.98</b> kilometers - the average distance walked per day. 
-<p>*  <b>210.0</b> - the average number of minutes being lightly active  
-<p>*  <b>14.78</b> - the average number of minutes being fairly active 
-<p>*  <b>23.02</b> - the average number of minutes being very active 
-<p>*  <b>15.9 hours</b> (or 955.8 minutes) - the average amount of time spent sedentary.
-<p>*  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
+<i><b>Key takeaways:</b></i>
+
+*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
+
+*  <b>5.98</b> kilometers - the average distance walked per day. 
+
+*  <b>210.0</b> - the average number of minutes being lightly active  
+
+*  <b>14.78</b> - the average number of minutes being fairly active 
+
+*  <b>23.02</b> - the average number of minutes being very active 
+
+*  <b>15.9 hours</b> (or 955.8 minutes) - the average time spent sedentary.
+
+*  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
 
 <br>
 
-We’ll use the installed `ggplot2` package to create several graphs to help us visualize and determine if there are positive or negative relationships between different variables. 
+We’ll use the installed `ggplot2` package to create visualization of our data that will help us determine if there are positive or negative relationships between different variables. 
+
+<br>
 
 <p><i><b>i) Physical Activity (Step Count)</b></i></p>
 Let’s take a look at the relationship between daily step count and daily calories burned. 
-
+<br>
 <p>
 
 ![calories](https://github.com/user-attachments/assets/d77ea900-2d68-4e6d-9a6f-3674a9428630)
