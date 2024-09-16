@@ -28,9 +28,9 @@ We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit us
           
 <h3><b>Data Limitations</b></h3>
 <p>*  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8.</p>
-<p>*  The data is over 8 years old therefore no longer current. 
+<p>*  The data is over 8 years old and therefore no longer current. 
 <p>*  Details on how long participants wore their Fitbit throughout the day are missing. </p>
-<p>*  Key information pertaining to the age, gender, height and overall health of the participants is also missing.</p>
+<p>*  Key information, such as the age, gender, and overall health of the participants, is also missing.</p>
 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
@@ -55,13 +55,14 @@ library(readr)
 library(lubridate)
 ```
 
-Out of the 18 available files, we’ll focus our attention on 3 files. The other files either contain information outside the scope of the Business Task or duplicate data from `dailyActivity_merged.csv`.
+Out of the 18 available files, we’ll focus on 3. The remaining files either contain information outside the scope of the Business Task or duplicate data that is already found in `dailyActivity_merged.csv`.
 
-```dailyActivity_merged.csv```
-```sleepDay_merged.csv```
-```weightLogInfo_merged.csv```
+```
+dailyActivity_merged.csv
+sleepDay_merged.csv
+weightLogInfo_merged.csv
 
-
+```
 
 <h2>Process</h2>
 In R Studio we'll read and save each CSV file as a data frame:
