@@ -114,8 +114,6 @@ Below is a summary of the data cleansing steps we’ll conduct to transform our 
 
 <h3><b>Data Cleaning</b></h2>
 
-<br>
-          
 *  Use the `clean_names()` function to format column names to camelcase.
 
 ```
@@ -123,7 +121,7 @@ daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 ```
           
-*  Use the `as_Date()` function to format dates from a string data type to a Date object. Then use the `weekdays()` function to extract the day of the week from it and assign it to a new column named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
+*  Use `as_Date()` function to format dates from a string data type to a Date object. Use `weekdays()` to extract the day of the week and assign it to a new variable named `weekday`. Use the `ordered()` function to create an ordered factor where the days are ordered chronologically instead of alphabetically.</p>
 
 ```
 daily_activity <- daily_activity %>%
@@ -141,7 +139,7 @@ daily_sleep <- daily_sleep %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 ```
 
-*  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep. We will subtract `total_minutes_asleep` from `total_time_in_bed`.
+*  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep by subtracting `total_minutes_asleep` from `total_time_in_bed`.
 
 ```
 daily_sleep <- daily_sleep %>%
@@ -183,7 +181,7 @@ daily_df <-
 
 <h2>4. Analyze </h2>
 
-Now that we’ve finished cleaning our data, it’s time to move on to the analysis part of the process. We’ll run the `summary()` function to get an overview of our new dataset’s distribution: 
+Let's run the `summary()` function to get an overview of our new dataset’s distribution: 
 
 ```
   total_steps    total_distance     calories    total_minutes_asleep
@@ -213,25 +211,20 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 ```
 <br>
 
-<i>Key numbers:</i>
-
-<br>
-
+<i>Key takeaways:</i>
+<p>
 *  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
 *  <b>5.98</b> kilometers - the average distance walked per day. 
 *  <b>210.0</b> - the average number of minutes being lightly active  
 *  <b>14.78</b> - the average number of minutes being fairly active 
 *  <b>23.02</b> - the average number of minutes being very active 
-<br>
-*  <b>15.9 hours</b> (or 955.8 minutes) - the average amount of time spent sedentary. 
-<br>
+*  <b>15.9 hours</b> (or 955.8 minutes) - the average amount of time spent sedentary.
 *  <b>2,361</b> - the average number of calories burned per day, which equates to approximately 98.3 calories burned per hour.
 
 <br>
 
-<p>We’ll use the installed `ggplot2` package to create several customizable graphs to help us visualize and establish different relationships and correlation between our sleep, activity level, step count, and calories burned dimensions. We’ll focus our visualizations on the key health indicators of Physical Activity (step count and moderate to vigorous activity), Sedentary Behaviour and Sleep. </p>
+We’ll use the installed `ggplot2` package to create several graphs to help us visualize and determine if there are positive or negative relationships between different variables. 
 
-<br>
 <p><i><b>i) Physical Activity (Step Count)</b></i></p>
 Let’s take a look at the relationship between daily step count and daily calories burned. 
 
@@ -265,12 +258,14 @@ Tuesday seems to be the day when Fitbit users walked the most.
 ```
 <br>
 
-Let's take a look at average calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. This is likely because the calories burned per day do not come from the calories burned from the total steps recorded, but also from other physical activity (which could include non-steps like swimming, calisthenics, or weight training etc.), as well as your Basal Metablolic Rate (BMR),  which is the number of calories your body needs to perform basic functions and <b>NEAT</b> or <i>non-exercise activity thermogenesis</i>, which is the calories burned through daily activity that does not include intentional physical exercise, like fidgeting.
+Let's take a look at average calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. Why?
+
+Calories burned is likely an aggregate of calories burned through physical activity (step and non-step activities like swimming or weight training), calories burned while performing basic funcions (Basal Metabolic Rate), and calories burned through non-exercise activity thermogenesis (NEAT) like fidgeting. 
 
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
-Although the average calories don't change much, Tuesday and Saturday edge out the other days with the most number of steps recorded. However, when we take into account that the difference between the highest average, <i>2441</i> and the lowest average, <i>2274</i> is a mere 167 steps and the average person walks around 100 steps per minute. 
+Although the average calories don't change much day to day, our data shows a slight increase in calories burned on Tuesday and Saturday. 
 
 Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. We see that the `hourlySteps_merged` data frame also has `33 id`s. Let's examine the first 6 rows.
 
