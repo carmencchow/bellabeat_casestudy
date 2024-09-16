@@ -254,9 +254,7 @@ Let’s take a look at the relationship between daily step count and daily calor
 
 ![calories](https://github.com/user-attachments/assets/d77ea900-2d68-4e6d-9a6f-3674a9428630)
 
-As expected, the chart shows a strong positive correlation between calories burned and the number of steps walked. We can understand why walking 10,000 steps a day is widely recommended due to it's calorie-burning ability(?) which has positive health benefits like reversing heart disease (article link).
-
-Let’s see if the day of the week has any impact on our participants’ total daily step count.</p>
+As expected, the chart shows a strong positive correlation between calorie expenditure and step count. This supports the recommendation to walk 10,000 steps a day due to its calorie-burning benefits. Next, let's examine whether the day of the week impacts our participants’ total daily step count.</p>
 
 ```
 steps_by_day <- daily_df %>%
@@ -265,7 +263,7 @@ steps_by_day <- daily_df %>%
   arrange(desc(steps))
 print(steps_by_day)
 ```
-Tuesday seems to be the day when Fitbit users walked the most. 
+Tuesday appears to be the day when Fitbit users walked the most. 
 
 ```
   weekday     steps
@@ -280,14 +278,12 @@ Tuesday seems to be the day when Fitbit users walked the most.
 ```
 <br>
 
-Let's take a look at average calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. Why?
-
-Calories burned is likely an aggregate of calories burned through physical activity (step and non-step activities like swimming or weight training), calories burned while performing basic funcions (Basal Metabolic Rate), and calories burned through non-exercise activity thermogenesis (NEAT) like fidgeting. 
+Let's take a look at calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step counts. In fact, with the exception of Tuesday, they aren’t. This is likely because calories burned is an aggregate of several factors: calories burned through physical activity (including steps walked and non-step activities like swimming or weight training), calories burned while performing basic funcions (Basal Metabolic Rate), and calories burned through non-exercise activity thermogenesis, such as fidgeting. 
 
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
-Although the average calories don't change much day to day, our data shows a slight increase in calories burned on Tuesday and Saturday. At this point, we'll bring in the `hourlySteps_merged.csv` to see if there are any hourly trends that show when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. We see that the `hourlySteps_merged` data frame also has `33 id`s. Let's examine the first 6 rows.
+Although the average calories burned don't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. At this point, we'll bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. We see that the `hourlySteps_merged` data frame also includes `33 id`s. Let's examine the data frame's first 6 rows.
 
 ```
           id activity_hour         step_total
@@ -300,7 +296,7 @@ Although the average calories don't change much day to day, our data shows a sli
 6 1503960366 4/12/2016 5:00:00 AM           0
 ```
 
-We'll perform an additional cleaning step using the `separate()` function to split the `activity_hour` column into two separate columns, one for  `date` and one for `hour`:  
+We'll perform an additional cleaning step using the `separate()` function to split the `activity_hour` column into two separate columns: `date` and `hour`.  
 
 ```
            id date      hour           step_total
@@ -317,13 +313,13 @@ We'll perform an additional cleaning step using the `separate()` function to spl
 10 1503960366 4/12/2016 " 9:00:00 AM"        1864
 ```
 
-Now, we'll take a look at the distribution of total steps taken among the 33 participants. We can see there were more than 90 records of users getting the 10,000 recommended daily steps from 2016-04-12 to 2016-05-12. Graphing the frequency of steps taken results in a right skewed graph due to a number of participants who took more than the average number of steps on certain days, with a participant even logging nearly 36,000 steps in a single day, which is more three times the recommended number.
+Now, we'll take a look at the distribution of total steps taken among the 33 participants. There are over 90 records of users getting the recommended 10,000 daily steps between 2016-04-12 and 2016-05-12. Graphing the frequency of steps taken results in a right-skewed graph due to a number of participants who took more than the average number of steps on certain days, with one participant's tracker recording nearly 36,000 steps in a single day, which is more three times the recommended number.
 
 ![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
 
-Despite the high step count from these highly active participants, notice that 50% of participants are getting less than 8,319 steps a day or less than the recommended daily step count of 10,000 steps.
+Despite the high step counts from these highly active participants, 50% of participants got fewer than 8,319 steps a day, which is below the recommended daily step count of 10,000 steps.
 
-Let's see when the participants are walking the most in a day. We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
+Let's see when participants are walking the most during the day. We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
 
 
 ```
@@ -336,7 +332,7 @@ avg_steps <- hourly_steps %>%
 
 <br>
 
-We see that the highest average step count is between 5pm and 7pm, peaking at 6 pm with 599 average steps. The next period of high step count happens in the afternoon between 12 and 2 pm. 
+We see that the highest average step count was between 5pm and 7pm, peaking at 6 pm with 599 average steps. The next period of high step count happens in the afternoon between 12 and 2 pm. 
 
 
 <br>
@@ -360,9 +356,9 @@ We see that the highest average step count is between 5pm and 7pm, peaking at 6 
 
 <br>
 
-Beginning with the first scatterplot, we can see a strong positive correlation between minutes of vigorous activity and total calories burned. We can expect people who spend more time participating in vigorou s activity to generally burn more calories throughout the day. Although  not as strong, the positive correlation continues even for light activities. With sedentary behavior, the positive correlation experiences a marked downtown after 1000 minutes sedentary activity.
+Beginning with the first scatterplot, we see a strong positive correlation between minutes of vigorous activity and total calories burned. We can expect people who spend more time participating in vigorous activity to burn more calories throughout the day. Although  the correlation is not as strong, a positive relationship also exists for light activities. Surprisingly, the correlation between sedentary minutes and calories burned only appears negative after 1,000 minutes of sedentary activity.
 
-Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to vigorous aerobic activity per week</b>, we'll create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes together.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month. We'll also view the updated summary statistics to include this new column. 
+Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to vigorous aerobic activity per week</b>, we'll create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month and review the updated summary statistics to include this new column. 
 
 ```  
  very_active_minutes moderate_vigorous_minutes
@@ -376,7 +372,7 @@ Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to 
 
 ![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
-We see a worryingly disproportionately high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Since our data looks at 33 participants over 4 weeks, these equates to roughly <b>one-third of the month!</b>
+We see a worryingly high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month!</b>
 
 ```
 33 participants x 7 days a week x 4 weeks = 924 total occasions in a month
