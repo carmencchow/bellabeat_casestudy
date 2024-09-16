@@ -386,7 +386,7 @@ Let’s see what the data tells us about our participants sleep patterns and whe
  Max.   :796.0        Max.   :961.0     Max.   :371.00  
  NA's   :453          NA's   :453       NA's   :453
 ```
-<i>Key Numbers</i> 
+<i>Key takeaways</i> 
 *  <b>6.9 hours</b> (or 419.5 minutes) - the average sleep time.
 *  <b>39.17 mins</b> - the average time needed to fall asleep.
 *  25% of participants are sleeping <b>6 hours</b> or less (361 minutes or less). 
@@ -395,11 +395,13 @@ Let’s see what the data tells us about our participants sleep patterns and whe
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
 <br>
-From the histogram we see the most common range of sleep. It looks like there are more people sleeping less than the average. It looks like some people are sleeping significantly more than recommended, with 800 minutes (13.3 hours of sleep). We see that the distribution is slightly skewed to the right (?) Mean 419.2 minutes and median is 432.5 minutes We see the graph shows that that 50% of people get at least 7.21 hours of sleep.
+The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. Half of the participants are not getting the recommended minimum, while a few are getting more than 9 hours.
 
 <br>
 <p>
+
 ![sleep](https://github.com/user-attachments/assets/c0bd916d-3834-4c3e-8571-741ff1c3e78d)
+
 </p>
 <br>
 Participants got the most hours of sleep on Sunday and Wednesday.
@@ -427,4 +429,4 @@ Let’s summarize our results for the four metrics before making our recommendat
 Link to the Google Slide deck here: 
 
 <h2>6. Act</h2>
-https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/how-many-hours-of-sleep-are-enough/faq-20057898
+National Sleep Foundation https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
