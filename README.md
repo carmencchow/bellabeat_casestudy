@@ -354,7 +354,7 @@ Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to 
 
 ![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
-We see a worryingly disproportionately high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Since our data looks at 33 participants over 4 weeks, these equates to roughly <b>1/3 of the month!</b>
+We see a worryingly disproportionately high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Since our data looks at 33 participants over 4 weeks, these equates to roughly <b>one-third of the month!</b>
 
 ```
 33 participants x 7 days a week x 4 weeks = 924 total occasions in a month
@@ -362,14 +362,10 @@ We see a worryingly disproportionately high count of participants recording 0 mi
 300/924 x 100 = 32.47%
 ```
 
-Considering our sample size of 33 Fitbit users and
-
-With a frequency of 300 for 33 users across the span of a month, this translates to ⅓ of the time! With the median being 26 minutes and the mean is 37.8 minutes. This tells us that 50% of the participants have 26 minutes or less of moderate to vigorous activity with the average time being 37.8 minutes. We have a right-skewed, while there are a few participants with significantly higher activity times compared to the rest, there is a huge number of participants who get 0 minutes a day!
+Our right-skewed histogram show several occasions when participants had hours of moderate to vigorous activity, however the histogram also tells us that 50% of the participants had 26 minutes or less of moderate to vigorous activity with the average time being 37.8 minutes. 
 
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
-
-<br>
 <p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
