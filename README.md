@@ -12,25 +12,25 @@
 
 <h2>Ask</h2>
 <h3><b>Business Task</b></h3>
-Analyze smart device fitness data to gain insight into trends that can be applied to Bellabeat customers. 
+Analyze smart device fitness data to gain insights into trends that can be applied to Bellabeat customers. 
 
 <h2>Prepare</h2>
 
 <h3><b>Data Source</b></h3>
-We will look at publicly available FitBit Fitness Tracker Data from 33 fitbit users who consented to the submission of personal tracker data, including information about daily physical activity, steps, calories burned, and sleep monitoring. The dataset is provided under the Mobius license and consists of 18 wide format CSV files of anonymized user information. Link to data: https://www.kaggle.com/arashnic/fitbit)
+We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit users who consented to the submission of personal tracker data. The data points include daily physical activity, step count, calories burned, and hours slept. The dataset, provided under the Mobius license, consists of 18 wide format CSV files of anonymized user information. Link to data: https://www.kaggle.com/arashnic/fitbit .
 
 <h3><b>Data Bias and Credibility. Does it ROCCC?</b></h3>
-<p><b>R</b>eliable - Low, data is from only 30 participants.
-<p><b>O</b>riginal - Low, data is collected by a third party provider - Amazon Mechanical Turk
-<p><b>C</b>omprehensive - Medium, 
-<p><b>C</b>urrent - Low, data is from 8 years ago (2016).
-<p><b>C</b>ited - Low, data is available by Mobius via Kaggle
+<p><b>R</b>eliable - Low; the data is from only 30 participants
+<p><b>O</b>riginal - Low; the data was collected by a third-party provider, Amazon Mechanical Turk
+<p><b>C</b>omprehensive - Medium, various data points unavailable (e.g. fitness level, age, gender ...)  
+<p><b>C</b>urrent - Low; the data is from April to May 2016, making it over 8 years old.
+<p><b>C</b>ited - Low; the dataset is available via Mobius on Kaggle
           
 <h3><b>Data Limitations</b></h3>
-<p>*  Some of the data sets have a sample size of 33 FitBit users, while the data for weight had an even smaller sample size of 8.</p>
-<p>*  Data is 8 years old there not current. It covers a one month period from 2016-04-12 to 2016-05-12.</p>
-<p>*  Details on the length of time participants wore their Fitbit throughout the day is missing. </p>
-<p>*  Pertinet information about participant's age, Demographic information pertaining to the ages of the participants is also missing.</p>
+<p>*  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8.</p>
+<p>*  The data is over 8 years old therefore no longer current. 
+<p>*  Details on how long participants wore their Fitbit throughout the day are missing. </p>
+<p>*  Key information pertaining to the age, gender, height and overall health of the participants is also missing.</p>
 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
@@ -92,7 +92,7 @@ We'll use `colnames()` to view the column headers to check if there are any form
 [6] "BMI"            "IsManualReport" "LogId"  
 ```
 
-Since each data frame has an `id` column that must be linked to a FitBit user, let's check  the number of unique ids which will indicate the number of participants in our sample group.  
+Since each data frame has an `id` column that must be linked to a Fitbit user, let's check  the number of unique ids which will indicate the number of participants in our sample group.  
 
 ```
 activity_ids <- n_distinct(dailyActivity_merged$Id)
