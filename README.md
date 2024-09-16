@@ -395,7 +395,7 @@ Let’s see what the data tells us about our participants sleep patterns and whe
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
 <br>
-The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. Half of the participants are not getting the recommended minimum, while a few are getting more than 9 hours.
+The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. Half of the participants are not getting the recommended minimum, while a few are getting more than 9 hours. They also sleep longer on the weekend and Wednesday.
 
 <br>
 <p>
@@ -404,10 +404,8 @@ The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults 
 
 </p>
 <br>
-Participants got the most hours of sleep on Sunday and Wednesday.
-Let’s explore the relationship between activity level and total minutes of sleep with these graphs where I’ve plotted the different intensity levels on the y-axis to the minutes of sleep on the left axis. Red (sedentary), purple (lightly active), blue (moderately active), and yellow (very active). Looking at the graphs, we can see a negative correlation between Sedentary Minutes and Sleep chart shows a positive correlation when mapping the minutes of very active minutes and sleep, and in the first graph we see that the more minutes a participant spends doing sedentary activity, the fewer minutes of sleep they get.
 
-<br>
+Let's see the impact of different activity levels on total minutes of sleep visualized in the following 4 scatterplots:
 
 ![sedentary](https://github.com/user-attachments/assets/1ab3e6c1-0280-4987-a89b-7f99ddabc24d)
 
@@ -416,6 +414,10 @@ Let’s explore the relationship between activity level and total minutes of sle
 ![farily](https://github.com/user-attachments/assets/b2d70e34-8818-48a6-88b5-1f28a6bae33f)
 
 ![very_sleep](https://github.com/user-attachments/assets/436e1782-e8a1-4865-af88-ada47368367d)
+
+
+These with these graphs where I’ve plotted the different intensity levels on the y-axis to the minutes of sleep on the left axis. Red (sedentary), purple (lightly active), blue (moderately active), and yellow (very active). Looking at the graphs, we can see a negative correlation between Sedentary Minutes and Sleep chart shows a positive correlation when mapping the minutes of very active minutes and sleep, and in the first graph we see that the more minutes a participant spends doing sedentary activity, the fewer minutes of sleep they get.
+
 
 <b>Final Summary</b>
 Let’s summarize our results for the four metrics before making our recommendations to the marketing team:
