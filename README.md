@@ -1,5 +1,4 @@
-<h1>Bellabeat Case Study</h1> ![logo](https://github.com/user-attachments/assets/e4887522-d3ca-4d89-ba3b-0d095aa1a8f0)
-
+<h1>Bellabeat Case Study</h1> 🚶🏾‍♀️🚶⌚
 <p>Carmen Chow</p> 
 <p>September 2024</p>
 
@@ -34,9 +33,10 @@ We will look at publicly available FitBit Fitness Tracker Data from 33 fitbit us
 <p>*  Pertinet information about participant's age, Demographic information pertaining to the ages of the participants is also missing.</p>
 
 <h3><b>R packages and libraries</b></h3>
-<p>We’ll be using R for our data analysis and data visualization. Let’s start by installing the following R packages and loading their libraries by running install.packages() and library() in R Studio.</p>
+<p>We’ll be using R for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
 
-```# install packages
+```
+# install packages
 install.packages("tidyverse")
 install.packages("dplyr")
 install.packages("ggplot2")
@@ -55,17 +55,16 @@ library(readr)
 library(lubridate)
 ```
 
-Before processing our data, we’ll preview the eighteen CSV files in Excel to get an overview of the data’s overall structure to determine which files will be useful in answering our Business Task.  Out of the 18 available files, we’ll focus our attention on the following three:
+Out of the 18 available files, we’ll focus our attention on 3 files. The other files either contain information outside the scope of the Business Task or duplicate data from `dailyActivity_merged.csv`.
 
 ```dailyActivity_merged.csv```
 ```sleepDay_merged.csv```
 ```weightLogInfo_merged.csv```
 
-The other files either contain information outside the scope of the Business Task or duplicate data from `dailyActivity_merged.csv`.
 
 
 <h2>3. Process</h2>
-Open R Studio and run the `read_csv()` R command to read each CSV file and save it as a data frame in R:
+In R Studio we'll read and save each CSV file as a data frame:
 
 ```
 dailyActivity_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
@@ -73,8 +72,7 @@ sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfit
 weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 ```
 
-Check that the files have been imported correctly in the environment pane with `ls()`. We'll take a closer look at each data frame by using `head()` to return the first few rows. Running `head(sleepDay_merged)`
-
+We'll use `ls()` to check that the files have been correctly imported correctly in the environment pane of R Studio. Then we'll use `head()` to return the first few rows of each data frame. Here are the first six rows of the `sleepDay_merged` data: 
 
 ```
           Id SleepDay              TotalSleepRecords TotalMinutesAsleep TotalTimeInBed
@@ -87,14 +85,14 @@ Check that the files have been imported correctly in the environment pane with `
 6 1503960366 4/19/2016 12:00:00 AM                 1                304            320
 ```
 
-We can also use  `colnames()` to view the column headers for each data frame to check if there are any formatting issues that need to be addressed. We can see that column names in the `weightLogInfo_merged` data frame will need to be changed from camel case to snake case to align with R’s naming conventions.
+We'll use `colnames()` to view the column headers to check if there are any formatting issues that need to be addressed. We can see that column names in the `weightLogInfo_merged` data frame will need to be changed from camel case to snake case to align with R’s naming conventions.
 
 ```> colnames(weightLogInfo_merged)
 [1] "Id"             "Date"           "WeightKg"       "WeightPounds"   "Fat"           
 [6] "BMI"            "IsManualReport" "LogId"  
 ```
 
-Since each data frame has an `id` column that must be linked to a FitBit user, let's check  the number of unique ids which will indicate the number of actual participants in our sample group.  
+Since each data frame has an `id` column that must be linked to a FitBit user, let's check  the number of unique ids which will indicate the number of participants in our sample group.  
 
 ```
 activity_ids <- n_distinct(dailyActivity_merged$Id)
@@ -110,12 +108,11 @@ print(weight_ids)
 [1] 8
 ```
 
-Due to the smaller sample size from the `weightLogInfo_merged` data frame, we will not be joining it to the other data sets in order to not introduce sampling bias.
+Due to the smaller sample size from the `weightLogInfo_merged` data frame, we will not be joining it to the other data sets to avoid sampling bias.
 
 Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis.
 
 <h3><b>Data Cleaning</b></h2>
-Below is a summary of the data cleansing steps we’ll conduct to transform our raw, unclean data into processed data for analysis:
 
 <br>
           
@@ -163,7 +160,7 @@ daily_sleep <- daily_sleep %>%
   distinct() %>%
   drop_na()
 ```
-*  Exclude records that show 0 calories burned and 0 steps walked for entries which could indicate that the participant didn’t wear their Fitbit or the tracker was defective in capturing their step count and calories burned.
+*  Exclude records that show 0 calories burned and 0 steps. These results could be due to participants failing to wear their tracker or and indication that the tracker was defective in capturing their step count and calories burned on that day.
 
 ```
 daily_activity <- daily_activity %>%
@@ -172,7 +169,7 @@ daily_activity <- daily_activity %>%
 
 <br>
 
-After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
+After processing our data, we are now ready to merge the data frames to better understand the relationship between different dimensions such as sleep, activity level, and total steps. Let’s perform a `merge()` based on the common `id` and `date` columns. Specifically, we’ll perform a left join so that the resulting daily_df data frame will include all the rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
 
 ```
 daily_df <-
@@ -216,14 +213,12 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 ```
 <br>
 
-<i>Some key numbers:</i>
+<i>Key numbers:</i>
 
 <br>
 
 *  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
-<br>
 *  <b>5.98</b> kilometers - the average distance walked per day. 
-<br>
 *  <b>210.0</b> - the average number of minutes being lightly active  
 *  <b>14.78</b> - the average number of minutes being fairly active 
 *  <b>23.02</b> - the average number of minutes being very active 
@@ -240,13 +235,13 @@ Now that we’ve finished cleaning our data, it’s time to move on to the analy
 <p><i><b>i) Physical Activity (Step Count)</b></i></p>
 Let’s take a look at the relationship between daily step count and daily calories burned. 
 
-<br>
+<p>
 
 ![calories](https://github.com/user-attachments/assets/d77ea900-2d68-4e6d-9a6f-3674a9428630)
 
-Not surprisingly, the chart shows a strong positive correlation between calories burned and the number of steps walked, which iswhich is a good thing as step count has been linked to a reduction in mortality rates discussed in this journal article. Let’s see if the day of the week affects the step count.  
+As expected, the chart shows a strong positive correlation between calories burned and the number of steps walked. We can understand why walking 10,000 steps a day is widely recommended due to it's calorie-burning ability(?) which has positive health benefits like reversing heart disease (article link).
 
-<p>For general fitness and overall health, 10,000 steps is usually touted as the recommended number of steps for adults. Let’s see if the day of the week has any impact on our participants’ total daily step count.</p>
+Let’s see if the day of the week has any impact on our participants’ total daily step count.</p>
 
 ```
 steps_by_day <- daily_df %>%
@@ -255,7 +250,7 @@ steps_by_day <- daily_df %>%
   arrange(desc(steps))
 print(steps_by_day)
 ```
-Tuesday seems to be the day in which users walked the most. 
+Tuesday seems to be the day when Fitbit users walked the most. 
 
 ```
   weekday     steps
@@ -270,13 +265,14 @@ Tuesday seems to be the day in which users walked the most.
 ```
 <br>
 
+Let's take a look at average calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. This is likely because the calories burned per day do not come from the calories burned from the total steps recorded, but also from other physical activity (which could include non-steps like swimming, calisthenics, or weight training etc.), as well as your Basal Metablolic Rate (BMR),  which is the number of calories your body needs to perform basic functions and <b>NEAT</b> or <i>non-exercise activity thermogenesis</i>, which is the calories burned through daily activity that does not include intentional physical exercise, like fidgeting.
+
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
+Although the average calories don't change much, Tuesday and Saturday edge out the other days with the most number of steps recorded. However, when we take into account that the difference between the highest average, <i>2441</i> and the lowest average, <i>2274</i> is a mere 167 steps and the average person walks around 100 steps per minute. 
 
-We would expect the order of the days to be identical or fairly similar to the days that had the highest step count. In fact, with the exception of Tuesday, they aren’t. This is likely because the calories burned per day do not come only only from the calories burned from the total steps recorded, but also from other physical activity (which could include non-steps like swimming, calisthenics, or weight training etc.) which contribute to your daily calories burned but not your step count. Other calories burned in a day include your <b>Basal Metabolic Rate (BMR)</b> which is the number of calories your body needs to perform basic functions and <b>NEAT</b> or <i>non-exercise activity thermogenesis</i>, which is the calories burned through daily activity that does not include intentional physical exercise (e.g. fidgeting, cooking).  Although the average calories doesn’t differ greatly, Tuesdays and Saturdays edge out the other days with the most number of steps recorded. However, when we take into account that the difference between the highest average, <i>2441</i> and the lowest average, <i>2274</i> is a mere 167 steps and the average person walks around 100 steps per minute. 
-
-Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame for it and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. The data frame also has `33 id`s and using `head()` we’ll take a look at the first 6 rows.
+Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. We see that the `hourlySteps_merged` data frame also has `33 id`s. Let's examine the first 6 rows.
 
 ```
           id activity_hour         step_total
@@ -289,7 +285,7 @@ Since the daily calories burned throughout the week do not differ significantly 
 6 1503960366 4/12/2016 5:00:00 AM           0
 ```
 
-We will perform an additional step using the `separate()` function to split the `activity_hour` column into two separate columns, one for  `date` and one for `hour` which results in this table: 
+Let's perform an additional step using the `separate()` function to split the `activity_hour` column into two separate columns, one for  `date` and one for `hour`:  
 
 ```
            id date      hour           step_total
@@ -306,12 +302,13 @@ We will perform an additional step using the `separate()` function to split the 
 10 1503960366 4/12/2016 " 9:00:00 AM"        1864
 ```
 
-Let’s take a look at the distribution of total steps taken among the 33 participants. We can see there were more than 90 records of users getting the 10,000 recommended daily steps. We have a right skewed graph due to a number of participants who took more than the average number of steps on certain days, with a number even logging an astounding more 30,000 steps which is more three times the recommended number.
+Now, we'll take a look at the distribution of total steps taken among the 33 participants. We can see there were more than 90 records of users getting the 10,000 recommended daily steps from 2016-04-12 to 2016-05-12. Graphing the frequency of steps taken results in a right skewed graph due to a number of participants who took more than the average number of steps on certain days, with a participant even logging nearly 36,000 steps in a single day, which is more three times the recommended number.
 
 ![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
 
-However, despite abnormally high number of steps from some above average active participants, we also see that 50% of participants are getting less than 8319 steps a day or less than the recommended daily step count. 
-Let’s see if the time of day has an affect on our participant’s activity levels by We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
+Despite the high step count from these highly active participants, we notice that 50% of participants are getting less than 8,319 steps a day or less than the recommended daily step count. 
+
+<p>Let's see when the participants are walking the most in a day. We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
 
 
 ```
@@ -324,9 +321,8 @@ avg_steps <- hourly_steps %>%
 
 <br>
 
-And plotting the average number of steps to the time of day in hours shows:
+We see that the highest average step count is between 5pm and 7pm, peaking at 6 pm with 599 average steps. The next period of high step count happens in the afternoon between 12 and 2 pm. 
 
-We see that the highest average number of steps was recorded between 5:00 and 7:00 PM, peaking at 6:00 PM with 599 average steps. With the next highest period of time being in the afternoon between 12–2 PM. We could speculate that these peaks in activity could coincide with lunchtime and after work workout/activity
 
 <br>
 
