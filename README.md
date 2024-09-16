@@ -30,10 +30,14 @@ We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit us
 <p><b>C</b>ited - Low; the dataset is available via Mobius on Kaggle
           
 <h3><b>Data Limitations</b></h3>
-<p>*  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8.</p>
-<p>*  The data is over 8 years old and therefore no longer current. 
-<p>*  Details on how long participants wore their Fitbit throughout the day are missing. </p>
-<p>*  Key information, such as the age, gender, and overall health of the participants, is also missing.</p>
+
+*  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8.
+  
+*  The data is over 8 years old and therefore no longer current.
+  
+*  Details on how long participants wore their Fitbit throughout the day are missing.
+
+*  Key information, such as the age, gender, and overall health of the participants, is also missing.
 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
