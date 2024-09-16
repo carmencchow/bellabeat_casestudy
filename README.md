@@ -1,4 +1,4 @@
-<h1>Bellabeat Case Study</h1> 🚶🏾‍♀️🚶⌚
+<h1>Bellabeat Case Study  🚶🏾‍♀️⌚</h1>
 <p>Carmen Chow</p> 
 <p>September 2024</p>
 
