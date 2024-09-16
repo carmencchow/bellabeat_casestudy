@@ -27,9 +27,12 @@ We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit us
 *  <b>R</b>eliable - Low; the data is from only 30 participants
 
 *  <b>O</b>riginal - Low; the data was collected by a third-party provider, Amazon Mechanical Turk
-<p><b>C</b>omprehensive - Medium, various data points unavailable (e.g. fitness level, age, gender ...)  
-<p><b>C</b>urrent - Low; the data is from April to May 2016, making it over 8 years old.
-<p><b>C</b>ited - Low; the dataset is available via Mobius on Kaggle
+  
+*  <b>C</b>omprehensive - Medium, various data points unavailable (e.g. fitness level, age, gender ...)
+  
+*  <b>C</b>urrent - Low; the data is from April to May 2016, making it over 8 years old.
+
+* <b>C</b>ited - Low; the dataset is available via Mobius on Kaggle
           
 <h3><b>Data Limitations</b></h3>
 
