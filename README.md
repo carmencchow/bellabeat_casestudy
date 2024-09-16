@@ -429,25 +429,38 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 
 <h2>Act</h2>
 
-<p>Before making our recommendations, it's worthwhile to remind ourselves that we are working with a dataset that does not ROCCC. We would need a larger sample size and more complete data points related to users' age, physical health, height, as well as sleep patterns (minutes spent in deep sleep, REM for example) to truly capture meaintinful data. However, based on our findings, we can make the following recommendations to enhance user engagement and 
+<p>Before making our recommendations for Bellabeat's marketing strategy, we should remind ourselves of the limitations this non-ROCCC dataset presents. Moving forward, Bellabeat should collect first-party data provided by actual customers who are wearing their fitness tracker for a specified number of hours. 
+          
+However, based on our findings, we can make the following recommendations to enhance user engagement and help users get the most out of their Bellabeat product 
 
-* <b>AI Personal Coach and Chatbot</b>
-AI-powered chatbots and features are quite ubiqutous among fitness devices now. Bellabeat can use on to provide coaching, dessim
+* <b>AI Integration</b>
+* Adding an AI feature to the Leaf and Tracker app will enable users better understand and interpret health data. This could inclue an AI health chatbot that answers questions and reports on users' health data. Users can interacat work with the AI to set and suggest workout, make recommendations and modifications to their plans etc.
+            - Coaching - generate personalized workouts
+            - Reporting - analyzing and interpreting health reports
+            - Motivating - include daily affirmations or reminders
+            - Goal Settings - recommend goals
 
-**Communicate to Bellabeat customers the importance 
+* Communicate to Bellabeat customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. The AI chatbox can also provide two individualized fitness tracks tailored to individual needs. One track could offer moderate levels of exercise while the other more vigorous activites. Users can then customize their workout based on their goals.
  
-*  For Highly Active Users, Bellabeats and introduce special features such as leaderboards and challenges tailored to keep motivation and engagent up.  Introduce dynmaic leaderboards so users can see in real time 
-Create fitness challenges amongst friends encourage users to be the best versions of themselves. 
+* <b>Workout ideas</b>
+Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative: https://www.who.int/news-room/events/detail/2020/11/26/default-calendar/webinar-who-2020-guidelines-on-physical-activity-and-sedentary-behaviour. The campaign coud be 
 
-*  Encourage underperforming users wih time nofications set at times where there is a drop in activity: 
+* <b>Special Features</b>
+To incentive users, Bellabeat users who meet their daily step count or their 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Dynamic leaderboards where users can see their progres in real time. 
 
-*  Sleep: Gamify the experiene - challenge users to achieve the perfect sleep score. Set a reminder for users to start winding down - blue light, turn off technology.
+* <b>Notifications and Reminders</b>
+High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for a set amount of time.
+ 
+* Sleep: Gamify the experiene - challenge users to achieve the perfect sleep score. Set a reminder for users to start winding down - blue light, turn off technology.
 
 <h2>References</h2>
 National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
 
 <p>World Health Organization Physical Activity 
 <p>https://www.who.int/initiatives/behealthy/physical-activity#:~:text=Should%20do%20at%20least%2060,least%203%20times%20per%20week.
+
+<p>World Health Organization Every Move Counts - Launch of the new WHO Guidelines on Physical Activity and Sedentary Behaviours</p>
+https://www.who.int/news-room/events/detail/2020/11/26/default-calendar/webinar-who-2020-guidelines-on-physical-activity-and-sedentary-behaviour
 
 <p>How Many Steps Should you Take a Day</p>
 https://www.medicalnewstoday.com/articles/how-many-steps-should-you-take-a-day
