@@ -1,4 +1,4 @@
-<h1>Bellabeat Case Study  🚶🏾‍♀️⌚</h1>
+<h1>Bellabeat Case Study  🏃🏽‍♀️⌚</h1>
 <p>Carmen Chow</p> 
 <p>September 2024</p>
 
@@ -65,6 +65,7 @@ weightLogInfo_merged.csv
 ```
 
 <h2>Process</h2>
+<p>
 In R Studio we'll read and save each CSV file as a data frame:
 
 ```
