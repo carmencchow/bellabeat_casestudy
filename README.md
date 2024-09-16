@@ -265,9 +265,7 @@ Calories burned is likely an aggregate of calories burned through physical activ
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
-Although the average calories don't change much day to day, our data shows a slight increase in calories burned on Tuesday and Saturday. 
-
-Since the daily calories burned throughout the week do not differ significantly from day to day, let’s bring in the `hourlySteps_merged.csv` and see if there are any hourly trends that show when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. We see that the `hourlySteps_merged` data frame also has `33 id`s. Let's examine the first 6 rows.
+Although the average calories don't change much day to day, our data shows a slight increase in calories burned on Tuesday and Saturday. At this point, we'll bring in the `hourlySteps_merged.csv` to see if there are any hourly trends that show when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> part of this analysis. We see that the `hourlySteps_merged` data frame also has `33 id`s. Let's examine the first 6 rows.
 
 ```
           id activity_hour         step_total
@@ -280,7 +278,7 @@ Since the daily calories burned throughout the week do not differ significantly 
 6 1503960366 4/12/2016 5:00:00 AM           0
 ```
 
-Let's perform an additional step using the `separate()` function to split the `activity_hour` column into two separate columns, one for  `date` and one for `hour`:  
+We'll perform an additional cleaning step using the `separate()` function to split the `activity_hour` column into two separate columns, one for  `date` and one for `hour`:  
 
 ```
            id date      hour           step_total
@@ -301,9 +299,9 @@ Now, we'll take a look at the distribution of total steps taken among the 33 par
 
 ![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
 
-Despite the high step count from these highly active participants, we notice that 50% of participants are getting less than 8,319 steps a day or less than the recommended daily step count. 
+Despite the high step count from these highly active participants, notice that 50% of participants are getting less than 8,319 steps a day or less than the recommended daily step count of 10,000 steps.
 
-<p>Let's see when the participants are walking the most in a day. We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
+Let's see when the participants are walking the most in a day. We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
 
 
 ```
@@ -324,8 +322,8 @@ We see that the highest average step count is between 5pm and 7pm, peaking at 6 
 ![steps](https://github.com/user-attachments/assets/f0ca58e4-d9d4-44c7-8125-d3f841aee601)
 
 <i><b>ii) Physical Activity (Moderate to Vigorous Activity)</b></i>
-Let’s shift our focus to physical activity levels and their effect on calories burned in a 24-hour period. 
-
+<p>Let’s shift our focus to physical activity levels and their effect on the total number of calories burned per day. 
+          
 <br>
 
 ![very](https://github.com/user-attachments/assets/0d294861-b0e4-4a90-8c07-badbf67ebf80)
@@ -340,9 +338,9 @@ Let’s shift our focus to physical activity levels and their effect on calories
 
 <br>
 
-Beginning with the first scatterplot we can see a fairly strong positive relationship between the minutes of vigorous activity and total calories burned. In other words, calories burned increase with prolonged minutes of vigorous activity. Although the correlation is not as strong, we can see the positive impact even lightly vigorous activity has on calories burned. Examining the last graph, it is interesting to note that with the last scatterplot, there is a marked downturn after 1000 minutes of being sedentary.
+Beginning with the first scatterplot, we can see a strong positive correlation between minutes of vigorous activity and total calories burned. We can expect people who spend more time participating in vigorou s activity to generally burn more calories throughout the day. Although  not as strong, the positive correlation continues even for light activities. With sedentary behavior, the positive correlation experiences a marked downtown after 1000 minutes sedentary activity.
 
-Since the WHO’s recommendation calls for <b>150 to 300 minutes</b> of <i>moderate to vigorous aerobic activity</i> per week, we can combine the `fairly_active_minutes` and `very_active_minutes` columns into a new column called `moderate_vigorous_minutes`. We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month. Let’s view the updated summary statistics to include this new column and use it to see the effects of moderate to vigorous activity on calories burned. 
+Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to vigorous aerobic activity per week</b>, we'll create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes together.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month. We'll also view the updated summary statistics to include this new column. 
 
 ```  
  very_active_minutes moderate_vigorous_minutes
