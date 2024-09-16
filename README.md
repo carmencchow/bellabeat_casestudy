@@ -367,12 +367,14 @@ Our right-skewed histogram show several occasions when participants had hours of
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
 <p>
-<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram below shows us the median is 1021 minutes which means 50% of participants are sedentary for at least 17.02 hours, while the majority of participants seem to be getting somewhere between 600 and 900 and 1200 minutes of non-activity.</p>
+<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram below shows us the median is 1021 minutes which means 50% of participants are sedentary for at least 17.02 hours, while the majority of participants seem to be getting somewhere between 600 and 1200 minutes (or 10-20 hours) of non-activity.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
 <b><i>iv) Sleep</i></b>
-<p>Just like our exploration of activity levels and the day of the week, let’s see if sleep patterns are consistent throughout the week. Once again, we’ll use `summary()` to get an overview of the distribution of sleep times from our `daily_df` data frame. </p>
+<p>
+Let’s see what the data tells us about our participants sleep patterns and whether they are getting the recommended 7 or more hours of sleep. We’ll use the  `summary()` function to get an overview of the distribution of sleep times from our `daily_df` data frame. 
+</p>
 
 ```
  total_minutes_asleep total_time_in_bed min_fall_asleep 
@@ -425,3 +427,4 @@ Let’s summarize our results for the four metrics before making our recommendat
 Link to the Google Slide deck here: 
 
 <h2>6. Act</h2>
+https://www.mayoclinic.org/healthy-lifestyle/adult-health/expert-answers/how-many-hours-of-sleep-are-enough/faq-20057898
