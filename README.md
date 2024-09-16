@@ -419,7 +419,7 @@ Let's see the impact of different activity levels on total minutes of sleep visu
 
 We see that sedentary minutes negatively impact sleep duration: more time spent being inactive means less time spent asleep. Sleep duration improves with more time spent engaging in moderatly active and very active activities. 
 
-<b>Final Summary</b>
+<h3><b>Final Summary</b></h3>
 <p>Let’s summarize the findings of our analysis before proposing our recommendations to the marketing team:
 
 *  50% of participants take less than 8,053 steps per day and 25% take less than 4,923.
@@ -429,4 +429,11 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 * 0 minutes of moderate to vigorous activity for 1/3 of the month 
 
 <h2>Act</h2>
-National Sleep Foundation https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
+
+
+<h2>References</h2>
+National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
+
+<p>World Health Organization Physical Activity 
+<p>https://www.who.int/initiatives/behealthy/physical-activity#:~:text=Should%20do%20at%20least%2060,least%203%20times%20per%20week.
+
