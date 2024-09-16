@@ -354,7 +354,17 @@ Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to 
 
 ![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
-We see a disproportionately high count of participants recording 0 minutes of moderate to vigorous minutes of activity per day. With a frequency of 300 for 33 users across the span of a month, this translates to ⅓ of the time! With the median being 26 minutes and the mean is 37.8 minutes. This tells us that 50% of the participants have 26 minutes or less of moderate to vigorous activity with the average time being 37.8 minutes. We have a right-skewed, while there are a few participants with significantly higher activity times compared to the rest, there is a huge number of participants who get 0 minutes a day!
+We see a worryingly disproportionately high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Since our data looks at 33 participants over 4 weeks, these equates to roughly <b>1/3 of the month!</b>
+
+```
+33 participants x 7 days a week x 4 weeks = 924 total occasions in a month
+
+300/924 x 100 = 32.47%
+```
+
+Considering our sample size of 33 Fitbit users and
+
+With a frequency of 300 for 33 users across the span of a month, this translates to ⅓ of the time! With the median being 26 minutes and the mean is 37.8 minutes. This tells us that 50% of the participants have 26 minutes or less of moderate to vigorous activity with the average time being 37.8 minutes. We have a right-skewed, while there are a few participants with significantly higher activity times compared to the rest, there is a huge number of participants who get 0 minutes a day!
 
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
