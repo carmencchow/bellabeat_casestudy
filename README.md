@@ -10,11 +10,11 @@
 <p>*  Sando Mur: Mathematician and Bellabeat’s cofounder</p>
 <p>*  Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. </p>
 
-<h2>1. Ask</h2>
+<h2>Ask</h2>
 <h3><b>Business Task</b></h3>
 Analyze smart device fitness data to gain insight into trends that can be applied to Bellabeat customers. 
 
-<h2>2. Prepare</h2>
+<h2>Prepare</h2>
 
 <h3><b>Data Source</b></h3>
 We will look at publicly available FitBit Fitness Tracker Data from 33 fitbit users who consented to the submission of personal tracker data, including information about daily physical activity, steps, calories burned, and sleep monitoring. The dataset is provided under the Mobius license and consists of 18 wide format CSV files of anonymized user information. Link to data: https://www.kaggle.com/arashnic/fitbit)
@@ -63,7 +63,7 @@ Out of the 18 available files, we’ll focus our attention on 3 files. The other
 
 
 
-<h2>3. Process</h2>
+<h2>Process</h2>
 In R Studio we'll read and save each CSV file as a data frame:
 
 ```
@@ -179,7 +179,7 @@ daily_df <-
   )
 ```
 
-<h2>4. Analyze </h2>
+<h2>Analyze & Share </h2>
 
 Let's run the `summary()` function to get an overview of our new dataset’s distribution: 
 
@@ -395,7 +395,7 @@ Let’s see what the data tells us about our participants sleep patterns and whe
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
 <br>
-The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. Half of the participants are not getting the recommended minimum, while a few are getting more than 9 hours. They also sleep longer on the weekend and Wednesday.
+The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. Half of the participants are not getting the recommended minimum, while a few are sleeping more than 9 hours. They also tend to sleep longer on weekends and Wednesdays.
 
 <br>
 <p>
@@ -407,6 +407,8 @@ The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults 
 
 Let's see the impact of different activity levels on total minutes of sleep visualized in the following 4 scatterplots:
 
+<p>
+
 ![sedentary](https://github.com/user-attachments/assets/1ab3e6c1-0280-4987-a89b-7f99ddabc24d)
 
 ![lightly_sleep](https://github.com/user-attachments/assets/90986f51-c931-41bf-96d7-f3b519e6f8ef)
@@ -415,20 +417,16 @@ Let's see the impact of different activity levels on total minutes of sleep visu
 
 ![very_sleep](https://github.com/user-attachments/assets/436e1782-e8a1-4865-af88-ada47368367d)
 
-
-These with these graphs where I’ve plotted the different intensity levels on the y-axis to the minutes of sleep on the left axis. Red (sedentary), purple (lightly active), blue (moderately active), and yellow (very active). Looking at the graphs, we can see a negative correlation between Sedentary Minutes and Sleep chart shows a positive correlation when mapping the minutes of very active minutes and sleep, and in the first graph we see that the more minutes a participant spends doing sedentary activity, the fewer minutes of sleep they get.
-
+We see that sedentary minutes negatively impact sleep duration: more time spent being inactive means less time spent asleep. Sleep duration improves with more time spent engaging in moderatly active and very active activities. 
 
 <b>Final Summary</b>
-Let’s summarize our results for the four metrics before making our recommendations to the marketing team:
+<p>Let’s summarize the findings of our analysis before proposing our recommendations to the marketing team:
 
 *  50% of participants take less than 8,053 steps per day and 25% take less than 4,923.
 *  50% of participants sleep less than 7.2 hours a day.
 *  50% of participants are sedentary for more than 15.9 hours a day.
-*  50% of participants get less than 26 minutes of moderate to vigorous activity a day while a startling high number of participants recorded 300 counts of <i>0 minutes of moderate to vigorous activity</i> or roughly ⅓ of the month.
+*  50% of participants get less than 26 minutes of moderate to vigorous activity a day
+* 0 minutes of moderate to vigorous activity for 1/3 of the month 
 
-<h2>5. Share</h2>
-Link to the Google Slide deck here: 
-
-<h2>6. Act</h2>
+<h2>Act</h2>
 National Sleep Foundation https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
