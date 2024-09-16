@@ -420,7 +420,6 @@ Let's see the impact of different activity levels on total minutes of sleep visu
 We see that sedentary minutes negatively impact sleep duration: more time spent being inactive means less time spent asleep. Sleep duration improves with more time spent engaging in moderatly active and very active activities. 
 
 <h3><b>Final Summary</b></h3>
-<p>Let’s summarize the findings of our analysis before proposing our recommendations to the marketing team:
 
 *  50% of participants take less than 8,053 steps per day and 25% take less than 4,923.
 *  50% of participants sleep less than 7.2 hours a day.
@@ -430,10 +429,29 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 
 <h2>Act</h2>
 
+<p>Before making our recommendations, it's worthwhile to remind ourselves that we are working with a dataset that does not ROCCC. We would need a larger sample size and more complete data points related to users' age, physical health, height, as well as sleep patterns (minutes spent in deep sleep, REM for example) to truly capture meaintinful data. However, based on our findings, we can make the following recommendations to enhance user engagement and 
+
+* <b>AI Personal Coach and Chatbot</b>
+AI-powered chatbots and features are quite ubiqutous among fitness devices now. Bellabeat can use on to provide coaching, dessim
+
+**Communicate to Bellabeat customers the importance 
+ 
+*  For Highly Active Users, Bellabeats and introduce special features such as leaderboards and challenges tailored to keep motivation and engagent up.  Introduce dynmaic leaderboards so users can see in real time 
+Create fitness challenges amongst friends encourage users to be the best versions of themselves. 
+
+*  Encourage underperforming users wih time nofications set at times where there is a drop in activity: 
+
+*  Sleep: Gamify the experiene - challenge users to achieve the perfect sleep score. Set a reminder for users to start winding down - blue light, turn off technology.
 
 <h2>References</h2>
 National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
 
 <p>World Health Organization Physical Activity 
 <p>https://www.who.int/initiatives/behealthy/physical-activity#:~:text=Should%20do%20at%20least%2060,least%203%20times%20per%20week.
+
+<p>How Many Steps Should you Take a Day</p>
+https://www.medicalnewstoday.com/articles/how-many-steps-should-you-take-a-day
+
+<p>Google Expands It's Al Footprint in Healthcare with Fitbit Chatbot - Coming Soon</p>
+https://www.techtimes.com/articles/302750/20240320/google-expands-ai-footprint-healthcare-fitbit-chatbot-coming-soon.htm
 
