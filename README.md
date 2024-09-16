@@ -66,7 +66,7 @@ weightLogInfo_merged.csv
 
 <h2>Process</h2>
 <p>
-In R Studio we'll read and save each CSV file as a data frame:
+In R Studio, we'll read and save each CSV file as a data frame:
 
 ```
 dailyActivity_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/dailyActivity_merged.csv")
@@ -74,7 +74,7 @@ sleepDay_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfit
 weightLogInfo_merged <- read_csv("C:/Users/carme/OneDrive/Desktop/TurkFitBit/mturkfitbit_export_4.12.16-5.12.16/Fitabase Data 4.12.16-5.12.16/weightLogInfo_merged.csv")
 ```
 
-We'll use `ls()` to check that the files have been correctly imported correctly in the environment pane of R Studio. Then we'll use `head()` to return the first few rows of each data frame. Here are the first six rows of the `sleepDay_merged` data: 
+We'll use `ls()` to check that the files have been correctly imported into the environment pane of R Studio. Then, we'll use `head()` to return the first few rows of each data frame. Here are the ones from the `sleepDay_merged` data: 
 
 ```
           Id SleepDay              TotalSleepRecords TotalMinutesAsleep TotalTimeInBed
