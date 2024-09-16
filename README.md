@@ -366,7 +366,8 @@ Our right-skewed histogram show several occasions when participants had hours of
 
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
-<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram shows us the median is 1021 minutes or 17.02 hours and the mean is 955.9 minutes or 15.93 hours. We have a couple of outliers, for example someone got 0 minutes of sedentary activity a day, is that possible?? We see a histogram with two distinct peaks where the majority of participants are getting between 600 and 900 and 1000 and 1300 minutes of non-activity.</p>
+<p>
+<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram below shows us the median is 1021 minutes which means 50% of participants are sedentary for at least 17.02 hours, while the majority of participants seem to be getting somewhere between 600 and 900 and 1200 minutes of non-activity.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
