@@ -472,9 +472,10 @@ High sedentary behaviour was observed in over half of the sample population for 
 By incorporating these recommendations into Bellabeat's marketing strategy, Bellabeat can
 
 <h2>References</h2>
-National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
 
-<p>World Health Organization Physical Activity 
+<p>National Sleep Foundation's Updated Sleep Duration Recommendations <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
+
+<p>World Health Organization Physical Activity Report
 <p>https://www.who.int/initiatives/behealthy/physical-activity#:~:text=Should%20do%20at%20least%2060,least%203%20times%20per%20week.
 
 <p>World Health Organization Every Move Counts - Launch of the new WHO Guidelines on Physical Activity and Sedentary Behaviours</p>
@@ -483,6 +484,6 @@ https://www.who.int/news-room/events/detail/2020/11/26/default-calendar/webinar-
 <p>Walking 10K Steps a Day is a Health Sweet Spot</p>
 https://www.cbc.ca/radio/quirks/sep-17-10-000-steps-really-are-good-for-you-astronomers-thrilled-by-jwst-garbage-picking-cockatoos-and-more-1.6584419/walking-10k-steps-a-day-is-a-health-sweet-spot-study-finds-and-walking-faster-is-even-better-1.6584679
 
-<p>Google Expands It's Al Footprint in Healthcare with Fitbit Chatbot - Coming Soon</p>
+<p>Google Expands It's Al Footprint in Healthcare with Fitbit Chatbot</p>
 https://www.techtimes.com/articles/302750/20240320/google-expands-ai-footprint-healthcare-fitbit-chatbot-coming-soon.htm
 
