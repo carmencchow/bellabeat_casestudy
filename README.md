@@ -130,14 +130,14 @@ Below is a summary of the data cleansing we'll conduct to clean and transform ou
 
 <h3><b>Data Cleaning</b></h2>
 
-*  Use the `clean_names()` function to format column names to snake_case.
+*  Use the `clean_names()` function to convert column names to snake_case.
 
 ```
 daily_activity <- clean_names(dailyActivity_merged)
 daily_sleep <- clean_names(sleepDay_merged)
 ```
           
-*  Use `as_Date()` function to format dates from a string data type to a Date object. Use `weekdays()` to extract the day of the week and assign it to a new variable named `weekday`. Use the `ordered()` function to create an ordered factor to order the days chronologically instead of alphabetically.</p>
+*  Formate dates, create a new `weekdays` variable, and put the days of the week in chronological order</p>
 
 ```
 daily_activity <- daily_activity %>%
@@ -155,7 +155,7 @@ daily_sleep <- daily_sleep %>%
   mutate(date = as.Date(date, format = "%m/%d/%Y"))
 ```
 
-*  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep by subtracting `total_minutes_asleep` from `total_time_in_bed`.
+*  Add a new `min_fall_asleep`  column that calculates the time it takes for participants to fall asleep
 
 ```
 daily_sleep <- daily_sleep %>%
@@ -174,7 +174,7 @@ daily_sleep <- daily_sleep %>%
   distinct() %>%
   drop_na()
 ```
-*  Exclude records that show 0 calories burned and 0 steps taken because participants forgot to wear their tracker that day. 
+*  Exclude records that show 0 calories burned and 0 steps taken 
 
 ```
 daily_activity <- daily_activity %>%
