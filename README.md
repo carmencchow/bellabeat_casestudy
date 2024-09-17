@@ -231,13 +231,13 @@ Let's run the `summary()` function to get an overview of our new dataset’s dis
 
 *  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
 
-*  <b>5.98</b> kilometers - the average distance walked per day. 
+*  <b>5.98</b> - the average number of kilometers walked per day. 
 
-*  <b>210.0</b> - the average number of minutes being lightly active  
+*  <b>210.0</b> - the average number of minutes spent being lightly active  
 
-*  <b>14.78</b> - the average number of minutes being fairly active 
+*  <b>14.78</b> - the average number of minutes spent being fairly active 
 
-*  <b>23.02</b> - the average number of minutes being very active 
+*  <b>23.02</b> - the average number of minutes spent being very active 
 
 *  <b>15.9 hours</b> (or 955.8 minutes) - the average time spent sedentary.
 
@@ -245,7 +245,7 @@ Let's run the `summary()` function to get an overview of our new dataset’s dis
 
 <br>
 
-We’ll use the installed `ggplot2` package to create visualization of our data that will help us determine if there are positive or negative relationships between different variables. 
+We’ll use the `ggplot2` package we installed to create visualization of our data that will help us determine if there are positive or negative relationships between different variables. 
 
 <br>
 
@@ -280,12 +280,16 @@ Tuesday appears to be the day when Fitbit users walked the most.
 ```
 <br>
 
-Let's take a look at calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step counts. In fact, with the exception of Tuesday, they aren’t. This is likely because calories burned is an aggregate of several factors: calories burned through physical activity (including steps walked and non-step activities like swimming or weight training), calories burned while performing basic funcions (Basal Metabolic Rate), and calories burned through non-exercise activity thermogenesis, such as fidgeting. 
+Let's take a look at calories burned throughout the week. We would expect the order of the days to be identical or fairly similar to the days that had the highest step counts. In fact, with the exception of Tuesday, they aren’t. This is likely because calories burned is an aggregate of several factors: calories burned through physical activity (including steps walked and non-step activities like swimming or weight training), calories burned while performing basic functions (Basal Metabolic Rate), and calories burned through non-exercise activity thermogenesis (NEAT), such as fidgeting. 
 
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
-Although the average calories burned don't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. At this point, we'll bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. We see that the `hourlySteps_merged` data frame also includes `33 id`s. Let's examine the data frame's first 6 rows.
+Although the average calories burned don't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. 
+
+We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
+
+The `hourlySteps_merged` data frame also includes `33 id`s. Let's return the first 6 rows below.
 
 ```
           id activity_hour         step_total
