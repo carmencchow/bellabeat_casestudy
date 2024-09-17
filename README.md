@@ -172,7 +172,7 @@ daily_sleep <- daily_sleep %>%
   distinct() %>%
   drop_na()
 ```
-*  Exclude records that show 0 calories burned and 0 steps taken. These results could be due to participants failing to wear their tracker on that day. 
+*  Exclude records that show 0 calories burned and 0 steps taken because participants forgot to wear their tracker that day. 
 
 ```
 daily_activity <- daily_activity %>%
@@ -380,18 +380,18 @@ We see a worryingly high count of participants recording 0 minutes of moderate t
 300/924 x 100 = 32.47%
 ```
 
-Our right-skewed histogram show several occasions when participants had hours of moderate to vigorous activity, however the histogram also tells us that 50% of the participants had 26 minutes or less of moderate to vigorous activity with the average time being 37.8 minutes. 
+Our right-skewed histogram shows several occasions when participants had <i>hours</i> of moderate to vigorous activity in a single day. However, the histogram also tells us that 50% of the participants had 26 minutes or less of moderate to vigorous activity, with the average time being 37.8 minutes. 
 
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
 <p>
-<p>Let’s take a look at the distribution of sedentary minutes in a day. The histogram below shows us the median is 1021 minutes which means 50% of participants are sedentary for at least 17.02 hours, while the majority of participants seem to be getting somewhere between 600 and 1200 minutes (or 10-20 hours) of non-activity.</p>
+<p>Let’s take a look at the distribution of sedentary minutes in a day. The median is 1,021 minutes, which means 50% of participants are sedentary for at least 17.02 hours. The majority of participants seem to be spend between 600 and 1,200 minutes (or 10 to 20 hours) being inactive.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
 <b><i>iv) Sleep</i></b>
 <p>
-Let’s see what the data tells us about our participants sleep patterns and whether they are getting the recommended 7 or more hours of sleep. We’ll use the  `summary()` function to get an overview of the distribution of sleep times from our `daily_df` data frame. 
+Let’s see what the data tells us about our participants' sleep patterns and determine if they are getting the recommended 7 or more hours of sleep. We’ll use the  `summary()` function again to get an overview of the distribution of sleep times from our `daily_df` data frame. 
 </p>
 
 ```
@@ -406,14 +406,14 @@ Let’s see what the data tells us about our participants sleep patterns and whe
 ```
 <i>Key takeaways</i> 
 *  <b>6.9 hours</b> (or 419.5 minutes) - the average sleep time.
-*  <b>39.17 mins</b> - the average time needed to fall asleep.
-*  25% of participants are sleeping <b>6 hours</b> or less (361 minutes or less). 
+*  <b>39.17 minutes</b> - the average time needed to fall asleep.
+*  <b>25%</b> of participants are sleeping <b>6 hours</b> or less (361 minutes or less). 
 *  The shortest sleep time recorded was 58 minutes while the highest was 796 minutes.
 
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
 <br>
-The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. Half of the participants are not getting the recommended minimum, while a few are sleeping more than 9 hours. They also tend to sleep longer on weekends and Wednesdays.
+The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. However, half of the participants are not getting the recommended minimum, while some are sleeping more than 9 hours. Participants tend to sleep longer on weekends and Wednesdays.
 
 <br>
 <p>
@@ -423,7 +423,7 @@ The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults 
 </p>
 <br>
 
-Let's see the impact of different activity levels on total minutes of sleep visualized in the following 4 scatterplots:
+Let's examine the impact of different activity levels on total minutes of sleep through the following four scatterplots:
 
 <p>
 
@@ -435,41 +435,35 @@ Let's see the impact of different activity levels on total minutes of sleep visu
 
 ![very_sleep](https://github.com/user-attachments/assets/436e1782-e8a1-4865-af88-ada47368367d)
 
-We see that sedentary minutes negatively impact sleep duration: more time spent being inactive means less time spent asleep. Sleep duration improves with more time spent engaging in moderatly active and very active activities. 
+We see that sedentary minutes negatively impact sleep duration: more time spent being inactive results in less time spent asleep. Conversely, sleep duration improves with more time spent engaging in moderately active and very active activities. 
 
 <h3><b>Final Summary</b></h3>
 
-*  50% of participants take less than 8,053 steps per day and 25% take less than 4,923.
+*  50% of participants take fewer than 8,053 steps per day and 25% take fewer than 4,923.
 *  50% of participants sleep less than 7.2 hours a day.
 *  50% of participants are sedentary for more than 15.9 hours a day.
 *  50% of participants get less than 26 minutes of moderate to vigorous activity a day
-* 0 minutes of moderate to vigorous activity for 1/3 of the month 
+* For about one-third of the month, participants recorded 0 minutes of moderate to vigorous activity 
 
 <h2>Act</h2>
 
-<p>Before making our recommendations for Bellabeat's marketing strategy, we should remind ourselves of the limitations this non-ROCCC dataset presents. Moving forward, Bellabeat should collect first-party data provided by actual customers who are wearing their fitness tracker for a specified number of hours. 
-          
-However, based on our findings, we can make the following recommendations to enhance user engagement and help users get the most out of their Bellabeat product 
+<p>Before making recommendations for Bellabeat's marketing strategy, we should remind ourselves of the limitations presented by this non-ROCCC dataset. Moving forward, Bellabeat should aim to collect first-party data provided by actual customers and encourage their customers to wear their fitness tracker consistently.          
+<h3>Recommendations</h3>
+  
+<b>AI Integration & Health Reporting</b>
+* Introduce an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interacat work with the AI to set and suggest workout, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate
+* Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
 
-* <b>AI Integration</b>
-* Adding an AI feature to the Leaf and Tracker app will enable users better understand and interpret health data. This could inclue an AI health chatbot that answers questions and reports on users' health data. Users can interacat work with the AI to set and suggest workout, make recommendations and modifications to their plans etc.
-            - Coaching - generate personalized workouts
-            - Reporting - analyzing and interpreting health reports
-            - Motivating - include daily affirmations or reminders
-            - Goal Settings - recommend goals
-
-* Communicate to Bellabeat customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. The AI chatbox can also provide two individualized fitness tracks tailored to individual needs. One track could offer moderate levels of exercise while the other more vigorous activites. Users can then customize their workout based on their goals.
- 
-* <b>Workout ideas</b>
-Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative: https://www.who.int/news-room/events/detail/2020/11/26/default-calendar/webinar-who-2020-guidelines-on-physical-activity-and-sedentary-behaviour. The campaign coud be 
+<b>Built-in Workouts</b>
+* Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
 
 * <b>Special Features</b>
 To incentive users, Bellabeat users who meet their daily step count or their 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Dynamic leaderboards where users can see their progres in real time. 
 
 * <b>Notifications and Reminders</b>
-High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for a set amount of time.
- 
-* Sleep: Gamify the experiene - challenge users to achieve the perfect sleep score. Set a reminder for users to start winding down - blue light, turn off technology.
+High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for a set amount of time. Alerts can communicate to participants how many steps they still need to reach their goal
+
+By incorporating these recommendations into Bellabeat's marketing strategy, Uksena nd her team can  
 
 <h2>References</h2>
 National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
