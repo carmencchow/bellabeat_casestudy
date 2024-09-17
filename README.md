@@ -451,16 +451,15 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 <h3>Recommendations</h3>
   
 <b>AI Integration & Health Reporting</b>
-* Introduce an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interacat work with the AI to set and suggest workout, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate
-* Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
+Introduce an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interacat work with the AI to set and suggest workout, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate. Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
 
 <b>Built-in Workouts</b>
-* Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
+Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
 
-* <b>Special Features</b>
+<b>Special Features</b>
 To incentive users, Bellabeat users who meet their daily step count or their 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Dynamic leaderboards where users can see their progres in real time. 
 
-* <b>Notifications and Reminders</b>
+<b>Notifications and Reminders</b>
 High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for a set amount of time. Alerts can communicate to participants how many steps they still need to reach their goal
 
 By incorporating these recommendations into Bellabeat's marketing strategy, Uksena nd her team can  
