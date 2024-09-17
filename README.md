@@ -287,7 +287,7 @@ Let's take a look at calories burned throughout the week. We would expect the or
 <br>
 Although the average calories burned don't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. 
 
-We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. We’ll create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
+<p>We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. Let's create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
 
 The `hourlySteps_merged` data frame also includes `33 id`s. Let's return the first 6 rows below.
 
@@ -319,13 +319,13 @@ We'll perform an additional cleaning step using the `separate()` function to spl
 10 1503960366 4/12/2016 " 9:00:00 AM"        1864
 ```
 
-Now, we'll take a look at the distribution of total steps taken among the 33 participants. There are over 90 records of users getting the recommended 10,000 daily steps between 2016-04-12 and 2016-05-12. Graphing the frequency of steps taken results in a right-skewed graph due to a number of participants who took more than the average number of steps on certain days, with one participant's tracker recording nearly 36,000 steps in a single day, which is more three times the recommended number.
+Now, we'll take a look at the distribution of total steps per day:
 
 ![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
 
-Despite the high step counts from these highly active participants, 50% of participants got fewer than 8,319 steps a day, which is below the recommended daily step count of 10,000 steps.
+Despite the high step counts on several occasions in the right tail of the histogram from these highly active participants, 50% of participants still got fewer than 8,319 steps a day, which is below the recommended daily step count of 10,000 steps.
 
-Let's see when participants are walking the most during the day. We’ll use the `summarize()` and `arrange()` functions to order the daily average steps from highest to lowest to find peak hours of activity:
+Let's see when participants most active during the day. We’ll use the `summarize()` and `arrange()` functions to order the average daily step count daily average steps from highest to lowest to find peak hours of activity:
 
 
 ```
@@ -338,7 +338,7 @@ avg_steps <- hourly_steps %>%
 
 <br>
 
-We see that the highest average step count was between 5pm and 7pm, peaking at 6 pm with 599 average steps. The next period of high step count happens in the afternoon between 12 and 2 pm. 
+We see that the highest average step count was between 5pm and 7pm, peaking at 6 pm with 599 average steps. The next period of high step count happened in the afternoon between 12 and 2 pm. 
 
 
 <br>
@@ -378,7 +378,7 @@ Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to 
 
 ![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
-We see a worryingly high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month!</b>
+There is a disproportionately high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month</b> that participants are not engaging in moderate to vigorous activity.
 
 ```
 33 participants x 7 days a week x 4 weeks = 924 total occasions in a month
@@ -391,13 +391,13 @@ Our right-skewed histogram shows several occasions when participants had <i>hour
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
 <p>
-<p>Let’s take a look at the distribution of sedentary minutes in a day. The median is 1,021 minutes, which means 50% of participants are sedentary for at least 17.02 hours. The majority of participants seem to be spend between 600 and 1,200 minutes (or 10 to 20 hours) being inactive.</p>
+<p>When we look at the distribution of sedentary minutes in a day, we see that the median is 1,021 minutes, which means 50% of participants are sedentary for at least 17.02 hours. The majority of participants seem to be spend between 600 and 1,200 minutes (or 10 to 20 hours) being inactive.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
 <b><i>iv) Sleep</i></b>
 <p>
-Let’s see what the data tells us about our participants' sleep patterns and determine if they are getting the recommended 7 or more hours of sleep. We’ll use the  `summary()` function again to get an overview of the distribution of sleep times from our `daily_df` data frame. 
+Are the participants getting the recommended 7-9 hours of sleep? Let's run the `summary()` function again to get an overview of the distribution of sleep times from our `daily_df` data frame. 
 </p>
 
 ```
@@ -419,7 +419,7 @@ Let’s see what the data tells us about our participants' sleep patterns and de
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
 <br>
-The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. However, half of the participants are not getting the recommended minimum, while some are sleeping more than 9 hours. Participants tend to sleep longer on weekends and Wednesdays.
+The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. However, half of the participants are not getting the recommended minimum, while some are sleeping more than 9 hours. Overall, participants tend to sleep longer on weekends and Wednesdays.
 
 <br>
 <p>
@@ -453,11 +453,12 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 
 <h2>Act</h2>
 
-<p>Before making recommendations for Bellabeat's marketing strategy, we should remind ourselves of the limitations presented by this non-ROCCC dataset. Moving forward, Bellabeat should aim to collect first-party data provided by actual customers and encourage their customers to wear their fitness tracker consistently.          
+<p>Before making recommendations for Bellabeat's marketing strategy, we should remind ourselves of the limitations presented by this non-ROCCC dataset. Moving forward, Bellabeat should collect first-party data provided by actual customers and encourage their customers to wear their fitness tracker consistently for greater accuracy.
+  
 <h3>Recommendations</h3>
   
 <b>AI Integration & Health Reporting</b>
-Introduce an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interacat work with the AI to set and suggest workout, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate. Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
+Introduce an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interact with the AI to set and suggest workouts, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate. Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
 
 <b>Built-in Workouts</b>
 Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
@@ -466,9 +467,9 @@ Bellabeat can introduce moderate to high-intensity workouts designed to help all
 To incentive users, Bellabeat users who meet their daily step count or their 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Dynamic leaderboards where users can see their progres in real time. 
 
 <b>Notifications and Reminders</b>
-High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for a set amount of time. Alerts can communicate to participants how many steps they still need to reach their goal
+High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for more than 2 hours or a set amount of time. Alerts can be used to remind participants to do a number of things, for example winding down for bed, getting their steps in, ... 
 
-By incorporating these recommendations into Bellabeat's marketing strategy, Uksena nd her team can  
+By incorporating these recommendations into Bellabeat's marketing strategy, Bellabeat can
 
 <h2>References</h2>
 National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
@@ -479,8 +480,8 @@ National Sleep Foundation <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=S
 <p>World Health Organization Every Move Counts - Launch of the new WHO Guidelines on Physical Activity and Sedentary Behaviours</p>
 https://www.who.int/news-room/events/detail/2020/11/26/default-calendar/webinar-who-2020-guidelines-on-physical-activity-and-sedentary-behaviour
 
-<p>How Many Steps Should you Take a Day</p>
-https://www.medicalnewstoday.com/articles/how-many-steps-should-you-take-a-day
+<p>Walking 10K Steps a Day is a Health Sweet Spot</p>
+https://www.cbc.ca/radio/quirks/sep-17-10-000-steps-really-are-good-for-you-astronomers-thrilled-by-jwst-garbage-picking-cockatoos-and-more-1.6584419/walking-10k-steps-a-day-is-a-health-sweet-spot-study-finds-and-walking-faster-is-even-better-1.6584679
 
 <p>Google Expands It's Al Footprint in Healthcare with Fitbit Chatbot - Coming Soon</p>
 https://www.techtimes.com/articles/302750/20240320/google-expands-ai-footprint-healthcare-fitbit-chatbot-coming-soon.htm
