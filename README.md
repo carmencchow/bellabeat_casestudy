@@ -15,12 +15,14 @@
 
 <h2>Ask</h2>
 <h3><b>Business Task</b></h3>
-Analyze smart device fitness data to gain insights into trends that can be applied to Bellabeat customers. 
+Analyze Fitbit tracker usage data to gain insights into how customers use non-Bellabeat smart devices. Use these insights to shape Bellabeat's marketing strategy and influence Bellabeat customers.
 
 <h2>Prepare</h2>
 
 <h3><b>Data Source</b></h3>
-We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit users who consented to the submission of personal tracker data. The data points include daily physical activity, step count, calories burned, and hours slept. The dataset, provided under the Mobius license, consists of 18 wide format CSV files of anonymized user information. Link to data: https://www.kaggle.com/arashnic/fitbit .
+We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit users who consented to the submission of personal tracker data. The data points include daily physical activity, step count, calories burned, and hours slept. The dataset, provided under the Mobius license, consists of 18 wide format CSV files of anonymized user information. 
+Fitbit Tracker Data: https://www.kaggle.com/arashnic/fitbit 
+Mobius license:
 
 <h3><b>Data Bias and Credibility. Does it ROCCC?</b></h3>
 
@@ -28,7 +30,7 @@ We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit us
 
 *  <b>O</b>riginal - Low; the data was collected by a third-party provider, Amazon Mechanical Turk
   
-*  <b>C</b>omprehensive - Medium, various data points unavailable (e.g. fitness level, age, gender ...)
+*  <b>C</b>omprehensive - Medium; key demographic details such as gender, age, and location of participants were not collected
   
 *  <b>C</b>urrent - Low; the data is from April to May 2016, making it over 8 years old.
 
@@ -106,7 +108,7 @@ We'll use `colnames()` to view the column headers to check if there are any form
 [6] "BMI"            "IsManualReport" "LogId"  
 ```
 
-Each Fitbit should have a unique `id`. Let's see if that's the case. 
+Each Fitbit user should have a unique `id`. Let's see if that's the case. 
 
 ```
 activity_ids <- n_distinct(dailyActivity_merged$Id)
@@ -122,7 +124,7 @@ print(weight_ids)
 [1] 8
 ```
 
-We have 33 users in the dailyActivity data frame, 24 in the sleepDay one, and only 8 in the weightLogInfo data frame. Due to the smaller sample size of the last data frame, we will not use it moving forward to avoid sampling bias.
+We have data from 33 users in the <i>dailyActivity</i> data frame, 24 in the <i>sleepDay</i> data frame, and data from only 8 users in the <i>weightLogInfo</i> data frame. Due to the smaller sample size, we will not include weight data in our final analysis.
 
 Below is a summary of the data cleansing we'll conduct to clean and transform our raw, unclean data.
 
