@@ -37,13 +37,11 @@ We will look at publicly available [Fitbit Fitness Tracker Data](https://www.kag
           
 <h3><b>Data Limitations</b></h3>
 
-*  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8.
+*  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8 users.
   
 *  The data is over 8 years old and therefore no longer current.
   
-*  Details on how long participants wore their Fitbit throughout the day are missing.
-
-*  Key information, such as the age, gender, and overall health of the participants, is also missing.
+*  Data points such as the age, gender, overall health of the participants, and hours users wore their Fitbit each day is also missing.
 
 <h3><b>R packages and libraries</b></h3>
 <p>We’ll be using R for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
@@ -448,7 +446,7 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 *  50% of participants sleep less than 7.2 hours a day.
 *  50% of participants are sedentary for more than 15.9 hours a day.
 *  50% of participants get less than 26 minutes of moderate to vigorous activity a day
-* For about one-third of the month, participants recorded 0 minutes of moderate to vigorous activity 
+*  For about one-third of the month, participants recorded 0 minutes of moderate to vigorous activity 
 
 <h2>Act</h2>
 
@@ -457,7 +455,7 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 <h3>Recommendations</h3>
   
 *  <b>AI Integration & Health Reporting</b>
-Introduce an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interact with the AI to set and suggest workouts, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate. Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
+Implement an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interact with the AI chatbot to set and suggest workouts, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate. Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
 
 *  <b>Built-in Workouts</b>
 Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
@@ -466,13 +464,14 @@ Bellabeat can introduce moderate to high-intensity workouts designed to help all
 To incentive users, Bellabeat users who meet their daily step count or their 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Dynamic leaderboards where users can see their progres in real time. 
 
 *  <b>Notifications and Reminders</b>
-High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for more than 2 hours or a set amount of time. Alerts can be used to remind participants to do a number of things, for example winding down for bed, getting their steps in, ... 
+High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for more than 2 hours or a set amount of time. Alerts can be used to remind participants to do a number of things, for example winding down for bed, getting their steps in, and moving when they've been sedentary for too long.
 
 By incorporating these recommendations into Bellabeat's marketing strategy, Bellabeat can
 
 <h2>References</h2>
 
-<p>National Sleep Foundation's Updated Sleep Duration Recommendations <p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
+<p>National Sleep Foundation's Updated Sleep Duration Recommendations 
+<p>https://pubmed.ncbi.nlm.nih.gov/29073398/#:~:text=Seven%20to%209%20hours%20is,is%20recommended%20for%20older%20adults 
 
 <p>World Health Organization Physical Activity Report
 <p>https://www.who.int/initiatives/behealthy/physical-activity#:~:text=Should%20do%20at%20least%2060,least%203%20times%20per%20week.
@@ -481,7 +480,7 @@ By incorporating these recommendations into Bellabeat's marketing strategy, Bell
 <p>https://www.who.int/news-room/events/detail/2020/11/26/default-calendar/webinar-who-2020-guidelines-on-physical-activity-and-sedentary-behaviour
 
 <p>Walking 10K Steps a Day is a Health Sweet Spot
-<p></p>https://www.cbc.ca/radio/quirks/sep-17-10-000-steps-really-are-good-for-you-astronomers-thrilled-by-jwst-garbage-picking-cockatoos-and-more-1.6584419/walking-10k-steps-a-day-is-a-health-sweet-spot-study-finds-and-walking-faster-is-even-better-1.6584679
+<p>https://www.cbc.ca/radio/quirks/sep-17-10-000-steps-really-are-good-for-you-astronomers-thrilled-by-jwst-garbage-picking-cockatoos-and-more-1.6584419/walking-10k-steps-a-day-is-a-health-sweet-spot-study-finds-and-walking-faster-is-even-better-1.6584679
 
 
 
