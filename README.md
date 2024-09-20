@@ -20,9 +20,7 @@ Analyze Fitbit tracker usage data to gain insights into how customers use non-Be
 <h2>Prepare</h2>
 
 <h3><b>Data Source</b></h3>
-We will look at publicly available Fitbit Fitness Tracker Data from 30 Fitbit users who consented to the submission of personal tracker data. The data points include daily physical activity, step count, calories burned, and hours slept. The dataset, provided under the Mobius license, consists of 18 wide format CSV files of anonymized user information. 
-Fitbit Tracker Data: https://www.kaggle.com/arashnic/fitbit 
-Mobius license:
+We will look at publicly available [Fitbit Fitness Tracker Data](https://www.kaggle.com/arashnic/fitbit ) from 30 Fitbit users who consented to the submission of personal tracker data. The data includes daily physical activity, step count, calories burned, and hours slept. The dataset, provided under the Mobius license, consists of 18 wide format CSV files of anonymized user information. 
 
 <h3><b>Data Bias and Credibility. Does it ROCCC?</b></h3>
 
