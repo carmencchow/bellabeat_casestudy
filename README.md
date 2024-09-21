@@ -390,13 +390,14 @@ Our right-skewed histogram shows several occasions when participants had <i>hour
 <br>
 <b><i>iii) Sedentary Behavior</i></b>
 <p>
-<p>When we look at the distribution of sedentary minutes in a day, we see that the median is 1,021 minutes, which means 50% of participants are sedentary for at least 17.02 hours. The majority of participants seem to be spend between 600 and 1,200 minutes (or 10 to 20 hours) being inactive.</p>
+<p>When we look at the distribution of sedentary minutes in a day, we see that the median is 1,021 minutes, which means <b>50% of participants are sedentary for at least 17.02 hours a day</b>. The majority of participants seem to spend 600 to 1,200 minutes (or 10 to 20 hours) being inactive.</p>
 
 ![sedentary](https://github.com/user-attachments/assets/66ccbf2d-b4a4-46fc-95d9-e1265d9b1e6e)
 
 <b><i>iv) Sleep</i></b>
 <p>
-Are the participants getting the recommended 7-9 hours of sleep? Let's run the `summary()` function again to get an overview of the distribution of sleep times from our `daily_df` data frame. 
+  
+Are participants getting the recommended 7-9 hours of sleep? Let's run the `summary()` function again to get an overview of the distribution of sleep times from our `daily_df` data frame. 
 </p>
 
 ```
