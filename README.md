@@ -282,9 +282,10 @@ Let's take a look at calories burned throughout the week. We would expect the or
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
-Although the average calories burned does't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. 
+Although the average calories burned doesn't vary much from day to day, there is a slight increase in calorie expenditure on Tuesday and Saturday. 
 
-<br>
+<p>
+
 We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. Let's create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
 
 The `hourlySteps_merged` data frame also includes `33 id`s. Let's return the first 6 rows below.
