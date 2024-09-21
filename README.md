@@ -324,7 +324,7 @@ Now, we'll take a look at the distribution of total steps per day:
 
 We have right skewed histogram that shows 50% of participants get fewer than 8,319 steps a day, which is below the recommended daily step count of 10,000 steps. There are a few data points on the right-hand side showing days when a few users logged a high number of steps, which causes the mean to be higher than the median.
 
-Let's see when participants are most active throughout the day. We’ll use the `summarize()` and `arrange()` functions to order the average daily step count daily average steps from highest to lowest to find peak hours of activity:
+Let's determine when participants are most active throughout the day. We’ll use the `summarize()` and `arrange()` functions to sort the average daily step count from highest to lowest to find the peak hours of activity:
 
 
 ```
