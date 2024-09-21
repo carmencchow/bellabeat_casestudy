@@ -286,7 +286,7 @@ Although the average calories burned doesn't vary much from day to day, there is
 
 <p>
 
-We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. Let's create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
+We will bring in the `hourlySteps_merged.csv` file to explore hourly trends and determine when users are most active. Let's create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
 
 The `hourlySteps_merged` data frame also includes `33 id`s. Let's return the first 6 rows below.
 
@@ -322,9 +322,9 @@ Now, we'll take a look at the distribution of total steps per day:
 
 ![stepcount](https://github.com/user-attachments/assets/caaa6899-74a3-4779-843c-bab3b102c2bd)
 
-Despite the high step counts on several occasions in the right tail of the histogram from these highly active participants, 50% of participants still got fewer than 8,319 steps a day, which is below the recommended daily step count of 10,000 steps.
+We have right skewed histogram that shows 50% of participants get fewer than 8,319 steps a day, which is below the recommended daily step count of 10,000 steps. There are a few data points on the right-hand side showing days when a few users logged a high number of steps, which causes the mean to be higher than the median.
 
-Let's see when participants most active during the day. We’ll use the `summarize()` and `arrange()` functions to order the average daily step count daily average steps from highest to lowest to find peak hours of activity:
+Let's see when participants are most active throughout the day. We’ll use the `summarize()` and `arrange()` functions to order the average daily step count daily average steps from highest to lowest to find peak hours of activity:
 
 
 ```
