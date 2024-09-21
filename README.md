@@ -377,7 +377,7 @@ Since the World Health Organization recommends [150 to 300 minutes of moderate t
 
 ![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
-We again have a right-skewed histogram with most of the data falling on the left-side of the graph. What is very noticeable is the disproportionately high number of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month</b> that participants are not engaging in moderate to vigorous activity.
+We again have a right-skewed histogram with most of the data falling on the left-side of the graph. What is very noticeable is the disproportionately high number of participants that recorded <b>0 minutes of moderate to vigorous activity on 300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month that participants did not engage in any moderate to vigorous activity</b>.
 
 ```
 33 participants x 7 days a week x 4 weeks = 924 total occasions in a month
