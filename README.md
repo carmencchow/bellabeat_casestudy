@@ -361,9 +361,9 @@ We see that the highest average step count was between 5pm and 7pm, peaking at 6
 
 <br>
 
-Beginning with the first scatterplot, we see a strong positive correlation between minutes of vigorous activity and total calories burned. We can expect people who spend more time participating in vigorous activity to burn more calories throughout the day. Although  the correlation is not as strong, a positive relationship also exists for light activities. Surprisingly, the correlation between sedentary minutes and calories burned only appears negative after 1,000 minutes of sedentary activity.
+Beginning with the first scatterplot, we see a strong positive correlation between minutes of vigorous activity and total calories burned. We can expect people who spend more time participating in vigorous activities to burn more calories throughout the day. Although  the correlation is not as strong, a positive relationship also exists for light activities. Surprisingly, the correlation between sedentary minutes and calories burned only appears negative after 1,000 minutes of sedentary activity.
 
-Since the WHO’s recommendation calls for <b>150 to 300 minutes of moderate to vigorous aerobic activity per week</b>, we'll create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month and review the updated summary statistics to include this new column. 
+The World Health Organization recommends <b>[150 to 300 minutes of moderate to vigorous aerobic activity per week]</b>(https://www.who.int/initiatives/behealthy/physical-activity), we'll create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month and review the updated summary statistics to include this new column. 
 
 ```  
  very_active_minutes moderate_vigorous_minutes
