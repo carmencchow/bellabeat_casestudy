@@ -363,7 +363,7 @@ We see that the highest average step count was between 5pm and 7pm, peaking at 6
 
 Beginning with the first scatterplot, we see a strong positive correlation between minutes of vigorous activity and total calories burned. We can expect people who spend more time participating in vigorous activities to burn more calories throughout the day. Although  the correlation is not as strong, a positive relationship also exists for light activities. Surprisingly, the correlation between sedentary minutes and calories burned only appears negative after 1,000 minutes of sedentary activity.
 
-The World Health Organization recommends [150 to 300 minutes of moderate to vigorous aerobic activity per week](https://www.who.int/initiatives/behealthy/physical-activity), we'll create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month and review the updated summary statistics to include this new column. 
+Since the World Health Organization recommends [150 to 300 minutes of moderate to vigorous aerobic activity per week](https://www.who.int/initiatives/behealthy/physical-activity), we can create a `moderate_vigorous_minutes` variable that combines fairly active and very active minutes.  We’ll plot a histogram to show the frequency of moderate to vigorous minutes over the span of a month and review the updated summary statistics for this column. 
 
 ```  
  very_active_minutes moderate_vigorous_minutes
@@ -377,7 +377,7 @@ The World Health Organization recommends [150 to 300 minutes of moderate to vigo
 
 ![modvig](https://github.com/user-attachments/assets/711ab08c-e267-4708-ab8e-852adc4b7bde)
 
-There is a disproportionately high count of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month</b> that participants are not engaging in moderate to vigorous activity.
+We again have a right-skewed histogram with most of the data falling on the left-side of the graph. What is very noticeable is the disproportionately high number of participants recording 0 minutes of moderate to vigorous activity on <b>300 occasions</b>. Given that our data covers 33 participants over 4 weeks, this equates to roughly <b>one-third of the month</b> that participants are not engaging in moderate to vigorous activity.
 
 ```
 33 participants x 7 days a week x 4 weeks = 924 total occasions in a month
