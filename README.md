@@ -3,19 +3,19 @@
 <p>September 2024
 
 <h2>Background</h2>
-<p>Bellabeat is a high-tech manufacturer of health-focused products for women.  Founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women.  Urška Sršen, cofounder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. Sršen knows that an analysis of Bellabeat’s available consumer data would reveal more opportunities for growth. She has asked the marketing analytics team to focus on a Bellabeat product and analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like high-level recommendations for how these trends can inform Bellabeat's marketing strategy.</p>
+<p>Bellabeat is a high-tech manufacturer of health-focused products for women.  Founded in 2013, Bellabeat has grown rapidly and quickly positioned itself as a tech-driven wellness company for women.  Urška Sršen, co-founder and Chief Creative Officer of Bellabeat, believes that analyzing smart device fitness data could help unlock new growth opportunities for the company. Sršen knows that an analysis of Bellabeat’s available consumer data would reveal more opportunities for growth. She has asked the marketing analytics team to focus on a Bellabeat product and analyze smart device usage data in order to gain insight into how people are already using their smart devices. Then, using this information, she would like high-level recommendations for how these trends can inform Bellabeat's marketing strategy.</p>
 
 <h2>Stakeholders</h2>
 
-*  Urška Sršen: Bellabeat’s cofounder and Chief Creative Officer
+*  Urška Sršen: Bellabeat’s co-founder and Chief Creative Officer
 
-*  Sando Mur: Mathematician and Bellabeat’s cofounder</p>
+*  Sando Mur: Mathematician and Bellabeat’s co-founder</p>
 
 *  Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat’s marketing strategy. 
 
 <h2>Ask</h2>
 <h3><b>Business Task</b></h3>
-Analyze Fitbit tracker usage data to gain insights into how customers use non-Bellabeat smart devices. Use these insights to shape Bellabeat's marketing strategy and influence Bellabeat customers.
+Analyze Fitbit tracker usage data to gain insights into how customers use non-Bellabeat smart devices. Then use these insights to shape Bellabeat's marketing strategy and influence Bellabeat customers.
 
 <h2>Prepare</h2>
 
@@ -25,16 +25,16 @@ We will look at publicly available [Fitbit Fitness Tracker Data](https://www.kag
 
 <h3><b>Data Bias and Credibility. Does it ROCCC?</b></h3>
 
-*  <b>R</b>eliable - Low; the data is from only 30 participants
+*  <b>R</b>eliable - Low; the data is from only 30 Fitbit participants.
 
-*  <b>O</b>riginal - Low; the data was collected by a third-party provider, Amazon Mechanical Turk
+*  <b>O</b>riginal - Low; the data was collected by a third-party provider, Amazon Mechanical Turk.
   
-*  <b>C</b>omprehensive - Medium; key demographic details such as gender, age, and location of participants were not collected
+*  <b>C</b>omprehensive - Medium; key demographic details such as gender, age, and location of participants were not collected.
   
 *  <b>C</b>urrent - Low; the data is from April to May 2016, making it over 8 years old.
 
-* <b>C</b>ited - Low; the dataset is available via Mobius on Kaggle
-          
+* <b>C</b>ited - Low; not known.
+            
 <h3><b>Data Limitations</b></h3>
 
 *  Some data sets have a small sample size of 33 Fitbit users, while the weight data has an even smaller sample size of 8 users.
@@ -44,7 +44,7 @@ We will look at publicly available [Fitbit Fitness Tracker Data](https://www.kag
 *  Data points such as the age, gender, overall health of the participants, and hours users wore their Fitbit each day is also missing.
 
 <h3><b>R packages and libraries</b></h3>
-<p>We’ll be using R for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
+<p>We’ll be using <b>R</b> for our data analysis and data visualization. Let’s start by installing and running the following R packages: 
 
 ```
 # install packages
@@ -66,7 +66,7 @@ library(readr)
 library(lubridate)
 ```
 
-Out of the 18 available files, we’ll focus on 3. The remaining files either contain information outside the scope of the Business Task or duplicate data that is already found in `dailyActivity_merged.csv`.
+Out of the 18 available files, we’ll focus on 3. The remaining files either contain information outside the scope of the business task or duplicate data that is already found in `dailyActivity_merged.csv`.
 
 ```
 dailyActivity_merged.csv
@@ -180,7 +180,7 @@ daily_activity <- daily_activity %>%
 
 <br>
 
-After processing our data, we are now ready to merge the data frames to better understand the relationships between different dimensions such as sleep, activity level, and total steps. We'll perform a `merge()` based on the common `id` and `date` columns. This will be a left join, resulting in the inclusion of all the rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
+After processing our data, we are now ready to merge the data frames to better understand the relationships between different dimensions such as sleep, activity level, and total steps. We'll perform a `merge()` based on the common `id` and `date` columns. This will be a left join, which will include all the rows from the `daily_activity` data frame and only the matching rows from the `daily_sleep` data frame.
 
 ```
 daily_df <-
@@ -226,7 +226,7 @@ Let's run the `summary()` function to get an overview of our new dataset’s dis
 
 <i><b>Key takeaways:</b></i>
 
-*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Moreover, the 1st Qu. results show that 25% of participants averaged less than 4,923 steps a day.
+*  <b>8,319</b> - the average number of steps taken per day. This number falls below the recommended 10,000 steps. Alos, 25% of participants averaged less than 4,923 steps a day.
 
 *  <b>5.98</b> - the average number of kilometers walked per day. 
 
@@ -282,9 +282,10 @@ Let's take a look at calories burned throughout the week. We would expect the or
 ![avcals](https://github.com/user-attachments/assets/2a700a3c-5b31-4887-9330-44074d9063b9)
 
 <br>
-Although the average calories burned don't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. 
+Although the average calories burned does't vary much from day to day, the data shows a slight increase in calorie expenditure on Tuesday and Saturday. 
 
-<p>We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. Let's create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
+<br>
+We will bring in the `hourlySteps_merged.csv` file to investigate any hourly trends and determine when users are most active. Let's create a data frame and perform the same data cleansing steps outlined in the <b>Process</b> section of this analysis. 
 
 The `hourlySteps_merged` data frame also includes `33 id`s. Let's return the first 6 rows below.
 
