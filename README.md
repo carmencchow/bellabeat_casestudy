@@ -419,7 +419,7 @@ Are participants getting the recommended 7-9 hours of sleep? Let's run the `summ
 ![minsleep](https://github.com/user-attachments/assets/8265026e-b607-4d38-8560-93dfc9ccbc59)
 
 <br>
-The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. However, half of the participants are not getting the recommended minimum, while some are sleeping more than 9 hours. Overall, participants tend to sleep longer on weekends and Wednesdays.
+The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults and adults. The histogram aboves shows that 50% of participants are getting 7.2 hours (432.5 minutes) or more of sleep. However, half of the participants are not getting the recommended minimum, while some are sleeping more than 9 hours. Overall, participants tend to sleep longer on weekends and on Wednesdays.
 
 <br>
 <p>
@@ -429,7 +429,7 @@ The National Sleep Foundation recommends 7 to 9 hours of sleep for young adults 
 </p>
 <br>
 
-Let's examine the impact of different activity levels on total minutes of sleep through the following four scatterplots:
+Let's examine the impact of different activity levels on total minutes of sleep in the following four scatterplots:
 
 <p>
 
@@ -448,28 +448,28 @@ We see that sedentary minutes negatively impact sleep duration: more time spent 
 *  50% of participants take fewer than 8,053 steps per day and 25% take fewer than 4,923.
 *  50% of participants sleep less than 7.2 hours a day.
 *  50% of participants are sedentary for more than 15.9 hours a day.
-*  50% of participants get less than 26 minutes of moderate to vigorous activity a day
-*  For about one-third of the month, participants recorded 0 minutes of moderate to vigorous activity 
+*  50% of participants get less than 26 minutes of moderate to vigorous activity a day.
+*  For about one-third of the month, participants recorded 0 minutes of moderate to vigorous activity. 
 
 <h2>Act</h2>
 
-<p>Before making recommendations for Bellabeat's marketing strategy, we should remind ourselves of the limitations presented by this non-ROCCC dataset. Moving forward, Bellabeat should collect first-party data provided by actual customers and encourage their customers to wear their fitness tracker consistently for greater accuracy.
-  
+The following recommendations are based on the insights gathered from our Fitbit user data analysis.
+
 <h3>Recommendations</h3>
   
 *  <b>AI Integration & Health Reporting</b>
-Implement an AI feature in Bellabeat's Leaf and Tracker app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. Users can interact with the AI chatbot to set and suggest workouts, make recommendations and modifications to their plans etc. The AI can be relied on to perform coaching, reporting, motivate. Weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity.
+Implement an AI feature in Bellabeat Leaf and Bellabeat app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. The AI chatbot can also generate and interpret weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity. This will help users measure their progress and stay on track.
 
 *  <b>Built-in Workouts</b>
 Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
 
 *  <b>Special Features</b>
-To incentive users, Bellabeat users who meet their daily step count or their 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Dynamic leaderboards where users can see their progres in real time. 
+To incentivize users to reach their daily and weekly fitness goals, Bellabeat can reward those who achieve their goals of meeting their daily step count or meeting their weekly 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Users cna Dynamic leaderboards where users can see their progres in real time. 
 
 *  <b>Notifications and Reminders</b>
-High sedentary behaviour was observed in over half of the sample population for a third of the month. Bellabeat should communicate the dangers of prolonged sedentary activity and should implement a notification that alerts users when no activity has been detected for more than 2 hours or a set amount of time. Alerts can be used to remind participants to do a number of things, for example winding down for bed, getting their steps in, and moving when they've been sedentary for too long.
+Bellabeat should communicate the dangers of prolonged sedentary activity to customers, as high levels of sedentary behaviour was observed in over half of the sample population for a third of the month. A badge or pop-up message can be implemented to alert users when no activity has been detected for more than a set number of hours. Alerts can also be used to help users build habits, such as winding down for bed by notifying users when it is an hour before their optimal bed time, or letting users know how many steps they have left to reach their daily step count goal.
 
-By incorporating these recommendations into Bellabeat's marketing strategy, Bellabeat can
+Moving forward, Bellabeat should collect first-party data provided by actual customers and encourage their customers to wear their fitness tracker consistently for greater accuracy. By incorporating these recommendations and continuing to evolve Bellabeat's products, the company can remain relevant and competitive among other wellness technology companies. 
 
 <h2>References</h2>
 
