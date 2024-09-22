@@ -458,18 +458,18 @@ The following recommendations are based on the insights gathered from our Fitbit
 <h3>Recommendations</h3>
   
 *  <b>AI Integration & Health Reporting</b>
-Implement an AI feature in Bellabeat Leaf and Bellabeat app that can help users set personalized goals, answer health questions, intepret health data, and recommend personalized workouts based on their health data and goals. The AI chatbot can also generate and interpret weekly progress reports and scores that measure improvement from week to week across key metrics such as calories burned, hours asleep, step count, and minutes of moderate-vigorous activity. This will help users measure their progress and stay on track.
+Bellabeat should implement an AI health chatbot that can help customers stay on track. This enhanced feature assist in setting goals, answering health questions, intepreting health data, and recommending workouts. Most importantly, users will have access to weekly reports that show how they are progressing across key health and wellness metrics.
 
 *  <b>Built-in Workouts</b>
-Bellabeat can introduce moderate to high-intensity workouts designed to help all users reach their daily fitness goals. Bellabeat should communicate to their customers the importance of limiting the number of sedentary hours and increasing the minutes of moderate to vigorous activity so they are meeting the recommended 150-300 minutes every week. Bellabeat can introduce short workouts with the messaging "Every Move Counts" in reference to the World Health Organization's Every Move Counts initiative.
+Bellabeat could introduce moderate to high intensity workouts designed to help all users reach the recommended 150-300 minutes of moderate to vigorous activity per week.  Short workouts that fit into anyone's schedule,  with the message "Every Move Counts" - in reference to the World Health Organization's <i>Every Move Counts</i> initiative - could help users incorporate more active minutes into their day. 
 
 *  <b>Special Features</b>
-To incentivize users to reach their daily and weekly fitness goals, Bellabeat can reward those who achieve their goals of meeting their daily step count or meeting their weekly 150-300 minutes of daily moderate-vigorous exercise can unlock exclusive features or be invited to participate in virtual fitness challenges. Users cna Dynamic leaderboards where users can see their progres in real time. 
+To motivate users to reach their daily and weekly fitness goals, Bellabeat can reward those who achieve their daily or weekly fitness goals with bonuses such as unlocking exclusive features or inviting participants to participate in special contests and give-aways.
 
 *  <b>Notifications and Reminders</b>
-Bellabeat should communicate the dangers of prolonged sedentary activity to customers, as high levels of sedentary behaviour was observed in over half of the sample population for a third of the month. A badge or pop-up message can be implemented to alert users when no activity has been detected for more than a set number of hours. Alerts can also be used to help users build habits, such as winding down for bed by notifying users when it is an hour before their optimal bed time, or letting users know how many steps they have left to reach their daily step count goal.
+Bellabeat should make participants aware of the dangers of prolonged sedentary behavior by alerting users when no activity has been detected for more than a certain number of hours. Alerts and notifications can also be used to inform users how close or far they are from achieving their daily and weekly goals in terms of steps walked, hours slept, and minutes exercised.
 
-Moving forward, Bellabeat should collect first-party data provided by actual customers and encourage their customers to wear their fitness tracker consistently for greater accuracy. By incorporating these recommendations and continuing to evolve Bellabeat's products, the company can remain relevant and competitive among other wellness technology companies. 
+Moving forward, Bellabeat should collect data provided by its actual customers and encourage them to wear their fitness tracker consistently for greater data accuracy. By incorporating these recommendations and continuing to evolve its products, Bellabeat can remain relevant and competitive among other wellness technology companies. 
 
 <h2>References</h2>
 
